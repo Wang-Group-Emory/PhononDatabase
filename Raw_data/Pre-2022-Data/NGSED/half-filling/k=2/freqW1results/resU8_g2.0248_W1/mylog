@@ -1,0 +1,1447 @@
+SNEDics v3.4 Non-Gaussian ED ground state program		Start at Sun Mar  8 11:39:55 2020
+
+parallized on 32 MPI threads  * 4 OpenMP threads = 128 total threads.
+********************************************************************************************************************
+********************************************************************************************************************
+
+********************************************************************************************************************
+System parameters and configurations
+********************************************************************************************************************
+Special program options are enabled: splitted diagonal Hamiltonian
+********************************************************************************************************************
+Read input file "model_params.in"
+	Hubbard-Holstein model parameters : 	t = 1    U = 8    g = 2.0248    W = 1    
+********************************************************************************************************************
+Read input file "hilbertspace_params.in"
+	Requested 16-site 2D lattice, with 16 electrons (8, 8)
+	Boundary : Periodic		Hilbert space representation : momentum-space (restricted to kIdx = 2)
+	Conservation: particle number[U(1)]      spin[U(1)]     momentum
+********************************************************************************************************************
+
+Cluster Positions:				Cluster symmetry group : D4
+ x ... x ... x ... x .....                       x ... x ... x ... x .....
+ |           |           :                       |           |           :
+ |           |           :                       |           |           :
+12    13    14    15     x                       1     5     6     5     x
+ |           |           :                       |           |           :
+ |           |           :                       |           |           :
+ 8 --- 9 ---10 ---11 --- x                       2 --- 6 ---10 --- 6 --- x
+ |           |           :                       |           |           :
+ |           |           :                       |           |           :
+ 4     5     6     7     x                       1     5     6     5     x
+ |           |           :                       |           |           :
+ |           |           :                       |           |           :
+ 0 --- 1 --- 2 --- 3 --- x                       0 --- 1 --- 2 --- 1 --- x
+orbital number : 1
+********************************************************************************************************************
+Read input file "obs_params.in"
+	Observable Type : Nq(All),   Sq(All),   N(All),   Delta[s](All),   Delta[d](All),   Delta[s+](All)
+********************************************************************************************************************
+** WARNING ** the input observables have non-local factors which have been reinterpreted. The total observable number is 96
+********************************************************************************************************************
+
+
+********************************************************************************************************************
+Start calculating the non-Gaussian ED ground state
+** WARNING ** Detected low phonon energy W < 10. The initial state will be prepared through a warm-up process.
+********************************************************************************************************************
+Start warm-up calculation for scaling factor 16
+open output files: NGSEDWarmUpW16Obs.txt
+********************************************************************************************************************
+Start the 0 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy t = 1
+	                                           effective interaction Vq = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+	first Hamiltonian is constructed, non-zero numbers = 2845335264
+	PARPACK diagonalization completed after 165 matrix-vector product operations.
+	iteration results: : total energy is -7.519006 | electron energy -7.519006 + phonon energy 0.000000 | electron momentum kIdx = 2
+	Nq(0) = 16,	Nq(1) = 0.0608592,	Nq(2) = 0.102726,	Nq(3) = 0.0608592,	Nq(4) = 0.0615377,	Nq(5) = 0.107185,	Nq(6) = 0.145124,	Nq(7) = 0.107185,	Nq(8) = 0.102624,	Nq(9) = 0.14459,	Nq(10) = 0.180257,	Nq(11) = 0.14459,	Nq(12) = 0.0615377,	Nq(13) = 0.107185,	Nq(14) = 0.145124,	Nq(15) = 0.107185,	Sq(0) = -1.88708e-19,	Sq(1) = 0.443553,	Sq(2) = 2.22156,	Sq(3) = 0.443553,	Sq(4) = 0.545373,	Sq(5) = 0.752632,	Sq(6) = 1.23634,	Sq(7) = 0.752632,	Sq(8) = 0.623461,	Sq(9) = 0.944464,	Sq(10) = 2.16643,	Sq(11) = 0.944464,	Sq(12) = 0.545373,	Sq(13) = 0.752632,	Sq(14) = 1.23634,	Sq(15) = 0.752632,	N(0) = 1.7217,	N(1) = 1.51807,	N(2) = 0.999267,	N(3) = 1.51807,	N(4) = 1.51939,	N(5) = 1,	N(6) = 0.480613,	N(7) = 1,	N(8) = 1.00073,	N(9) = 0.481927,	N(10) = 0.278301,	N(11) = 0.481927,	N(12) = 1.51939,	N(13) = 1,	N(14) = 0.480613,	N(15) = 1,	Delta[s](0) = 0.0779895,	Delta[s](1) = 0.0657053,	Delta[s](2) = 0.0512786,	Delta[s](3) = 0.0657053,	Delta[s](4) = 0.0658894,	Delta[s](5) = 0.0528286,	Delta[s](6) = 0.037145,	Delta[s](7) = 0.0528286,	Delta[s](8) = 0.0513208,	Delta[s](9) = 0.0369197,	Delta[s](10) = 0.016062,	Delta[s](11) = 0.0369197,	Delta[s](12) = 0.0658894,	Delta[s](13) = 0.0528286,	Delta[s](14) = 0.037145,	Delta[s](15) = 0.0528286,	Delta[d](0) = 0.533109,	Delta[d](1) = 0.419669,	Delta[d](2) = 0.330564,	Delta[d](3) = 0.419669,	Delta[d](4) = 0.392992,	Delta[d](5) = 0.302554,	Delta[d](6) = 0.21486,	Delta[d](7) = 0.302554,	Delta[d](8) = 0.290684,	Delta[d](9) = 0.201438,	Delta[d](10) = 0.0970672,	Delta[d](11) = 0.201438,	Delta[d](12) = 0.392992,	Delta[d](13) = 0.302554,	Delta[d](14) = 0.21486,	Delta[d](15) = 0.302554,	Delta[s+](0) = 0.555018,	Delta[s+](1) = 0.448667,	Delta[s+](2) = 0.330564,	Delta[s+](3) = 0.448667,	Delta[s+](4) = 0.423829,	Delta[s+](5) = 0.307884,	Delta[s+](6) = 0.19321,	Delta[s+](7) = 0.307884,	Delta[s+](8) = 0.290684,	Delta[s+](9) = 0.179791,	Delta[s+](10) = 0.0804718,	Delta[s+](11) = 0.179791,	Delta[s+](12) = 0.423829,	Delta[s+](13) = 0.307884,	Delta[s+](14) = 0.19321,	Delta[s+](15) = 0.307884
+The 0-th iteration is completed.	|| time cost : 0h 7m 12.506s
+********************************************************************************************************************
+Start the 1 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.91057, 0.91051)
+	                                           effective interaction Vq = [ -3.9327,-3.54551,-3.47058,-3.54551,-3.55106, -3.4916,-3.44256, -3.4916,-3.47124,-3.44105,-3.40655,-3.44105,-3.55106, -3.4916,-3.44256, -3.4916]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -81.282105 | electron energy -81.286095 + phonon energy 0.003990 | electron momentum kIdx = 2
+The 1-th iteration is completed.	|| time cost : 0h 3m 30.071s
+********************************************************************************************************************
+Start the 2 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.853923, 0.853894)
+	                                           effective interaction Vq = [  -4.093,-4.00408,-3.91262,-4.00408,-4.00575,-3.93954,-3.91769,-3.93954,-3.91273,-3.91628,-3.86319,-3.91628,-4.00575,-3.93954,-3.91769,-3.93954]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -85.489750 | electron energy -85.530083 + phonon energy 0.040333 | electron momentum kIdx = 2
+The 2-th iteration is completed.	|| time cost : 0h 0m 35.426s
+********************************************************************************************************************
+Start the 3 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.84004, 0.840033)
+	                                           effective interaction Vq = [-4.09954, -4.0559,-3.97024, -4.0559,-4.05621,-3.99776,-3.98768,-3.99776,-3.97027,-3.98732,-3.92894,-3.98732,-4.05621,-3.99776,-3.98768,-3.99776]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -85.681506 | electron energy -85.737255 + phonon energy 0.055750 | electron momentum kIdx = 2
+The 3-th iteration is completed.	|| time cost : 0h 0m 35.433s
+********************************************************************************************************************
+Start the 4 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy t = 0.837124
+	                                           effective interaction Vq = [ -4.0998,-4.06413,-3.97994,-4.06413,-4.06412,-4.00783,-4.00067,-4.00783,-3.97995,-4.00061, -3.9406,-4.00061,-4.06412,-4.00783,-4.00067,-4.00783]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -85.695293 | electron energy -85.754644 + phonon energy 0.059351 | electron momentum kIdx = 2
+The 4-th iteration is completed.	|| time cost : 0h 0m 35.61s
+********************************************************************************************************************
+Start the 5 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy t = 0.833545
+	                                           effective interaction Vq = [-4.09981,-4.06564,-3.98217,-4.06564, -4.0657,-4.04573,-4.00341,-4.04573,-3.98216,-4.00329,-3.94343,-4.00329, -4.0657,-4.04573,-4.00341,-4.04573]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -85.715559 | electron energy -85.777006 + phonon energy 0.061448 | electron momentum kIdx = 2
+The 5-th iteration is completed.	|| time cost : 0h 0m 29.881s
+********************************************************************************************************************
+Start the 6 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.832863, 0.832864)
+	                                           effective interaction Vq = [-4.09982,-4.06579,-3.98267,-4.06579,-4.06586,-4.05219,-4.00373,-4.05219,-3.98266,-4.00349,-3.94376,-4.00349,-4.06586,-4.05219,-4.00373,-4.05219]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -85.716396 | electron energy -85.778581 + phonon energy 0.062185 | electron momentum kIdx = 2
+The 6-th iteration is completed.	|| time cost : 0h 0m 30.085s
+********************************************************************************************************************
+Start the 7 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.832734, 0.832736)
+	                                           effective interaction Vq = [-4.09982, -4.0658,-3.98279, -4.0658,-4.06587,-4.05342,-4.00377,-4.05342,-3.98277,-4.00346,-3.94379,-4.00346,-4.06587,-4.05342,-4.00377,-4.05342]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -85.716429 | electron energy -85.778767 + phonon energy 0.062337 | electron momentum kIdx = 2
+The 7-th iteration is completed.	|| time cost : 0h 0m 30.189s
+********************************************************************************************************************
+Start the 8 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.832709, 0.832712)
+	                                           effective interaction Vq = [-4.09982, -4.0658,-3.98282, -4.0658,-4.06587,-4.05366,-4.00377,-4.05366, -3.9828,-4.00344,-3.94379,-4.00344,-4.06587,-4.05366,-4.00377,-4.05366]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -85.716430 | electron energy -85.778797 + phonon energy 0.062367 | electron momentum kIdx = 2
+	Nq(0) = 16,	Nq(1) = 0.383977,	Nq(2) = 0.374613,	Nq(3) = 0.383977,	Nq(4) = 0.382772,	Nq(5) = 0.637956,	Nq(6) = 0.622115,	Nq(7) = 0.637956,	Nq(8) = 0.373006,	Nq(9) = 0.619988,	Nq(10) = 0.61313,	Nq(11) = 0.619988,	Nq(12) = 0.382772,	Nq(13) = 0.637956,	Nq(14) = 0.622115,	Nq(15) = 0.637956,	Sq(0) = -9.4854e-19,	Sq(1) = 0.373148,	Sq(2) = 0.867337,	Sq(3) = 0.373148,	Sq(4) = 0.370212,	Sq(5) = 0.456008,	Sq(6) = 0.621735,	Sq(7) = 0.456008,	Sq(8) = 0.536893,	Sq(9) = 0.621451,	Sq(10) = 0.868367,	Sq(11) = 0.621451,	Sq(12) = 0.370212,	Sq(13) = 0.456008,	Sq(14) = 0.621735,	Sq(15) = 0.456008,	N(0) = 1.99992,	N(1) = 1.99983,	N(2) = 0.993553,	N(3) = 1.99983,	N(4) = 1.99983,	N(5) = 1,	N(6) = 0.000169153,	N(7) = 1,	N(8) = 1.00645,	N(9) = 0.000174492,	N(10) = 8.16906e-05,	N(11) = 0.000174492,	N(12) = 1.99983,	N(13) = 1,	N(14) = 0.000169153,	N(15) = 1,	Delta[s](0) = 0.280746,	Delta[s](1) = 0.279928,	Delta[s](2) = 0.219936,	Delta[s](3) = 0.279928,	Delta[s](4) = 0.280423,	Delta[s](5) = 0.278781,	Delta[s](6) = 0.21922,	Delta[s](7) = 0.278781,	Delta[s](8) = 0.220331,	Delta[s](9) = 0.219504,	Delta[s](10) = 0.130852,	Delta[s](11) = 0.219504,	Delta[s](12) = 0.280423,	Delta[s](13) = 0.278781,	Delta[s](14) = 0.21922,	Delta[s](15) = 0.278781,	Delta[d](0) = 0.379852,	Delta[d](1) = 0.283894,	Delta[d](2) = 0.261356,	Delta[d](3) = 0.283894,	Delta[d](4) = 0.283643,	Delta[d](5) = 0.292669,	Delta[d](6) = 0.240109,	Delta[d](7) = 0.292669,	Delta[d](8) = 0.262109,	Delta[d](9) = 0.242829,	Delta[d](10) = 0.0893467,	Delta[d](11) = 0.242829,	Delta[d](12) = 0.283643,	Delta[d](13) = 0.292669,	Delta[d](14) = 0.240109,	Delta[d](15) = 0.292669,	Delta[s+](0) = 0.481099,	Delta[s+](1) = 0.394227,	Delta[s+](2) = 0.261356,	Delta[s+](3) = 0.394227,	Delta[s+](4) = 0.392829,	Delta[s+](5) = 0.261145,	Delta[s+](6) = 0.127138,	Delta[s+](7) = 0.261145,	Delta[s+](8) = 0.262109,	Delta[s+](9) = 0.128711,	Delta[s+](10) = 0.0395599,	Delta[s+](11) = 0.128711,	Delta[s+](12) = 0.392829,	Delta[s+](13) = 0.261145,	Delta[s+](14) = 0.127138,	Delta[s+](15) = 0.261145
+The 8-th iteration is completed.	|| time cost : 0h 5m 27.884s
+********************************************************************************************************************
+********************************************************************************************************************
+Ground state is obtained after 9 iterations. The current ground-state energy is -85.7164, in which electron energy is -85.7788 and phonon energy is 0.0623666
+final variational state is: 
+	Gamma_x = [      1,1.01642,1.02731,1.01642,1.01636,1.03147,1.04218,1.03147, 1.0272, 1.0421,1.05056, 1.0421,1.01636,1.03147,1.04218,1.03147]
+	lambda_q = [  0.5062,0.460093,0.420691,0.460093,0.460139,0.452517,0.428724,0.452517,0.420683,0.428588, 0.40745,0.428588,0.460139,0.452517,0.428724,0.452517]
+********************************************************************************************************************
+o___o  ----------------------------------------
+| L |	Time since last clock: 0h 0m 0s
+A===A	Time since the beginning: 0h 19m 27.09s
+***********************************************
+
+********************************************************************************************************************
+Start warm-up calculation for scaling factor 8
+open output files: NGSEDWarmUpW8Obs.txt
+********************************************************************************************************************
+Start the 0 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.832704, 0.832708)
+	                                           effective interaction Vq = [-3.74811,-3.57642,-3.40275,-3.57642,-3.57661,-3.54496,-3.44017,-3.54496,-3.40271,-3.43955,-3.33881,-3.43955,-3.57661,-3.54496,-3.44017,-3.54496]
+	PARPACK diagonalization completed after 60 matrix-vector product operations.
+	iteration results: : total energy is -76.487027 | electron energy -76.518213 + phonon energy 0.031186 | electron momentum kIdx = 2
+	Nq(0) = 16,	Nq(1) = 0.315936,	Nq(2) = 0.339024,	Nq(3) = 0.315936,	Nq(4) = 0.320037,	Nq(5) = 0.394894,	Nq(6) = 0.52071,	Nq(7) = 0.394894,	Nq(8) = 0.338974,	Nq(9) = 0.517112,	Nq(10) = 0.545452,	Nq(11) = 0.517112,	Nq(12) = 0.320037,	Nq(13) = 0.394894,	Nq(14) = 0.52071,	Nq(15) = 0.394894,	Sq(0) = 1.30851e-18,	Sq(1) = 0.394856,	Sq(2) = 1.30614,	Sq(3) = 0.394856,	Sq(4) = 0.416636,	Sq(5) = 0.660151,	Sq(6) = 0.705032,	Sq(7) = 0.660151,	Sq(8) = 0.489353,	Sq(9) = 0.680405,	Sq(10) = 1.01943,	Sq(11) = 0.680405,	Sq(12) = 0.416636,	Sq(13) = 0.660151,	Sq(14) = 0.705032,	Sq(15) = 0.660151,	N(0) = 1.99171,	N(1) = 1.98562,	N(2) = 0.998901,	N(3) = 1.98562,	N(4) = 1.98504,	N(5) = 1,	N(6) = 0.0149646,	N(7) = 1,	N(8) = 1.0011,	N(9) = 0.0143825,	N(10) = 0.00829225,	N(11) = 0.0143825,	N(12) = 1.98504,	N(13) = 1,	N(14) = 0.0149646,	N(15) = 1,	Delta[s](0) = 0.22892,	Delta[s](1) = 0.220271,	Delta[s](2) = 0.184073,	Delta[s](3) = 0.220271,	Delta[s](4) = 0.220999,	Delta[s](5) = 0.19316,	Delta[s](6) = 0.177025,	Delta[s](7) = 0.19316,	Delta[s](8) = 0.184095,	Delta[s](9) = 0.176292,	Delta[s](10) = 0.116404,	Delta[s](11) = 0.176292,	Delta[s](12) = 0.220999,	Delta[s](13) = 0.19316,	Delta[s](14) = 0.177025,	Delta[s](15) = 0.19316,	Delta[d](0) = 0.522068,	Delta[d](1) = 0.324495,	Delta[d](2) = 0.286265,	Delta[d](3) = 0.324495,	Delta[d](4) = 0.317535,	Delta[d](5) = 0.289192,	Delta[d](6) = 0.23652,	Delta[d](7) = 0.289192,	Delta[d](8) = 0.284645,	Delta[d](9) = 0.242185,	Delta[d](10) = 0.0913796,	Delta[d](11) = 0.242185,	Delta[d](12) = 0.317535,	Delta[d](13) = 0.289192,	Delta[d](14) = 0.23652,	Delta[d](15) = 0.289192,	Delta[s+](0) = 0.529142,	Delta[s+](1) = 0.430515,	Delta[s+](2) = 0.286265,	Delta[s+](3) = 0.430515,	Delta[s+](4) = 0.423465,	Delta[s+](5) = 0.282344,	Delta[s+](6) = 0.142588,	Delta[s+](7) = 0.282344,	Delta[s+](8) = 0.284645,	Delta[s+](9) = 0.147903,	Delta[s+](10) = 0.0494441,	Delta[s+](11) = 0.147903,	Delta[s+](12) = 0.423465,	Delta[s+](13) = 0.282344,	Delta[s+](14) = 0.142588,	Delta[s+](15) = 0.282344
+The 0-th iteration is completed.	|| time cost : 0h 5m 37.476s
+********************************************************************************************************************
+Start the 1 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.797199, 0.797171)
+	                                           effective interaction Vq = [-4.02881,-3.84515, -3.6477,-3.84515,-3.84749,-3.73627,-3.67609,-3.73627,-3.64774,-3.67352,-3.56336,-3.67352,-3.84749,-3.73627,-3.67609,-3.73627]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -81.513592 | electron energy -81.634968 + phonon energy 0.121375 | electron momentum kIdx = 2
+The 1-th iteration is completed.	|| time cost : 0h 0m 35.382s
+********************************************************************************************************************
+Start the 2 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.77918, 0.779148)
+	                                           effective interaction Vq = [-4.08548,-3.94035,-3.74052,-3.94035,-3.94223,-3.81243,-3.77526,-3.81243,-3.74059,-3.77296,-3.65747,-3.77296,-3.94223,-3.81243,-3.77526,-3.81243]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -82.545485 | electron energy -82.719857 + phonon energy 0.174372 | electron momentum kIdx = 2
+The 2-th iteration is completed.	|| time cost : 0h 0m 35.49s
+********************************************************************************************************************
+Start the 3 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.770569, 0.770543)
+	                                           effective interaction Vq = [-4.09692,-3.97729, -3.7781,-3.97729,-3.97858, -3.8442,-3.81865, -3.8442,-3.77816,-3.81685, -3.6978,-3.81685,-3.97858, -3.8442,-3.81865, -3.8442]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -82.756147 | electron energy -82.956452 + phonon energy 0.200306 | electron momentum kIdx = 2
+The 3-th iteration is completed.	|| time cost : 0h 0m 29.648s
+********************************************************************************************************************
+Start the 4 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.766558, 0.766539)
+	                                           effective interaction Vq = [-4.09923,-3.99262,-3.79394,-3.99262,-3.99354, -3.8579,-3.83825, -3.8579,-3.79398,-3.83683,-3.71545,-3.83683,-3.99354, -3.8579,-3.83825, -3.8579]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -82.799017 | electron energy -83.011519 + phonon energy 0.212502 | electron momentum kIdx = 2
+The 4-th iteration is completed.	|| time cost : 0h 0m 29.819s
+********************************************************************************************************************
+Start the 5 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.764711, 0.764697)
+	                                           effective interaction Vq = [ -4.0997,-3.99926,-3.80076,-3.99926,-3.99996,-3.86392,-3.84726,-3.86392,-3.80077,-3.84609,-3.72328,-3.84609,-3.99996,-3.86392,-3.84726,-3.86392]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -82.807729 | electron energy -83.025893 + phonon energy 0.218164 | electron momentum kIdx = 2
+The 5-th iteration is completed.	|| time cost : 0h 0m 29.611s
+********************************************************************************************************************
+Start the 6 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.763864, 0.763853)
+	                                           effective interaction Vq = [-4.09979, -4.0022,-3.80372, -4.0022,-4.00277,-3.86659,-3.85145,-3.86659,-3.80373,-3.85043,-3.72678,-3.85043,-4.00277,-3.86659,-3.85145,-3.86659]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -82.809498 | electron energy -83.030276 + phonon energy 0.220778 | electron momentum kIdx = 2
+The 6-th iteration is completed.	|| time cost : 0h 0m 29.56s
+********************************************************************************************************************
+Start the 7 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.763477, 0.763467)
+	                                           effective interaction Vq = [-4.09981,-4.00351,-3.80502,-4.00351,-4.00402,-3.86777,-3.85339,-3.86777,-3.80502,-3.85248,-3.72834,-3.85248,-4.00402,-3.86777,-3.85339,-3.86777]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -82.809858 | electron energy -83.031840 + phonon energy 0.221982 | electron momentum kIdx = 2
+The 7-th iteration is completed.	|| time cost : 0h 0m 29.839s
+********************************************************************************************************************
+Start the 8 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.763299, 0.763291)
+	                                           effective interaction Vq = [-4.09981, -4.0041,-3.80559, -4.0041,-4.00458, -3.8683, -3.8543, -3.8683,-3.80558,-3.85344,-3.72905,-3.85344,-4.00458, -3.8683, -3.8543, -3.8683]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -82.809931 | electron energy -83.032467 + phonon energy 0.222536 | electron momentum kIdx = 2
+The 8-th iteration is completed.	|| time cost : 0h 0m 29.669s
+********************************************************************************************************************
+Start the 9 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.763218, 0.76321)
+	                                           effective interaction Vq = [-4.09981,-4.00437,-3.80584,-4.00437,-4.00483,-3.86854,-3.85472,-3.86854,-3.80583, -3.8539,-3.72937, -3.8539,-4.00483,-3.86854,-3.85472,-3.86854]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -82.809946 | electron energy -83.032737 + phonon energy 0.222792 | electron momentum kIdx = 2
+	Nq(0) = 16,	Nq(1) = 0.378243,	Nq(2) = 0.363708,	Nq(3) = 0.378243,	Nq(4) = 0.37883,	Nq(5) = 0.42436,	Nq(6) = 0.592928,	Nq(7) = 0.42436,	Nq(8) = 0.36328,	Nq(9) = 0.5915,	Nq(10) = 0.586627,	Nq(11) = 0.5915,	Nq(12) = 0.37883,	Nq(13) = 0.42436,	Nq(14) = 0.592928,	Nq(15) = 0.42436,	Sq(0) = 7.30601e-19,	Sq(1) = 0.380776,	Sq(2) = 1.16779,	Sq(3) = 0.380776,	Sq(4) = 0.383131,	Sq(5) = 0.617828,	Sq(6) = 0.642557,	Sq(7) = 0.617828,	Sq(8) = 0.466305,	Sq(9) = 0.639061,	Sq(10) = 0.909496,	Sq(11) = 0.639061,	Sq(12) = 0.383131,	Sq(13) = 0.617828,	Sq(14) = 0.642557,	Sq(15) = 0.617828,	N(0) = 1.99914,	N(1) = 1.99879,	N(2) = 0.998126,	N(3) = 1.99879,	N(4) = 1.99877,	N(5) = 1,	N(6) = 0.00123355,	N(7) = 1,	N(8) = 1.00187,	N(9) = 0.00121331,	N(10) = 0.000864596,	N(11) = 0.00121331,	N(12) = 1.99877,	N(13) = 1,	N(14) = 0.00123355,	N(15) = 1,	Delta[s](0) = 0.246672,	Delta[s](1) = 0.243501,	Delta[s](2) = 0.205574,	Delta[s](3) = 0.243501,	Delta[s](4) = 0.243706,	Delta[s](5) = 0.214829,	Delta[s](6) = 0.202623,	Delta[s](7) = 0.214829,	Delta[s](8) = 0.205657,	Delta[s](9) = 0.202559,	Delta[s](10) = 0.145029,	Delta[s](11) = 0.202559,	Delta[s](12) = 0.243706,	Delta[s](13) = 0.214829,	Delta[s](14) = 0.202623,	Delta[s](15) = 0.214829,	Delta[d](0) = 0.522211,	Delta[d](1) = 0.322786,	Delta[d](2) = 0.28811,	Delta[d](3) = 0.322786,	Delta[d](4) = 0.317732,	Delta[d](5) = 0.298558,	Delta[d](6) = 0.25157,	Delta[d](7) = 0.298558,	Delta[d](8) = 0.287577,	Delta[d](9) = 0.256541,	Delta[d](10) = 0.110325,	Delta[d](11) = 0.256541,	Delta[d](12) = 0.317732,	Delta[d](13) = 0.298558,	Delta[d](14) = 0.25157,	Delta[d](15) = 0.298558,	Delta[s+](0) = 0.515168,	Delta[s+](1) = 0.423385,	Delta[s+](2) = 0.28811,	Delta[s+](3) = 0.423385,	Delta[s+](4) = 0.418038,	Delta[s+](5) = 0.285602,	Delta[s+](6) = 0.150188,	Delta[s+](7) = 0.285602,	Delta[s+](8) = 0.287577,	Delta[s+](9) = 0.154829,	Delta[s+](10) = 0.0596353,	Delta[s+](11) = 0.154829,	Delta[s+](12) = 0.418038,	Delta[s+](13) = 0.285602,	Delta[s+](14) = 0.150188,	Delta[s+](15) = 0.285602
+The 9-th iteration is completed.	|| time cost : 0h 5m 25.121s
+********************************************************************************************************************
+********************************************************************************************************************
+Ground state is obtained after 10 iterations. The current ground-state energy is -82.8099, in which electron energy is -83.0327 and phonon energy is 0.222792
+final variational state is: 
+	Gamma_x = [      1,1.05132,1.07574,1.05132,1.05131,1.08183,1.11846,1.08183,1.07564,1.11829,1.13432,1.11829,1.05131,1.08183,1.11846,1.08183]
+	lambda_q = [0.715805,0.606715,0.524216,0.606715,0.606974,0.545885,0.540912,0.545885,0.524214,0.540625,0.500728,0.540625,0.606974,0.545885,0.540912,0.545885]
+********************************************************************************************************************
+o___o  ----------------------------------------
+| L |	Time since last clock: 0h 0m 0s
+A===A	Time since the beginning: 0h 34m 38.711s
+***********************************************
+
+********************************************************************************************************************
+Start warm-up calculation for scaling factor 4
+open output files: NGSEDWarmUpW4Obs.txt
+********************************************************************************************************************
+Start the 0 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.763181, 0.763173)
+	                                           effective interaction Vq = [-3.74794,-3.44149,-3.14652,-3.44149,-3.44233,-3.22927,-3.21061,-3.22927,-3.14651,-3.20953,-3.05258,-3.20953,-3.44233,-3.22927,-3.21061,-3.22927]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -73.358285 | electron energy -73.469740 + phonon energy 0.111454 | electron momentum kIdx = 2
+	Nq(0) = 16,	Nq(1) = 0.287856,	Nq(2) = 0.31534,	Nq(3) = 0.287856,	Nq(4) = 0.293277,	Nq(5) = 0.355969,	Nq(6) = 0.471981,	Nq(7) = 0.355969,	Nq(8) = 0.315492,	Nq(9) = 0.468165,	Nq(10) = 0.502881,	Nq(11) = 0.468165,	Nq(12) = 0.293277,	Nq(13) = 0.355969,	Nq(14) = 0.471981,	Nq(15) = 0.355969,	Sq(0) = 2.67405e-18,	Sq(1) = 0.403105,	Sq(2) = 1.41514,	Sq(3) = 0.403105,	Sq(4) = 0.440083,	Sq(5) = 0.687551,	Sq(6) = 0.754774,	Sq(7) = 0.687551,	Sq(8) = 0.505158,	Sq(9) = 0.71126,	Sq(10) = 1.11091,	Sq(11) = 0.71126,	Sq(12) = 0.440083,	Sq(13) = 0.687551,	Sq(14) = 0.754774,	Sq(15) = 0.687551,	N(0) = 1.97761,	N(1) = 1.96518,	N(2) = 0.999723,	N(3) = 1.96518,	N(4) = 1.96428,	N(5) = 1,	N(6) = 0.0357164,	N(7) = 1,	N(8) = 1.00028,	N(9) = 0.0348178,	N(10) = 0.0223895,	N(11) = 0.0348178,	N(12) = 1.96428,	N(13) = 1,	N(14) = 0.0357164,	N(15) = 1,	Delta[s](0) = 0.203442,	Delta[s](1) = 0.194723,	Delta[s](2) = 0.170606,	Delta[s](3) = 0.194723,	Delta[s](4) = 0.195294,	Delta[s](5) = 0.17616,	Delta[s](6) = 0.162842,	Delta[s](7) = 0.17616,	Delta[s](8) = 0.170601,	Delta[s](9) = 0.162178,	Delta[s](10) = 0.120712,	Delta[s](11) = 0.162178,	Delta[s](12) = 0.195294,	Delta[s](13) = 0.17616,	Delta[s](14) = 0.162842,	Delta[s](15) = 0.17616,	Delta[d](0) = 0.548904,	Delta[d](1) = 0.367522,	Delta[d](2) = 0.3227,	Delta[d](3) = 0.367522,	Delta[d](4) = 0.356789,	Delta[d](5) = 0.3171,	Delta[d](6) = 0.258394,	Delta[d](7) = 0.3171,	Delta[d](8) = 0.318325,	Delta[d](9) = 0.264792,	Delta[d](10) = 0.12064,	Delta[d](11) = 0.264792,	Delta[d](12) = 0.356789,	Delta[d](13) = 0.3171,	Delta[d](14) = 0.258394,	Delta[d](15) = 0.3171,	Delta[s+](0) = 0.588903,	Delta[s+](1) = 0.477135,	Delta[s+](2) = 0.3227,	Delta[s+](3) = 0.477135,	Delta[s+](4) = 0.466662,	Delta[s+](5) = 0.316791,	Delta[s+](6) = 0.168915,	Delta[s+](7) = 0.316791,	Delta[s+](8) = 0.318325,	Delta[s+](9) = 0.174963,	Delta[s+](10) = 0.0672935,	Delta[s+](11) = 0.174963,	Delta[s+](12) = 0.466662,	Delta[s+](13) = 0.316791,	Delta[s+](14) = 0.168915,	Delta[s+](15) = 0.316791
+The 0-th iteration is completed.	|| time cost : 0h 5m 34.124s
+********************************************************************************************************************
+Start the 1 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.754579, 0.754486)
+	                                           effective interaction Vq = [-3.94171,  -3.573,-3.23096,  -3.573,-3.57818,-3.32652,-3.28452,-3.32652,  -3.231,-3.27996,-3.11159,-3.27996,-3.57818,-3.32652,-3.28452,-3.32652]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -76.629182 | electron energy -76.889834 + phonon energy 0.260653 | electron momentum kIdx = 2
+The 1-th iteration is completed.	|| time cost : 0h 0m 35.348s
+********************************************************************************************************************
+Start the 2 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.74441, 0.744248)
+	                                           effective interaction Vq = [-4.02877,-3.65998, -3.2956,-3.65998,-3.66709,-3.39902,-3.35114,-3.39902,-3.29583,-3.34486, -3.1725,-3.34486,-3.66709,-3.39902,-3.35114,-3.39902]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -78.100113 | electron energy -78.462636 + phonon energy 0.362523 | electron momentum kIdx = 2
+The 2-th iteration is completed.	|| time cost : 0h 0m 35.444s
+********************************************************************************************************************
+Start the 3 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.735728, 0.735526)
+	                                           effective interaction Vq = [-4.06789,-3.71809, -3.3421,-3.71809,-3.72587,-3.45049, -3.4028,-3.45049,-3.34248,-3.39568, -3.2207,-3.39568,-3.72587,-3.45049, -3.4028,-3.45049]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -78.765167 | electron energy -79.194351 + phonon energy 0.429184 | electron momentum kIdx = 2
+The 3-th iteration is completed.	|| time cost : 0h 0m 35.444s
+********************************************************************************************************************
+Start the 4 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.729023, 0.728802)
+	                                           effective interaction Vq = [-4.08547,-3.75727,-3.37477,-3.75727,-3.76514,-3.48638,-3.44088,-3.48638,-3.37523,-3.43337,-3.25602,-3.43337,-3.76514,-3.48638,-3.44088,-3.48638]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -79.066362 | electron energy -79.540294 + phonon energy 0.473932 | electron momentum kIdx = 2
+The 4-th iteration is completed.	|| time cost : 0h 0m 35.455s
+********************************************************************************************************************
+Start the 5 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.72406, 0.723833)
+	                                           effective interaction Vq = [-4.09337,-3.78393,-3.39751,-3.78393, -3.7916,-3.51125,-3.46844,-3.51125,-3.39801,-3.46079,-3.28121,-3.46079, -3.7916,-3.51125,-3.46844,-3.51125]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -79.202879 | electron energy -79.707626 + phonon energy 0.504747 | electron momentum kIdx = 2
+The 5-th iteration is completed.	|| time cost : 0h 0m 29.7s
+********************************************************************************************************************
+Start the 6 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.720461, 0.720236)
+	                                           effective interaction Vq = [-4.09692, -3.8022, -3.4133, -3.8022,-3.80958,-3.52847,-3.48826,-3.52847,-3.41379,-3.48059,-3.29899,-3.48059,-3.80958,-3.52847,-3.48826,-3.52847]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -79.264796 | electron energy -79.791105 + phonon energy 0.526309 | electron momentum kIdx = 2
+The 6-th iteration is completed.	|| time cost : 0h 0m 35.38s
+********************************************************************************************************************
+Start the 7 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.717879, 0.717659)
+	                                           effective interaction Vq = [-4.09851,-3.81479,-3.42425,-3.81479,-3.82187,-3.54039,-3.50249,-3.54039,-3.42474,-3.49485, -3.3115,-3.49485,-3.82187,-3.54039,-3.50249,-3.54039]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -79.292898 | electron energy -79.834421 + phonon energy 0.541523 | electron momentum kIdx = 2
+The 7-th iteration is completed.	|| time cost : 0h 0m 29.66s
+********************************************************************************************************************
+Start the 8 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.716037, 0.715823)
+	                                           effective interaction Vq = [-4.09923,-3.82352,-3.43187,-3.82352,-3.83032,-3.54865,-3.51269,-3.54865,-3.43232,-3.50511,-3.32029,-3.50511,-3.83032,-3.54865,-3.51269,-3.54865]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -79.305664 | electron energy -79.857963 + phonon energy 0.552299 | electron momentum kIdx = 2
+The 8-th iteration is completed.	|| time cost : 0h 0m 29.694s
+********************************************************************************************************************
+Start the 9 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.714728, 0.71452)
+	                                           effective interaction Vq = [-4.09955,-3.82959,-3.43716,-3.82959,-3.83614,-3.55438,-3.52001,-3.55438,-3.43759,-3.51249,-3.32647,-3.51249,-3.83614,-3.55438,-3.52001,-3.55438]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -79.311469 | electron energy -79.871412 + phonon energy 0.559944 | electron momentum kIdx = 2
+The 9-th iteration is completed.	|| time cost : 0h 0m 29.668s
+********************************************************************************************************************
+Start the 10 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.713799, 0.713597)
+	                                           effective interaction Vq = [ -4.0997,-3.83382,-3.44085,-3.83382,-3.84017,-3.55837,-3.52526,-3.55837,-3.44125, -3.5178,-3.33081, -3.5178,-3.84017,-3.55837,-3.52526,-3.55837]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -79.314111 | electron energy -79.879481 + phonon energy 0.565370 | electron momentum kIdx = 2
+	Nq(0) = 16,	Nq(1) = 0.345496,	Nq(2) = 0.337911,	Nq(3) = 0.345496,	Nq(4) = 0.349302,	Nq(5) = 0.389104,	Nq(6) = 0.523519,	Nq(7) = 0.389104,	Nq(8) = 0.336829,	Nq(9) = 0.518358,	Nq(10) = 0.534625,	Nq(11) = 0.518358,	Nq(12) = 0.349302,	Nq(13) = 0.389104,	Nq(14) = 0.523519,	Nq(15) = 0.389104,	Sq(0) = -6.18236e-18,	Sq(1) = 0.394917,	Sq(2) = 1.29081,	Sq(3) = 0.394917,	Sq(4) = 0.409396,	Sq(5) = 0.655068,	Sq(6) = 0.696548,	Sq(7) = 0.655068,	Sq(8) = 0.486289,	Sq(9) = 0.676518,	Sq(10) = 1.00874,	Sq(11) = 0.676518,	Sq(12) = 0.409396,	Sq(13) = 0.655068,	Sq(14) = 0.696548,	Sq(15) = 0.655068,	N(0) = 1.99069,	N(1) = 1.98747,	N(2) = 0.993802,	N(3) = 1.98747,	N(4) = 1.98704,	N(5) = 1,	N(6) = 0.0129569,	N(7) = 1,	N(8) = 1.0062,	N(9) = 0.012528,	N(10) = 0.00931456,	N(11) = 0.012528,	N(12) = 1.98704,	N(13) = 1,	N(14) = 0.0129569,	N(15) = 1,	Delta[s](0) = 0.218672,	Delta[s](1) = 0.212844,	Delta[s](2) = 0.189986,	Delta[s](3) = 0.212844,	Delta[s](4) = 0.213333,	Delta[s](5) = 0.195403,	Delta[s](6) = 0.184768,	Delta[s](7) = 0.195403,	Delta[s](8) = 0.190203,	Delta[s](9) = 0.184568,	Delta[s](10) = 0.148068,	Delta[s](11) = 0.184568,	Delta[s](12) = 0.213333,	Delta[s](13) = 0.195403,	Delta[s](14) = 0.184768,	Delta[s](15) = 0.195403,	Delta[d](0) = 0.59091,	Delta[d](1) = 0.396361,	Delta[d](2) = 0.35169,	Delta[d](3) = 0.396361,	Delta[d](4) = 0.388199,	Delta[d](5) = 0.353576,	Delta[d](6) = 0.295469,	Delta[d](7) = 0.353576,	Delta[d](8) = 0.350444,	Delta[d](9) = 0.30387,	Delta[d](10) = 0.156162,	Delta[d](11) = 0.30387,	Delta[d](12) = 0.388199,	Delta[d](13) = 0.353576,	Delta[d](14) = 0.295469,	Delta[d](15) = 0.353576,	Delta[s+](0) = 0.62326,	Delta[s+](1) = 0.509592,	Delta[s+](2) = 0.35169,	Delta[s+](3) = 0.509592,	Delta[s+](4) = 0.500525,	Delta[s+](5) = 0.347154,	Delta[s+](6) = 0.192628,	Delta[s+](7) = 0.347154,	Delta[s+](8) = 0.350444,	Delta[s+](9) = 0.199799,	Delta[s+](10) = 0.0865416,	Delta[s+](11) = 0.199799,	Delta[s+](12) = 0.500525,	Delta[s+](13) = 0.347154,	Delta[s+](14) = 0.192628,	Delta[s+](15) = 0.347154
+The 10-th iteration is completed.	|| time cost : 0h 5m 25.378s
+********************************************************************************************************************
+Start the 11 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.71314, 0.712943)
+	                                           effective interaction Vq = [-4.09976,-3.83678,-3.44342,-3.83678,-3.84296,-3.56114,-3.52903,-3.56114,-3.44379,-3.52162,-3.33387,-3.52162,-3.84296,-3.56114,-3.52903,-3.56114]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -79.315315 | electron energy -79.884538 + phonon energy 0.569223 | electron momentum kIdx = 2
+The 11-th iteration is completed.	|| time cost : 0h 0m 29.774s
+********************************************************************************************************************
+Start the 12 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.712673, 0.712481)
+	                                           effective interaction Vq = [-4.09979,-3.83885,-3.44521,-3.83885,-3.84491,-3.56307,-3.53173,-3.56307,-3.44556,-3.52437,-3.33602,-3.52437,-3.84491,-3.56307,-3.53173,-3.56307]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -79.315865 | electron energy -79.887822 + phonon energy 0.571957 | electron momentum kIdx = 2
+The 12-th iteration is completed.	|| time cost : 0h 0m 29.672s
+********************************************************************************************************************
+Start the 13 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.712343, 0.712154)
+	                                           effective interaction Vq = [ -4.0998, -3.8403,-3.44647, -3.8403,-3.84626,-3.56441,-3.53367,-3.56441, -3.4468,-3.52634,-3.33753,-3.52634,-3.84626,-3.56441,-3.53367,-3.56441]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -79.316116 | electron energy -79.890014 + phonon energy 0.573898 | electron momentum kIdx = 2
+The 13-th iteration is completed.	|| time cost : 0h 0m 29.618s
+********************************************************************************************************************
+Start the 14 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.712109, 0.711923)
+	                                           effective interaction Vq = [-4.09981,-3.84132,-3.44734,-3.84132, -3.8472,-3.56535,-3.53506,-3.56535,-3.44766,-3.52776,-3.33859,-3.52776, -3.8472,-3.56535,-3.53506,-3.56535]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -79.316231 | electron energy -79.891506 + phonon energy 0.575275 | electron momentum kIdx = 2
+The 14-th iteration is completed.	|| time cost : 0h 0m 29.608s
+********************************************************************************************************************
+Start the 15 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.711943, 0.71176)
+	                                           effective interaction Vq = [-4.09981,-3.84203,-3.44796,-3.84203,-3.84785,  -3.566,-3.53605,  -3.566,-3.44826,-3.52878,-3.33934,-3.52878,-3.84785,  -3.566,-3.53605,  -3.566]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -79.316284 | electron energy -79.892537 + phonon energy 0.576252 | electron momentum kIdx = 2
+The 15-th iteration is completed.	|| time cost : 0h 0m 29.675s
+********************************************************************************************************************
+Start the 16 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.711826, 0.711644)
+	                                           effective interaction Vq = [-4.09981,-3.84254,-3.44839,-3.84254,-3.84831,-3.56646,-3.53677,-3.56646,-3.44868,-3.52952,-3.33987,-3.52952,-3.84831,-3.56646,-3.53677,-3.56646]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -79.316308 | electron energy -79.893254 + phonon energy 0.576946 | electron momentum kIdx = 2
+The 16-th iteration is completed.	|| time cost : 0h 0m 29.662s
+********************************************************************************************************************
+Start the 17 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.711743, 0.711562)
+	                                           effective interaction Vq = [-4.09981,-3.84289,-3.44869,-3.84289,-3.84863,-3.56677,-3.53728,-3.56677,-3.44897,-3.53004,-3.34024,-3.53004,-3.84863,-3.56677,-3.53728,-3.56677]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -79.316320 | electron energy -79.893758 + phonon energy 0.577438 | electron momentum kIdx = 2
+	Nq(0) = 16,	Nq(1) = 0.347165,	Nq(2) = 0.338435,	Nq(3) = 0.347165,	Nq(4) = 0.350738,	Nq(5) = 0.389887,	Nq(6) = 0.525628,	Nq(7) = 0.389887,	Nq(8) = 0.337289,	Nq(9) = 0.520484,	Nq(10) = 0.535596,	Nq(11) = 0.520484,	Nq(12) = 0.350738,	Nq(13) = 0.389887,	Nq(14) = 0.525628,	Nq(15) = 0.389887,	Sq(0) = -2.8018e-18,	Sq(1) = 0.394582,	Sq(2) = 1.28705,	Sq(3) = 0.394582,	Sq(4) = 0.408458,	Sq(5) = 0.653981,	Sq(6) = 0.694864,	Sq(7) = 0.653981,	Sq(8) = 0.485701,	Sq(9) = 0.675423,	Sq(10) = 1.00577,	Sq(11) = 0.675423,	Sq(12) = 0.408458,	Sq(13) = 0.653981,	Sq(14) = 0.694864,	Sq(15) = 0.653981,	N(0) = 1.991,	N(1) = 1.98797,	N(2) = 0.993586,	N(3) = 1.98797,	N(4) = 1.98756,	N(5) = 1,	N(6) = 0.0124416,	N(7) = 1,	N(8) = 1.00641,	N(9) = 0.0120342,	N(10) = 0.00899973,	N(11) = 0.0120342,	N(12) = 1.98756,	N(13) = 1,	N(14) = 0.0124416,	N(15) = 1,	Delta[s](0) = 0.219124,	Delta[s](1) = 0.21339,	Delta[s](2) = 0.190596,	Delta[s](3) = 0.21339,	Delta[s](4) = 0.213873,	Delta[s](5) = 0.196,	Delta[s](6) = 0.185452,	Delta[s](7) = 0.196,	Delta[s](8) = 0.190816,	Delta[s](9) = 0.185267,	Delta[s](10) = 0.148948,	Delta[s](11) = 0.185267,	Delta[s](12) = 0.213873,	Delta[s](13) = 0.196,	Delta[s](14) = 0.185452,	Delta[s](15) = 0.196,	Delta[d](0) = 0.591156,	Delta[d](1) = 0.396725,	Delta[d](2) = 0.352118,	Delta[d](3) = 0.396725,	Delta[d](4) = 0.388642,	Delta[d](5) = 0.354222,	Delta[d](6) = 0.296231,	Delta[d](7) = 0.354222,	Delta[d](8) = 0.350935,	Delta[d](9) = 0.304659,	Delta[d](10) = 0.15717,	Delta[d](11) = 0.304659,	Delta[d](12) = 0.388642,	Delta[d](13) = 0.354222,	Delta[d](14) = 0.296231,	Delta[d](15) = 0.354222,	Delta[s+](0) = 0.623307,	Delta[s+](1) = 0.509796,	Delta[s+](2) = 0.352118,	Delta[s+](3) = 0.509796,	Delta[s+](4) = 0.500773,	Delta[s+](5) = 0.347618,	Delta[s+](6) = 0.193189,	Delta[s+](7) = 0.347618,	Delta[s+](8) = 0.350935,	Delta[s+](9) = 0.200366,	Delta[s+](10) = 0.0871313,	Delta[s+](11) = 0.200366,	Delta[s+](12) = 0.500773,	Delta[s+](13) = 0.347618,	Delta[s+](14) = 0.193189,	Delta[s+](15) = 0.347618
+The 17-th iteration is completed.	|| time cost : 0h 5m 25.654s
+********************************************************************************************************************
+********************************************************************************************************************
+Ground state is obtained after 18 iterations. The current ground-state energy is -79.3163, in which electron energy is -79.8938 and phonon energy is 0.577438
+final variational state is: 
+	Gamma_x = [      1, 1.1422,1.17993, 1.1422,1.14263,1.20097,1.28206,1.20097,1.17926,1.27981,1.30458,1.27981,1.14263,1.20097,1.28206,1.20097]
+	lambda_q = [ 1.01218,0.759084,0.609003,0.759084,0.761919,0.647428,0.637511,0.647428,0.609089,0.635108,0.576708,0.635108,0.761919,0.647428,0.637511,0.647428]
+********************************************************************************************************************
+o___o  ----------------------------------------
+| L |	Time since last clock: 0h 0m 0s
+A===A	Time since the beginning: 0h 58m 57.679s
+***********************************************
+
+********************************************************************************************************************
+Start warm-up calculation for scaling factor 2
+open output files: NGSEDWarmUpW2Obs.txt
+********************************************************************************************************************
+Start the 0 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.711684, 0.711504)
+	                                           effective interaction Vq = [-3.74773,-3.19486,-2.74599,-3.19486,-3.20247,-2.86949,-2.83818,-2.86949,-2.74627,-2.83054,-2.63762,-2.83054,-3.20247,-2.86949,-2.83818,-2.86949]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -70.184104 | electron energy -70.472997 + phonon energy 0.288894 | electron momentum kIdx = 2
+	Nq(0) = 16,	Nq(1) = 0.237397,	Nq(2) = 0.274376,	Nq(3) = 0.237397,	Nq(4) = 0.24377,	Nq(5) = 0.305889,	Nq(6) = 0.396384,	Nq(7) = 0.305889,	Nq(8) = 0.275014,	Nq(9) = 0.392765,	Nq(10) = 0.435108,	Nq(11) = 0.392765,	Nq(12) = 0.24377,	Nq(13) = 0.305889,	Nq(14) = 0.396384,	Nq(15) = 0.305889,	Sq(0) = -6.28094e-18,	Sq(1) = 0.41126,	Sq(2) = 1.59349,	Sq(3) = 0.41126,	Sq(4) = 0.478489,	Sq(5) = 0.721251,	Sq(6) = 0.839621,	Sq(7) = 0.721251,	Sq(8) = 0.532119,	Sq(9) = 0.755177,	Sq(10) = 1.27161,	Sq(11) = 0.755177,	Sq(12) = 0.478489,	Sq(13) = 0.721251,	Sq(14) = 0.839621,	Sq(15) = 0.721251,	N(0) = 1.9454,	N(1) = 1.91415,	N(2) = 1.00283,	N(3) = 1.91415,	N(4) = 1.91326,	N(5) = 1,	N(6) = 0.0867367,	N(7) = 1,	N(8) = 0.997168,	N(9) = 0.0858509,	N(10) = 0.0546023,	N(11) = 0.0858509,	N(12) = 1.91326,	N(13) = 1,	N(14) = 0.0867367,	N(15) = 1,	Delta[s](0) = 0.171938,	Delta[s](1) = 0.163094,	Delta[s](2) = 0.146347,	Delta[s](3) = 0.163094,	Delta[s](4) = 0.163497,	Delta[s](5) = 0.149798,	Delta[s](6) = 0.137777,	Delta[s](7) = 0.149798,	Delta[s](8) = 0.1463,	Delta[s](9) = 0.137176,	Delta[s](10) = 0.107478,	Delta[s](11) = 0.137176,	Delta[s](12) = 0.163497,	Delta[s](13) = 0.149798,	Delta[s](14) = 0.137777,	Delta[s](15) = 0.149798,	Delta[d](0) = 0.643176,	Delta[d](1) = 0.46116,	Delta[d](2) = 0.399628,	Delta[d](3) = 0.46116,	Delta[d](4) = 0.44243,	Delta[d](5) = 0.379117,	Delta[d](6) = 0.304084,	Delta[d](7) = 0.379117,	Delta[d](8) = 0.387419,	Delta[d](9) = 0.309623,	Delta[d](10) = 0.156186,	Delta[d](11) = 0.309623,	Delta[d](12) = 0.44243,	Delta[d](13) = 0.379117,	Delta[d](14) = 0.304084,	Delta[d](15) = 0.379117,	Delta[s+](0) = 0.722887,	Delta[s+](1) = 0.582094,	Delta[s+](2) = 0.399628,	Delta[s+](3) = 0.582094,	Delta[s+](4) = 0.564809,	Delta[s+](5) = 0.388197,	Delta[s+](6) = 0.215359,	Delta[s+](7) = 0.388197,	Delta[s+](8) = 0.387419,	Delta[s+](9) = 0.220885,	Delta[s+](10) = 0.0910893,	Delta[s+](11) = 0.220885,	Delta[s+](12) = 0.564809,	Delta[s+](13) = 0.388197,	Delta[s+](14) = 0.215359,	Delta[s+](15) = 0.388197
+The 0-th iteration is completed.	|| time cost : 0h 5m 32.4s
+********************************************************************************************************************
+Start the 1 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.736482, 0.736162)
+	                                           effective interaction Vq = [-3.86381,-3.18652,-2.68593,-3.18652,-3.20006, -2.8231,-2.76373, -2.8231,-2.68594, -2.7529,-2.55219, -2.7529,-3.20006, -2.8231,-2.76373, -2.8231]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -72.167859 | electron energy -72.626942 + phonon energy 0.459082 | electron momentum kIdx = 2
+The 1-th iteration is completed.	|| time cost : 0h 0m 35.133s
+********************************************************************************************************************
+Start the 2 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.747917, 0.747464)
+	                                           effective interaction Vq = [-3.94162,-3.18439,-2.65546,-3.18439,-3.20275,-2.80208,-2.72998,-2.80208,-2.65562,-2.71703,-2.51869,-2.71703,-3.20275,-2.80208,-2.72998,-2.80208]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -73.446661 | electron energy -74.012839 + phonon energy 0.566178 | electron momentum kIdx = 2
+The 2-th iteration is completed.	|| time cost : 0h 0m 31.243s
+********************************************************************************************************************
+Start the 3 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.75296, 0.752396)
+	                                           effective interaction Vq = [-3.99377,-3.18679,-2.64203,-3.18679,-3.20898,-2.79532,-2.71721,-2.79532, -2.6425,-2.70277,-2.50913,-2.70277,-3.20898,-2.79532,-2.71721,-2.79532]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -74.290932 | electron energy -74.921235 + phonon energy 0.630303 | electron momentum kIdx = 2
+The 3-th iteration is completed.	|| time cost : 0h 0m 35.183s
+********************************************************************************************************************
+Start the 4 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.754919, 0.754266)
+	                                           effective interaction Vq = [-4.02873,-3.19189,-2.63767,-3.19189,-3.21711, -2.7958,-2.71444, -2.7958,-2.63847,-2.69892,-2.50968,-2.69892,-3.21711, -2.7958,-2.71444, -2.7958]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.853609 | electron energy -75.522818 + phonon energy 0.669208 | electron momentum kIdx = 2
+The 4-th iteration is completed.	|| time cost : 0h 0m 29.53s
+********************************************************************************************************************
+Start the 5 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.7554, 0.754675)
+	                                           effective interaction Vq = [-4.05217, -3.1983,-2.63784, -3.1983,-3.22591,-2.79963, -2.7162,-2.79963,-2.63896,-2.69983,-2.51413,-2.69983,-3.22591,-2.79963, -2.7162,-2.79963]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -75.229996 | electron energy -75.923913 + phonon energy 0.693916 | electron momentum kIdx = 2
+The 5-th iteration is completed.	|| time cost : 0h 0m 35.291s
+********************************************************************************************************************
+Start the 6 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.755191, 0.754407)
+	                                           effective interaction Vq = [-4.06788,-3.20513, -2.6401,-3.20513,-3.23463,-2.80476,-2.71983,-2.80476,-2.64152, -2.7028, -2.5198, -2.7028,-3.23463,-2.80476,-2.71983,-2.80476]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -75.482140 | electron energy -76.192765 + phonon energy 0.710625 | electron momentum kIdx = 2
+The 6-th iteration is completed.	|| time cost : 0h 0m 29.554s
+********************************************************************************************************************
+Start the 7 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.75468, 0.753848)
+	                                           effective interaction Vq = [-4.07841,-3.21183,-2.64322,-3.21183,-3.24285,-2.81015, -2.7241,-2.81015, -2.6449,-2.70654,-2.52558,-2.70654,-3.24285,-2.81015, -2.7241,-2.81015]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -75.651158 | electron energy -76.373868 + phonon energy 0.722710 | electron momentum kIdx = 2
+The 7-th iteration is completed.	|| time cost : 0h 0m 35.213s
+********************************************************************************************************************
+Start the 8 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.754058, 0.753187)
+	                                           effective interaction Vq = [-4.08546,-3.21813,-2.64656,-3.21813,-3.25036,-2.81535,-2.72845,-2.81535,-2.64847,-2.71044,-2.53103,-2.71044,-3.25036,-2.81535,-2.72845,-2.81535]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -75.764488 | electron energy -76.496487 + phonon energy 0.731999 | electron momentum kIdx = 2
+The 8-th iteration is completed.	|| time cost : 0h 0m 29.544s
+********************************************************************************************************************
+Start the 9 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.75342, 0.752517)
+	                                           effective interaction Vq = [-4.09019, -3.2239,-2.64983, -3.2239,-3.25712,-2.82013,-2.73261,-2.82013,-2.65193,-2.71425,  -2.536,-2.71425,-3.25712,-2.82013,-2.73261,-2.82013]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -75.840493 | electron energy -76.579986 + phonon energy 0.739493 | electron momentum kIdx = 2
+The 9-th iteration is completed.	|| time cost : 0h 0m 35.594s
+********************************************************************************************************************
+Start the 10 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.752808, 0.751878)
+	                                           effective interaction Vq = [-4.09337,-3.22911,-2.65288,-3.22911,-3.26312,-2.82445,-2.73649,-2.82445,-2.65516,-2.71782,-2.54046,-2.71782,-3.26312,-2.82445,-2.73649,-2.82445]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -75.891471 | electron energy -76.637226 + phonon energy 0.745755 | electron momentum kIdx = 2
+	Nq(0) = 16,	Nq(1) = 0.243365,	Nq(2) = 0.274734,	Nq(3) = 0.243365,	Nq(4) = 0.251674,	Nq(5) = 0.308183,	Nq(6) = 0.394899,	Nq(7) = 0.308183,	Nq(8) = 0.275427,	Nq(9) = 0.390367,	Nq(10) = 0.435208,	Nq(11) = 0.390367,	Nq(12) = 0.251674,	Nq(13) = 0.308183,	Nq(14) = 0.394899,	Nq(15) = 0.308183,	Sq(0) = -1.52203e-18,	Sq(1) = 0.411776,	Sq(2) = 1.5884,	Sq(3) = 0.411776,	Sq(4) = 0.476075,	Sq(5) = 0.720214,	Sq(6) = 0.835767,	Sq(7) = 0.720214,	Sq(8) = 0.531004,	Sq(9) = 0.75388,	Sq(10) = 1.26604,	Sq(11) = 0.75388,	Sq(12) = 0.476075,	Sq(13) = 0.720214,	Sq(14) = 0.835767,	Sq(15) = 0.720214,	N(0) = 1.94517,	N(1) = 1.91645,	N(2) = 1.00185,	N(3) = 1.91645,	N(4) = 1.91525,	N(5) = 1,	N(6) = 0.0847472,	N(7) = 1,	N(8) = 0.998154,	N(9) = 0.0835504,	N(10) = 0.0548283,	N(11) = 0.0835504,	N(12) = 1.91525,	N(13) = 1,	N(14) = 0.0847472,	N(15) = 1,	Delta[s](0) = 0.174811,	Delta[s](1) = 0.165286,	Delta[s](2) = 0.146967,	Delta[s](3) = 0.165286,	Delta[s](4) = 0.165797,	Delta[s](5) = 0.15083,	Delta[s](6) = 0.137843,	Delta[s](7) = 0.15083,	Delta[s](8) = 0.147027,	Delta[s](9) = 0.137236,	Delta[s](10) = 0.104905,	Delta[s](11) = 0.137236,	Delta[s](12) = 0.165797,	Delta[s](13) = 0.15083,	Delta[s](14) = 0.137843,	Delta[s](15) = 0.15083,	Delta[d](0) = 0.792421,	Delta[d](1) = 0.56075,	Delta[d](2) = 0.486084,	Delta[d](3) = 0.56075,	Delta[d](4) = 0.539178,	Delta[d](5) = 0.461927,	Delta[d](6) = 0.369868,	Delta[d](7) = 0.461927,	Delta[d](8) = 0.473557,	Delta[d](9) = 0.378089,	Delta[d](10) = 0.185925,	Delta[d](11) = 0.378089,	Delta[d](12) = 0.539178,	Delta[d](13) = 0.461927,	Delta[d](14) = 0.369868,	Delta[d](15) = 0.461927,	Delta[s+](0) = 0.886912,	Delta[s+](1) = 0.713004,	Delta[s+](2) = 0.486084,	Delta[s+](3) = 0.713004,	Delta[s+](4) = 0.692931,	Delta[s+](5) = 0.473114,	Delta[s+](6) = 0.258331,	Delta[s+](7) = 0.473114,	Delta[s+](8) = 0.473557,	Delta[s+](9) = 0.266083,	Delta[s+](10) = 0.106539,	Delta[s+](11) = 0.266083,	Delta[s+](12) = 0.692931,	Delta[s+](13) = 0.473114,	Delta[s+](14) = 0.258331,	Delta[s+](15) = 0.473114
+The 10-th iteration is completed.	|| time cost : 0h 5m 23.364s
+********************************************************************************************************************
+Start the 11 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.752241, 0.751288)
+	                                           effective interaction Vq = [-4.09549,-3.23377,-2.65568,-3.23377,-3.26843,-2.82829,-2.74004,-2.82829,-2.65811,-2.72113,-2.54443,-2.72113,-3.26843,-2.82829,-2.74004,-2.82829]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -75.925668 | electron energy -76.676778 + phonon energy 0.751110 | electron momentum kIdx = 2
+The 11-th iteration is completed.	|| time cost : 0h 0m 29.663s
+********************************************************************************************************************
+Start the 12 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.751725, 0.750754)
+	                                           effective interaction Vq = [-4.09692,-3.23791, -2.6582,-3.23791,-3.27309,-2.83169,-2.74328,-2.83169,-2.66076,-2.72415,-2.54796,-2.72415,-3.27309,-2.83169,-2.74328,-2.83169]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -75.948611 | electron energy -76.704371 + phonon energy 0.755760 | electron momentum kIdx = 2
+The 12-th iteration is completed.	|| time cost : 0h 0m 29.572s
+********************************************************************************************************************
+Start the 13 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.751261, 0.750274)
+	                                           effective interaction Vq = [-4.09787,-3.24158,-2.66047,-3.24158,-3.27719,-2.83469,-2.74621,-2.83469,-2.66314, -2.7269,-2.55107, -2.7269,-3.27719,-2.83469,-2.74621,-2.83469]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -75.964006 | electron energy -76.723841 + phonon energy 0.759834 | electron momentum kIdx = 2
+The 13-th iteration is completed.	|| time cost : 0h 0m 29.635s
+********************************************************************************************************************
+Start the 14 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.750845, 0.749846)
+	                                           effective interaction Vq = [-4.09851,-3.24483,-2.66249,-3.24483,-3.28078,-2.83733,-2.74885,-2.83733,-2.66525,-2.72939,-2.55383,-2.72939,-3.28078,-2.83733,-2.74885,-2.83733]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -75.974339 | electron energy -76.737763 + phonon energy 0.763425 | electron momentum kIdx = 2
+The 14-th iteration is completed.	|| time cost : 0h 0m 29.735s
+********************************************************************************************************************
+Start the 15 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.750475, 0.749464)
+	                                           effective interaction Vq = [-4.09894, -3.2477,-2.66429, -3.2477,-3.28393,-2.83966,-2.75122,-2.83966,-2.66714,-2.73164,-2.55626,-2.73164,-3.28393,-2.83966,-2.75122,-2.83966]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -75.981274 | electron energy -76.747873 + phonon energy 0.766599 | electron momentum kIdx = 2
+The 15-th iteration is completed.	|| time cost : 0h 0m 29.724s
+********************************************************************************************************************
+Start the 16 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.750145, 0.749126)
+	                                           effective interaction Vq = [-4.09923,-3.25023,-2.66589,-3.25023,-3.28669, -2.8417,-2.75335, -2.8417,-2.66881,-2.73367,-2.55841,-2.73367,-3.28669, -2.8417,-2.75335, -2.8417]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -75.985931 | electron energy -76.755342 + phonon energy 0.769411 | electron momentum kIdx = 2
+The 16-th iteration is completed.	|| time cost : 0h 0m 29.626s
+********************************************************************************************************************
+Start the 17 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.749851, 0.748825)
+	                                           effective interaction Vq = [-4.09942,-3.25247,-2.66731,-3.25247,-3.28911, -2.8435,-2.75527, -2.8435,-2.67029,-2.73549,-2.56031,-2.73549,-3.28911, -2.8435,-2.75527, -2.8435]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -75.989058 | electron energy -76.760962 + phonon energy 0.771904 | electron momentum kIdx = 2
+The 17-th iteration is completed.	|| time cost : 0h 0m 29.682s
+********************************************************************************************************************
+Start the 18 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.749591, 0.748559)
+	                                           effective interaction Vq = [-4.09955,-3.25444,-2.66858,-3.25444,-3.29123,-2.84508,-2.75698,-2.84508, -2.6716,-2.73713,-2.56199,-2.73713,-3.29123,-2.84508,-2.75698,-2.84508]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -75.991159 | electron energy -76.765275 + phonon energy 0.774116 | electron momentum kIdx = 2
+The 18-th iteration is completed.	|| time cost : 0h 0m 29.65s
+********************************************************************************************************************
+Start the 19 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.74936, 0.748322)
+	                                           effective interaction Vq = [-4.09964,-3.25619, -2.6697,-3.25619, -3.2931,-2.84647,-2.75852,-2.84647,-2.67276, -2.7386,-2.56347, -2.7386, -3.2931,-2.84647,-2.75852,-2.84647]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -75.992572 | electron energy -76.768650 + phonon energy 0.776078 | electron momentum kIdx = 2
+The 19-th iteration is completed.	|| time cost : 0h 0m 29.582s
+********************************************************************************************************************
+Start the 20 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.749155, 0.748113)
+	                                           effective interaction Vq = [ -4.0997,-3.25773, -2.6707,-3.25773,-3.29473,-2.84769,-2.75989,-2.84769,-2.67379,-2.73992,-2.56478,-2.73992,-3.29473,-2.84769,-2.75989,-2.84769]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -75.993521 | electron energy -76.771341 + phonon energy 0.777820 | electron momentum kIdx = 2
+	Nq(0) = 16,	Nq(1) = 0.246557,	Nq(2) = 0.27632,	Nq(3) = 0.246557,	Nq(4) = 0.255189,	Nq(5) = 0.310435,	Nq(6) = 0.397957,	Nq(7) = 0.310435,	Nq(8) = 0.277014,	Nq(9) = 0.393214,	Nq(10) = 0.438001,	Nq(11) = 0.393214,	Nq(12) = 0.255189,	Nq(13) = 0.310435,	Nq(14) = 0.397957,	Nq(15) = 0.310435,	Sq(0) = -6.27992e-19,	Sq(1) = 0.411591,	Sq(2) = 1.58001,	Sq(3) = 0.411591,	Sq(4) = 0.474026,	Sq(5) = 0.718806,	Sq(6) = 0.831466,	Sq(7) = 0.718806,	Sq(8) = 0.529677,	Sq(9) = 0.751945,	Sq(10) = 1.25813,	Sq(11) = 0.751945,	Sq(12) = 0.474026,	Sq(13) = 0.718806,	Sq(14) = 0.831466,	Sq(15) = 0.718806,	N(0) = 1.94667,	N(1) = 1.91936,	N(2) = 1.00149,	N(3) = 1.91936,	N(4) = 1.9181,	N(5) = 1,	N(6) = 0.0818973,	N(7) = 1,	N(8) = 0.99851,	N(9) = 0.0806439,	N(10) = 0.0533292,	N(11) = 0.0806439,	N(12) = 1.9181,	N(13) = 1,	N(14) = 0.0818973,	N(15) = 1,	Delta[s](0) = 0.175746,	Delta[s](1) = 0.16638,	Delta[s](2) = 0.148194,	Delta[s](3) = 0.16638,	Delta[s](4) = 0.166899,	Delta[s](5) = 0.152046,	Delta[s](6) = 0.139249,	Delta[s](7) = 0.152046,	Delta[s](8) = 0.148276,	Delta[s](9) = 0.138664,	Delta[s](10) = 0.106673,	Delta[s](11) = 0.138664,	Delta[s](12) = 0.166899,	Delta[s](13) = 0.152046,	Delta[s](14) = 0.139249,	Delta[s](15) = 0.152046,	Delta[d](0) = 0.814668,	Delta[d](1) = 0.576405,	Delta[d](2) = 0.500106,	Delta[d](3) = 0.576405,	Delta[d](4) = 0.554692,	Delta[d](5) = 0.476004,	Delta[d](6) = 0.381764,	Delta[d](7) = 0.476004,	Delta[d](8) = 0.4879,	Delta[d](9) = 0.39058,	Delta[d](10) = 0.19345,	Delta[d](11) = 0.39058,	Delta[d](12) = 0.554692,	Delta[d](13) = 0.476004,	Delta[d](14) = 0.381764,	Delta[d](15) = 0.476004,	Delta[s+](0) = 0.9116,	Delta[s+](1) = 0.733102,	Delta[s+](2) = 0.500106,	Delta[s+](3) = 0.733102,	Delta[s+](4) = 0.712777,	Delta[s+](5) = 0.487078,	Delta[s+](6) = 0.266405,	Delta[s+](7) = 0.487078,	Delta[s+](8) = 0.4879,	Delta[s+](9) = 0.274626,	Delta[s+](10) = 0.11066,	Delta[s+](11) = 0.274626,	Delta[s+](12) = 0.712777,	Delta[s+](13) = 0.487078,	Delta[s+](14) = 0.266405,	Delta[s+](15) = 0.487078
+The 20-th iteration is completed.	|| time cost : 0h 5m 24.85s
+********************************************************************************************************************
+Start the 21 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.748973, 0.747928)
+	                                           effective interaction Vq = [-4.09974,-3.25909,-2.67158,-3.25909,-3.29617,-2.84877,-2.76112,-2.84877, -2.6747,-2.74109,-2.56593,-2.74109,-3.29617,-2.84877,-2.76112,-2.84877]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -75.994160 | electron energy -76.773526 + phonon energy 0.779366 | electron momentum kIdx = 2
+The 21-th iteration is completed.	|| time cost : 0h 0m 29.591s
+********************************************************************************************************************
+Start the 22 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.748811, 0.747764)
+	                                           effective interaction Vq = [-4.09976,-3.26029,-2.67236,-3.26029,-3.29744,-2.84972,-2.76221,-2.84972,-2.67551,-2.74215,-2.56696,-2.74215,-3.29744,-2.84972,-2.76221,-2.84972]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -75.994590 | electron energy -76.775328 + phonon energy 0.780738 | electron momentum kIdx = 2
+The 22-th iteration is completed.	|| time cost : 0h 0m 29.595s
+********************************************************************************************************************
+Start the 23 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.748668, 0.747619)
+	                                           effective interaction Vq = [-4.09978,-3.26135,-2.67305,-3.26135,-3.29855,-2.85056,-2.76319,-2.85056,-2.67622,-2.74309,-2.56786,-2.74309,-3.29855,-2.85056,-2.76319,-2.85056]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -75.994879 | electron energy -76.776834 + phonon energy 0.781955 | electron momentum kIdx = 2
+The 23-th iteration is completed.	|| time cost : 0h 0m 29.583s
+********************************************************************************************************************
+Start the 24 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.748542, 0.74749)
+	                                           effective interaction Vq = [-4.09979,-3.26229,-2.67367,-3.26229,-3.29953, -2.8513,-2.76407, -2.8513,-2.67686,-2.74393,-2.56866,-2.74393,-3.29953, -2.8513,-2.76407, -2.8513]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -75.995075 | electron energy -76.778109 + phonon energy 0.783035 | electron momentum kIdx = 2
+The 24-th iteration is completed.	|| time cost : 0h 0m 29.663s
+********************************************************************************************************************
+Start the 25 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.748429, 0.747376)
+	                                           effective interaction Vq = [ -4.0998,-3.26312,-2.67421,-3.26312,-3.30039,-2.85195,-2.76484,-2.85195,-2.67742,-2.74468,-2.56937,-2.74468,-3.30039,-2.85195,-2.76484,-2.85195]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -75.995206 | electron energy -76.779199 + phonon energy 0.783993 | electron momentum kIdx = 2
+The 25-th iteration is completed.	|| time cost : 0h 0m 29.576s
+********************************************************************************************************************
+Start the 26 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.748329, 0.747275)
+	                                           effective interaction Vq = [ -4.0998,-3.26385, -2.6747,-3.26385,-3.30114,-2.85252,-2.76554,-2.85252,-2.67791,-2.74535,-2.56999,-2.74535,-3.30114,-2.85252,-2.76554,-2.85252]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -75.995295 | electron energy -76.780137 + phonon energy 0.784842 | electron momentum kIdx = 2
+The 26-th iteration is completed.	|| time cost : 0h 0m 29.79s
+********************************************************************************************************************
+Start the 27 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.748241, 0.747185)
+	                                           effective interaction Vq = [-4.09981, -3.2645,-2.67513, -3.2645,-3.30181,-2.85303,-2.76616,-2.85303,-2.67835,-2.74595,-2.57054,-2.74595,-3.30181,-2.85303,-2.76616,-2.85303]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -75.995356 | electron energy -76.780951 + phonon energy 0.785596 | electron momentum kIdx = 2
+The 27-th iteration is completed.	|| time cost : 0h 0m 29.8s
+********************************************************************************************************************
+Start the 28 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.748163, 0.747106)
+	                                           effective interaction Vq = [-4.09981,-3.26507,-2.67551,-3.26507, -3.3024,-2.85347,-2.76671,-2.85347,-2.67874,-2.74648,-2.57103,-2.74648, -3.3024,-2.85347,-2.76671,-2.85347]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -75.995396 | electron energy -76.781660 + phonon energy 0.786264 | electron momentum kIdx = 2
+The 28-th iteration is completed.	|| time cost : 0h 0m 29.609s
+********************************************************************************************************************
+Start the 29 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.748093, 0.747036)
+	                                           effective interaction Vq = [-4.09981,-3.26558,-2.67584,-3.26558,-3.30292,-2.85387, -2.7672,-2.85387,-2.67908,-2.74695,-2.57146,-2.74695,-3.30292,-2.85387, -2.7672,-2.85387]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -75.995424 | electron energy -76.782280 + phonon energy 0.786856 | electron momentum kIdx = 2
+	Nq(0) = 16,	Nq(1) = 0.247457,	Nq(2) = 0.276771,	Nq(3) = 0.247457,	Nq(4) = 0.256137,	Nq(5) = 0.311043,	Nq(6) = 0.39888,	Nq(7) = 0.311043,	Nq(8) = 0.277453,	Nq(9) = 0.39408,	Nq(10) = 0.438773,	Nq(11) = 0.39408,	Nq(12) = 0.256137,	Nq(13) = 0.311043,	Nq(14) = 0.39888,	Nq(15) = 0.311043,	Sq(0) = -3.98384e-18,	Sq(1) = 0.411539,	Sq(2) = 1.57761,	Sq(3) = 0.411539,	Sq(4) = 0.473444,	Sq(5) = 0.718403,	Sq(6) = 0.830266,	Sq(7) = 0.718403,	Sq(8) = 0.529301,	Sq(9) = 0.751394,	Sq(10) = 1.25591,	Sq(11) = 0.751394,	Sq(12) = 0.473444,	Sq(13) = 0.718403,	Sq(14) = 0.830266,	Sq(15) = 0.718403,	N(0) = 1.9471,	N(1) = 1.92017,	N(2) = 1.00135,	N(3) = 1.92017,	N(4) = 1.9189,	N(5) = 1,	N(6) = 0.081096,	N(7) = 1,	N(8) = 0.998647,	N(9) = 0.0798321,	N(10) = 0.0529042,	N(11) = 0.0798321,	N(12) = 1.9189,	N(13) = 1,	N(14) = 0.081096,	N(15) = 1,	Delta[s](0) = 0.17601,	Delta[s](1) = 0.16669,	Delta[s](2) = 0.148542,	Delta[s](3) = 0.16669,	Delta[s](4) = 0.16721,	Delta[s](5) = 0.152389,	Delta[s](6) = 0.139647,	Delta[s](7) = 0.152389,	Delta[s](8) = 0.148629,	Delta[s](9) = 0.139069,	Delta[s](10) = 0.107173,	Delta[s](11) = 0.139069,	Delta[s](12) = 0.16721,	Delta[s](13) = 0.152389,	Delta[s](14) = 0.139647,	Delta[s](15) = 0.152389,	Delta[d](0) = 0.817504,	Delta[d](1) = 0.578401,	Delta[d](2) = 0.501968,	Delta[d](3) = 0.578401,	Delta[d](4) = 0.556745,	Delta[d](5) = 0.477988,	Delta[d](6) = 0.38353,	Delta[d](7) = 0.477988,	Delta[d](8) = 0.489896,	Delta[d](9) = 0.392474,	Delta[d](10) = 0.194777,	Delta[d](11) = 0.392474,	Delta[d](12) = 0.556745,	Delta[d](13) = 0.477988,	Delta[d](14) = 0.38353,	Delta[d](15) = 0.477988,	Delta[s+](0) = 0.91472,	Delta[s+](1) = 0.735687,	Delta[s+](2) = 0.501968,	Delta[s+](3) = 0.735687,	Delta[s+](4) = 0.715373,	Delta[s+](5) = 0.488978,	Delta[s+](6) = 0.267579,	Delta[s+](7) = 0.488978,	Delta[s+](8) = 0.489896,	Delta[s+](9) = 0.275892,	Delta[s+](10) = 0.111372,	Delta[s+](11) = 0.275892,	Delta[s+](12) = 0.715373,	Delta[s+](13) = 0.488978,	Delta[s+](14) = 0.267579,	Delta[s+](15) = 0.488978
+The 29-th iteration is completed.	|| time cost : 0h 5m 26.667s
+********************************************************************************************************************
+********************************************************************************************************************
+Ground state is obtained after 30 iterations. The current ground-state energy is -75.9954, in which electron energy is -76.7823 and phonon energy is 0.786856
+final variational state is: 
+	Gamma_x = [      1,1.28168,1.31133,1.28168,1.29118,1.36359,1.47747,1.36359,1.31235,1.46952, 1.5148,1.46952,1.29118,1.36359,1.47747,1.36359]
+	lambda_q = [ 1.43071,0.786078,0.588045,0.786078,0.800704,0.642574,0.615606,0.642574,0.589007,0.609424,0.557688,0.609424,0.800704,0.642574,0.615606,0.642574]
+********************************************************************************************************************
+o___o  ----------------------------------------
+| L |	Time since last clock: 0h 0m 0s
+A===A	Time since the beginning: 1h 34m 5.336s
+***********************************************
+
+
+********************************************************************************************************************
+Warm up runs have been completed. Start calculating W = 1 phonon.
+open output files: NGSEDIterationObs.txt
+********************************************************************************************************************
+Start the 0 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.748032, 0.746974)
+	                                           effective interaction Vq = [-3.74687,-2.56538,-2.03555,-2.56538, -2.6014,-2.18927,-2.11399,-2.18927,-2.03831,-2.09653, -1.9474,-2.09653, -2.6014,-2.18927,-2.11399,-2.18927]
+	PARPACK diagonalization completed after 60 matrix-vector product operations.
+	iteration results: : total energy is -68.010048 | electron energy -68.403739 + phonon energy 0.393691 | electron momentum kIdx = 2
+	Nq(0) = 16,	Nq(1) = 0.156032,	Nq(2) = 0.206435,	Nq(3) = 0.156032,	Nq(4) = 0.161126,	Nq(5) = 0.225783,	Nq(6) = 0.288963,	Nq(7) = 0.225783,	Nq(8) = 0.207714,	Nq(9) = 0.287006,	Nq(10) = 0.334741,	Nq(11) = 0.287006,	Nq(12) = 0.161126,	Nq(13) = 0.225783,	Nq(14) = 0.288963,	Nq(15) = 0.225783,	Sq(0) = 3.05556e-19,	Sq(1) = 0.417548,	Sq(2) = 1.88402,	Sq(3) = 0.417548,	Sq(4) = 0.533499,	Sq(5) = 0.749288,	Sq(6) = 0.990224,	Sq(7) = 0.749288,	Sq(8) = 0.575478,	Sq(9) = 0.818515,	Sq(10) = 1.5855,	Sq(11) = 0.818515,	Sq(12) = 0.533499,	Sq(13) = 0.749288,	Sq(14) = 0.990224,	Sq(15) = 0.749288,	N(0) = 1.87566,	N(1) = 1.78905,	N(2) = 1.0083,	N(3) = 1.78905,	N(4) = 1.7885,	N(5) = 1,	N(6) = 0.211502,	N(7) = 1,	N(8) = 0.991701,	N(9) = 0.210949,	N(10) = 0.124341,	N(11) = 0.210949,	N(12) = 1.7885,	N(13) = 1,	N(14) = 0.211502,	N(15) = 1,	Delta[s](0) = 0.133467,	Delta[s](1) = 0.122428,	Delta[s](2) = 0.106637,	Delta[s](3) = 0.122428,	Delta[s](4) = 0.122703,	Delta[s](5) = 0.109367,	Delta[s](6) = 0.0948765,	Delta[s](7) = 0.109367,	Delta[s](8) = 0.106528,	Delta[s](9) = 0.0942705,	Delta[s](10) = 0.0664817,	Delta[s](11) = 0.0942705,	Delta[s](12) = 0.122703,	Delta[s](13) = 0.109367,	Delta[s](14) = 0.0948765,	Delta[s](15) = 0.109367,	Delta[d](0) = 0.891824,	Delta[d](1) = 0.667123,	Delta[d](2) = 0.558146,	Delta[d](3) = 0.667123,	Delta[d](4) = 0.628907,	Delta[d](5) = 0.509896,	Delta[d](6) = 0.390236,	Delta[d](7) = 0.509896,	Delta[d](8) = 0.520881,	Delta[d](9) = 0.38769,	Delta[d](10) = 0.186726,	Delta[d](11) = 0.38769,	Delta[d](12) = 0.628907,	Delta[d](13) = 0.509896,	Delta[d](14) = 0.390236,	Delta[d](15) = 0.509896,	Delta[s+](0) = 1.00237,	Delta[s+](1) = 0.80267,	Delta[s+](2) = 0.558146,	Delta[s+](3) = 0.80267,	Delta[s+](4) = 0.769417,	Delta[s+](5) = 0.531857,	Delta[s+](6) = 0.300614,	Delta[s+](7) = 0.531857,	Delta[s+](8) = 0.520881,	Delta[s+](9) = 0.299157,	Delta[s+](10) = 0.120444,	Delta[s+](11) = 0.299157,	Delta[s+](12) = 0.769417,	Delta[s+](13) = 0.531857,	Delta[s+](14) = 0.300614,	Delta[s+](15) = 0.531857
+The 0-th iteration is completed.	|| time cost : 0h 5m 38.723s
+********************************************************************************************************************
+Start the 1 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.796161, 0.795095)
+	                                           effective interaction Vq = [-3.81085,-2.40602,-1.86207,-2.40602,-2.44604,-2.02001,-1.92224,-2.02001,-1.86433,-1.90454,-1.75794,-1.90454,-2.44604,-2.02001,-1.92224,-2.02001]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -69.280705 | electron energy -69.766399 + phonon energy 0.485694 | electron momentum kIdx = 2
+The 1-th iteration is completed.	|| time cost : 0h 0m 35.238s
+********************************************************************************************************************
+Start the 2 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.825168, 0.824125)
+	                                           effective interaction Vq = [-3.86323, -2.2691,-1.73767, -2.2691, -2.3117,-1.89523,-1.79179,-1.89523, -1.7397,-1.77448,-1.63973,-1.77448, -2.3117,-1.89523,-1.79179,-1.89523]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -70.220496 | electron energy -70.743875 + phonon energy 0.523379 | electron momentum kIdx = 2
+The 2-th iteration is completed.	|| time cost : 0h 0m 35.427s
+********************************************************************************************************************
+Start the 3 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.843442, 0.842437)
+	                                           effective interaction Vq = [-3.90612,-2.15505,-1.64908,-2.15505,-2.19898,-1.80365,-1.70154,-1.80365,-1.65105,-1.68489,-1.56324,-1.68489,-2.19898,-1.80365,-1.70154,-1.80365]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -70.954604 | electron energy -71.481607 + phonon energy 0.527003 | electron momentum kIdx = 2
+The 3-th iteration is completed.	|| time cost : 0h 0m 35.153s
+********************************************************************************************************************
+Start the 4 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.855579, 0.854617)
+	                                           effective interaction Vq = [-3.94123,-2.06145,-1.58472,-2.06145,-2.10577, -1.7351,-1.63612, -1.7351, -1.5867,-1.62024,-1.50996,-1.62024,-2.10577, -1.7351,-1.63612, -1.7351]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -71.543587 | electron energy -72.055543 + phonon energy 0.511955 | electron momentum kIdx = 2
+The 4-th iteration is completed.	|| time cost : 0h 0m 35.393s
+********************************************************************************************************************
+Start the 5 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.864101, 0.863184)
+	                                           effective interaction Vq = [-3.96997, -1.9848, -1.5363, -1.9848,-2.02888,-1.68209,-1.58597,-1.68209,-1.53831,-1.57086,-1.46971,-1.57086,-2.02888,-1.68209,-1.58597,-1.68209]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -72.021832 | electron energy -72.509702 + phonon energy 0.487869 | electron momentum kIdx = 2
+The 5-th iteration is completed.	|| time cost : 0h 0m 35.196s
+********************************************************************************************************************
+Start the 6 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.870416, 0.86954)
+	                                           effective interaction Vq = [-3.99351,-1.92161,-1.49836,-1.92161,-1.96506,-1.63959,-1.54551,-1.63959,-1.50041,-1.53112,-1.43718,-1.53112,-1.96506,-1.63959,-1.54551,-1.63959]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -72.412189 | electron energy -72.872482 + phonon energy 0.460293 | electron momentum kIdx = 2
+The 6-th iteration is completed.	|| time cost : 0h 0m 35.35s
+********************************************************************************************************************
+Start the 7 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.875325, 0.874488)
+	                                           effective interaction Vq = [-4.01278,-1.86891, -1.4675,-1.86891, -1.9115,-1.60436,-1.51151,-1.60436,-1.46958, -1.4978, -1.4096, -1.4978, -1.9115,-1.60436,-1.51151,-1.60436]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -72.731522 | electron energy -73.163778 + phonon energy 0.432256 | electron momentum kIdx = 2
+The 7-th iteration is completed.	|| time cost : 0h 0m 35.229s
+********************************************************************************************************************
+Start the 8 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.879297, 0.878493)
+	                                           effective interaction Vq = [-4.02856,-1.82436,-1.44161,-1.82436,-1.86599,-1.57435,-1.48215,-1.57435,-1.44372,-1.46906,-1.38551,-1.46906,-1.86599,-1.57435,-1.48215,-1.57435]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -72.992999 | electron energy -73.398325 + phonon energy 0.405327 | electron momentum kIdx = 2
+The 8-th iteration is completed.	|| time cost : 0h 0m 35.231s
+********************************************************************************************************************
+Start the 9 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.88261, 0.881837)
+	                                           effective interaction Vq = [-4.04147,-1.78623,-1.41938,-1.78623,-1.82684,-1.54828,-1.45632,-1.54828,-1.42149, -1.4438,-1.36408, -1.4438,-1.82684,-1.54828,-1.45632,-1.54828]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -73.207177 | electron energy -73.587424 + phonon energy 0.380247 | electron momentum kIdx = 2
+The 9-th iteration is completed.	|| time cost : 0h 0m 35.307s
+********************************************************************************************************************
+Start the 10 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.885436, 0.884691)
+	                                           effective interaction Vq = [-4.05205,-1.75321,-1.39997,-1.75321,-1.79281,-1.52531,-1.43334,-1.52531,-1.40208,-1.42135,-1.34483,-1.42135,-1.79281,-1.52531,-1.43334,-1.52531]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -73.382630 | electron energy -73.739936 + phonon energy 0.357306 | electron momentum kIdx = 2
+	Nq(0) = 16,	Nq(1) = 0.120012,	Nq(2) = 0.173697,	Nq(3) = 0.120012,	Nq(4) = 0.123652,	Nq(5) = 0.187538,	Nq(6) = 0.242132,	Nq(7) = 0.187538,	Nq(8) = 0.175117,	Nq(9) = 0.241223,	Nq(10) = 0.288558,	Nq(11) = 0.241223,	Nq(12) = 0.123652,	Nq(13) = 0.187538,	Nq(14) = 0.242132,	Nq(15) = 0.187538,	Sq(0) = -1.07522e-18,	Sq(1) = 0.421629,	Sq(2) = 2.00874,	Sq(3) = 0.421629,	Sq(4) = 0.550366,	Sq(5) = 0.753024,	Sq(6) = 1.06646,	Sq(7) = 0.753024,	Sq(8) = 0.594558,	Sq(9) = 0.851995,	Sq(10) = 1.76216,	Sq(11) = 0.851995,	Sq(12) = 0.550366,	Sq(13) = 0.753024,	Sq(14) = 1.06646,	Sq(15) = 0.753024,	N(0) = 1.83743,	N(1) = 1.7122,	N(2) = 1.00917,	N(3) = 1.7122,	N(4) = 1.71128,	N(5) = 1,	N(6) = 0.288716,	N(7) = 1,	N(8) = 0.990826,	N(9) = 0.2878,	N(10) = 0.162569,	N(11) = 0.2878,	N(12) = 1.71128,	N(13) = 1,	N(14) = 0.288716,	N(15) = 1,	Delta[s](0) = 0.124299,	Delta[s](1) = 0.108895,	Delta[s](2) = 0.0882775,	Delta[s](3) = 0.108895,	Delta[s](4) = 0.10913,	Delta[s](5) = 0.0915845,	Delta[s](6) = 0.0712262,	Delta[s](7) = 0.0915845,	Delta[s](8) = 0.0879621,	Delta[s](9) = 0.070358,	Delta[s](10) = 0.0346861,	Delta[s](11) = 0.070358,	Delta[s](12) = 0.10913,	Delta[s](13) = 0.0915845,	Delta[s](14) = 0.0712262,	Delta[s](15) = 0.0915845,	Delta[d](0) = 1.19794,	Delta[d](1) = 0.892512,	Delta[d](2) = 0.727439,	Delta[d](3) = 0.892512,	Delta[d](4) = 0.834812,	Delta[d](5) = 0.658108,	Delta[d](6) = 0.485562,	Delta[d](7) = 0.658108,	Delta[d](8) = 0.663745,	Delta[d](9) = 0.473856,	Delta[d](10) = 0.200078,	Delta[d](11) = 0.473856,	Delta[d](12) = 0.834812,	Delta[d](13) = 0.658108,	Delta[d](14) = 0.485562,	Delta[d](15) = 0.658108,	Delta[s+](0) = 1.30729,	Delta[s+](1) = 1.04615,	Delta[s+](2) = 0.727439,	Delta[s+](3) = 1.04615,	Delta[s+](4) = 0.997334,	Delta[s+](5) = 0.686767,	Delta[s+](6) = 0.384161,	Delta[s+](7) = 0.686767,	Delta[s+](8) = 0.663745,	Delta[s+](9) = 0.374653,	Delta[s+](10) = 0.139857,	Delta[s+](11) = 0.374653,	Delta[s+](12) = 0.997334,	Delta[s+](13) = 0.686767,	Delta[s+](14) = 0.384161,	Delta[s+](15) = 0.686767
+The 10-th iteration is completed.	|| time cost : 0h 5m 33.202s
+********************************************************************************************************************
+Start the 11 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.887886, 0.887166)
+	                                           effective interaction Vq = [-4.06071,-1.72436,-1.38284,-1.72436,-1.76298,-1.50488,-1.41277,-1.50488,-1.38494,-1.40126,-1.32744,-1.40126,-1.76298,-1.50488,-1.41277,-1.50488]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -73.526358 | electron energy -73.862904 + phonon energy 0.336546 | electron momentum kIdx = 2
+The 11-th iteration is completed.	|| time cost : 0h 0m 35.254s
+********************************************************************************************************************
+Start the 12 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.890034, 0.889335)
+	                                           effective interaction Vq = [ -4.0678,-1.69898,-1.36761,-1.69898,-1.73666,-1.48661,-1.39428,-1.48661, -1.3697, -1.3832, -1.3117, -1.3832,-1.73666,-1.48661,-1.39428,-1.48661]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -73.644089 | electron energy -73.961974 + phonon energy 0.317885 | electron momentum kIdx = 2
+The 12-th iteration is completed.	|| time cost : 0h 0m 35.35s
+********************************************************************************************************************
+Start the 13 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.89193, 0.891252)
+	                                           effective interaction Vq = [ -4.0736,-1.67653,-1.35401,-1.67653,-1.71332,-1.47021,-1.37762,-1.47021,-1.35608,-1.36694,-1.29743,-1.36694,-1.71332,-1.47021,-1.37762,-1.47021]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -73.740518 | electron energy -74.041697 + phonon energy 0.301180 | electron momentum kIdx = 2
+The 13-th iteration is completed.	|| time cost : 0h 0m 35.254s
+********************************************************************************************************************
+Start the 14 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.893612, 0.892953)
+	                                           effective interaction Vq = [-4.07835,-1.65661,-1.34183,-1.65661,-1.69257,-1.45546,-1.36261,-1.45546,-1.34387,-1.35228,-1.28448,-1.35228,-1.69257,-1.45546,-1.36261,-1.45546]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -73.819492 | electron energy -74.105754 + phonon energy 0.286263 | electron momentum kIdx = 2
+The 14-th iteration is completed.	|| time cost : 0h 0m 35.19s
+********************************************************************************************************************
+Start the 15 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.89511, 0.894467)
+	                                           effective interaction Vq = [-4.08224,-1.63889,-1.33091,-1.63889,-1.67406,-1.44217,-1.34907,-1.44217,-1.33293,-1.33907,-1.27274,-1.33907,-1.67406,-1.44217,-1.34907,-1.44217]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -73.884164 | electron energy -74.157127 + phonon energy 0.272962 | electron momentum kIdx = 2
+The 15-th iteration is completed.	|| time cost : 0h 0m 35.201s
+********************************************************************************************************************
+Start the 16 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.896447, 0.895818)
+	                                           effective interaction Vq = [-4.08543,-1.62309,-1.32111,-1.62309,-1.65754,-1.43021,-1.33686,-1.43021, -1.3231,-1.32715,-1.26209,-1.32715,-1.65754,-1.43021,-1.33686,-1.43021]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -73.937122 | electron energy -74.198235 + phonon energy 0.261113 | electron momentum kIdx = 2
+The 16-th iteration is completed.	|| time cost : 0h 0m 35.3s
+********************************************************************************************************************
+Start the 17 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.897641, 0.897026)
+	                                           effective interaction Vq = [-4.08804,-1.60899,-1.31231,-1.60899,-1.64277,-1.41943,-1.32585,-1.41943,-1.31427, -1.3164,-1.25244, -1.3164,-1.64277,-1.41943,-1.32585,-1.41943]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -73.980482 | electron energy -74.231044 + phonon energy 0.250561 | electron momentum kIdx = 2
+The 17-th iteration is completed.	|| time cost : 0h 0m 35.202s
+********************************************************************************************************************
+Start the 18 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.898709, 0.898107)
+	                                           effective interaction Vq = [-4.09017,-1.59641, -1.3044,-1.59641,-1.62957,-1.40972,-1.31592,-1.40972,-1.30633,-1.30671, -1.2437,-1.30671,-1.62957,-1.40972,-1.31592,-1.40972]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -74.015983 | electron energy -74.257148 + phonon energy 0.241165 | electron momentum kIdx = 2
+The 18-th iteration is completed.	|| time cost : 0h 0m 35.364s
+********************************************************************************************************************
+Start the 19 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.899664, 0.899074)
+	                                           effective interaction Vq = [-4.09192,-1.58516,-1.29731,-1.58516,-1.61776,-1.40097,-1.30698,-1.40097, -1.2992,-1.29798,-1.23578,-1.29798,-1.61776,-1.40097,-1.30698,-1.40097]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -74.045046 | electron energy -74.277843 + phonon energy 0.232798 | electron momentum kIdx = 2
+The 19-th iteration is completed.	|| time cost : 0h 0m 35.291s
+********************************************************************************************************************
+Start the 20 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.90052, 0.89994)
+	                                           effective interaction Vq = [-4.09335,-1.57511,-1.29093,-1.57511,-1.60719,-1.39309,-1.29892,-1.39309, -1.2928,-1.29011,-1.22862,-1.29011,-1.60719,-1.39309,-1.29892,-1.39309]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -74.068838 | electron energy -74.294182 + phonon energy 0.225344 | electron momentum kIdx = 2
+	Nq(0) = 16,	Nq(1) = 0.112211,	Nq(2) = 0.165776,	Nq(3) = 0.112211,	Nq(4) = 0.1154,	Nq(5) = 0.178243,	Nq(6) = 0.230897,	Nq(7) = 0.178243,	Nq(8) = 0.167077,	Nq(9) = 0.230142,	Nq(10) = 0.276724,	Nq(11) = 0.230142,	Nq(12) = 0.1154,	Nq(13) = 0.178243,	Nq(14) = 0.230897,	Nq(15) = 0.178243,	Sq(0) = -8.08289e-19,	Sq(1) = 0.423318,	Sq(2) = 2.03642,	Sq(3) = 0.423318,	Sq(4) = 0.552724,	Sq(5) = 0.753357,	Sq(6) = 1.08536,	Sq(7) = 0.753357,	Sq(8) = 0.598682,	Sq(9) = 0.860885,	Sq(10) = 1.80704,	Sq(11) = 0.860885,	Sq(12) = 0.552724,	Sq(13) = 0.753357,	Sq(14) = 1.08536,	Sq(15) = 0.753357,	N(0) = 1.82707,	N(1) = 1.6921,	N(2) = 1.00842,	N(3) = 1.6921,	N(4) = 1.6912,	N(5) = 1,	N(6) = 0.308803,	N(7) = 1,	N(8) = 0.991578,	N(9) = 0.3079,	N(10) = 0.172933,	N(11) = 0.3079,	N(12) = 1.6912,	N(13) = 1,	N(14) = 0.308803,	N(15) = 1,	Delta[s](0) = 0.120836,	Delta[s](1) = 0.104907,	Delta[s](2) = 0.0839708,	Delta[s](3) = 0.104907,	Delta[s](4) = 0.105127,	Delta[s](5) = 0.0872195,	Delta[s](6) = 0.0661742,	Delta[s](7) = 0.0872195,	Delta[s](8) = 0.0836433,	Delta[s](9) = 0.0653198,	Delta[s](10) = 0.0295413,	Delta[s](11) = 0.0653198,	Delta[s](12) = 0.105127,	Delta[s](13) = 0.0872195,	Delta[s](14) = 0.0661742,	Delta[s](15) = 0.0872195,	Delta[d](0) = 1.35025,	Delta[d](1) = 1.00996,	Delta[d](2) = 0.818543,	Delta[d](3) = 1.00996,	Delta[d](4) = 0.943923,	Delta[d](5) = 0.740154,	Delta[d](6) = 0.54217,	Delta[d](7) = 0.740154,	Delta[d](8) = 0.743009,	Delta[d](9) = 0.526715,	Delta[d](10) = 0.220858,	Delta[d](11) = 0.526715,	Delta[d](12) = 0.943923,	Delta[d](13) = 0.740154,	Delta[d](14) = 0.54217,	Delta[d](15) = 0.740154,	Delta[s+](0) = 1.46491,	Delta[s+](1) = 1.17285,	Delta[s+](2) = 0.818543,	Delta[s+](3) = 1.17285,	Delta[s+](4) = 1.11669,	Delta[s+](5) = 0.771252,	Delta[s+](6) = 0.434268,	Delta[s+](7) = 0.771252,	Delta[s+](8) = 0.743009,	Delta[s+](9) = 0.421123,	Delta[s+](10) = 0.157842,	Delta[s+](11) = 0.421123,	Delta[s+](12) = 1.11669,	Delta[s+](13) = 0.771252,	Delta[s+](14) = 0.434268,	Delta[s+](15) = 0.771252
+The 20-th iteration is completed.	|| time cost : 0h 5m 31.247s
+********************************************************************************************************************
+Start the 21 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.901287, 0.900716)
+	                                           effective interaction Vq = [-4.09452,-1.56613,-1.28521,-1.56613,-1.59774,  -1.386,-1.29166,  -1.386,-1.28704,-1.28302,-1.22214,-1.28302,-1.59774,  -1.386,-1.29166,  -1.386]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -74.088314 | electron energy -74.307015 + phonon energy 0.218701 | electron momentum kIdx = 2
+The 21-th iteration is completed.	|| time cost : 0h 0m 35.31s
+********************************************************************************************************************
+Start the 22 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.901974, 0.901411)
+	                                           effective interaction Vq = [-4.09548,-1.55811,-1.28007,-1.55811,-1.58927,-1.37962,-1.28512,-1.37962,-1.28187,-1.27664,-1.21628,-1.27664,-1.58927,-1.37962,-1.28512,-1.37962]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -74.104256 | electron energy -74.317037 + phonon energy 0.212780 | electron momentum kIdx = 2
+The 22-th iteration is completed.	|| time cost : 0h 0m 35.278s
+********************************************************************************************************************
+Start the 23 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.902589, 0.902034)
+	                                           effective interaction Vq = [-4.09627,-1.55093,-1.27545,-1.55093, -1.5817,-1.37388,-1.27923,-1.37388,-1.27723, -1.2709,-1.21099, -1.2709, -1.5817,-1.37388,-1.27923,-1.37388]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -74.117305 | electron energy -74.324805 + phonon energy 0.207500 | electron momentum kIdx = 2
+The 23-th iteration is completed.	|| time cost : 0h 0m 35.133s
+********************************************************************************************************************
+Start the 24 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.903141, 0.902592)
+	                                           effective interaction Vq = [-4.09691,-1.54452,-1.27131,-1.54452,-1.57493,-1.36872,-1.27394,-1.36872,-1.27306,-1.26573,-1.20621,-1.26573,-1.57493,-1.36872,-1.27394,-1.36872]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -74.127986 | electron energy -74.330775 + phonon energy 0.202789 | electron momentum kIdx = 2
+The 24-th iteration is completed.	|| time cost : 0h 0m 35.206s
+********************************************************************************************************************
+Start the 25 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.903635, 0.903092)
+	                                           effective interaction Vq = [-4.09744,-1.53878, -1.2676,-1.53878,-1.56887,-1.36407,-1.26917,-1.36407,-1.26932,-1.26108,-1.20189,-1.26108,-1.56887,-1.36407,-1.26917,-1.36407]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -74.136727 | electron energy -74.335311 + phonon energy 0.198584 | electron momentum kIdx = 2
+The 25-th iteration is completed.	|| time cost : 0h 0m 35.396s
+********************************************************************************************************************
+Start the 26 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.904078, 0.903541)
+	                                           effective interaction Vq = [-4.09787,-1.53366,-1.26426,-1.53366,-1.56345, -1.3599,-1.26488, -1.3599,-1.26596,-1.25689,-1.19799,-1.25689,-1.56345, -1.3599,-1.26488, -1.3599]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -74.143882 | electron energy -74.338711 + phonon energy 0.194829 | electron momentum kIdx = 2
+The 26-th iteration is completed.	|| time cost : 0h 0m 35.275s
+********************************************************************************************************************
+Start the 27 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.904475, 0.903943)
+	                                           effective interaction Vq = [-4.09822,-1.52907,-1.26127,-1.52907,-1.55859,-1.35615,-1.26103,-1.35615,-1.26295,-1.25313,-1.19446,-1.25313,-1.55859,-1.35615,-1.26103,-1.35615]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -74.149737 | electron energy -74.341213 + phonon energy 0.191475 | electron momentum kIdx = 2
+The 27-th iteration is completed.	|| time cost : 0h 0m 35.319s
+********************************************************************************************************************
+Start the 28 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.904831, 0.904304)
+	                                           effective interaction Vq = [-4.09851,-1.52497,-1.25858,-1.52497,-1.55425,-1.35277,-1.25756,-1.35277,-1.26024,-1.24974,-1.19129,-1.24974,-1.55425,-1.35277,-1.25756,-1.35277]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -74.154529 | electron energy -74.343007 + phonon energy 0.188478 | electron momentum kIdx = 2
+The 28-th iteration is completed.	|| time cost : 0h 0m 35.248s
+********************************************************************************************************************
+Start the 29 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.905151, 0.904627)
+	                                           effective interaction Vq = [-4.09875,-1.52131,-1.25617,-1.52131,-1.55037,-1.34974,-1.25444,-1.34974,-1.25781, -1.2467,-1.18842, -1.2467,-1.55037,-1.34974,-1.25444,-1.34974]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -74.158451 | electron energy -74.344250 + phonon energy 0.185799 | electron momentum kIdx = 2
+The 29-th iteration is completed.	|| time cost : 0h 0m 35.3s
+********************************************************************************************************************
+Start the 30 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.905437, 0.904917)
+	                                           effective interaction Vq = [-4.09894,-1.51803,-1.25401,-1.51803,-1.54689,-1.34702,-1.25164,-1.34702,-1.25563,-1.24396,-1.18584,-1.24396,-1.54689,-1.34702,-1.25164,-1.34702]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.161661 | electron energy -74.345063 + phonon energy 0.183402 | electron momentum kIdx = 2
+	Nq(0) = 16,	Nq(1) = 0.109708,	Nq(2) = 0.163134,	Nq(3) = 0.109708,	Nq(4) = 0.112746,	Nq(5) = 0.175143,	Nq(6) = 0.227145,	Nq(7) = 0.175143,	Nq(8) = 0.164381,	Nq(9) = 0.226432,	Nq(10) = 0.272692,	Nq(11) = 0.226432,	Nq(12) = 0.112746,	Nq(13) = 0.175143,	Nq(14) = 0.227145,	Nq(15) = 0.175143,	Sq(0) = -4.88124e-18,	Sq(1) = 0.423954,	Sq(2) = 2.0454,	Sq(3) = 0.423954,	Sq(4) = 0.553347,	Sq(5) = 0.753444,	Sq(6) = 1.09169,	Sq(7) = 0.753444,	Sq(8) = 0.60001,	Sq(9) = 0.86393,	Sq(10) = 1.82214,	Sq(11) = 0.86393,	Sq(12) = 0.553347,	Sq(13) = 0.753444,	Sq(14) = 1.09169,	Sq(15) = 0.753444,	N(0) = 1.82345,	N(1) = 1.68529,	N(2) = 1.0081,	N(3) = 1.68529,	N(4) = 1.68441,	N(5) = 1,	N(6) = 0.315592,	N(7) = 1,	N(8) = 0.991904,	N(9) = 0.314712,	N(10) = 0.176545,	N(11) = 0.314712,	N(12) = 1.68441,	N(13) = 1,	N(14) = 0.315592,	N(15) = 1,	Delta[s](0) = 0.119657,	Delta[s](1) = 0.103567,	Delta[s](2) = 0.0825406,	Delta[s](3) = 0.103567,	Delta[s](4) = 0.103783,	Delta[s](5) = 0.0857648,	Delta[s](6) = 0.0645105,	Delta[s](7) = 0.0857648,	Delta[s](8) = 0.0822132,	Delta[s](9) = 0.0636654,	Delta[s](10) = 0.0278979,	Delta[s](11) = 0.0636654,	Delta[s](12) = 0.103783,	Delta[s](13) = 0.0857648,	Delta[s](14) = 0.0645105,	Delta[s](15) = 0.0857648,	Delta[d](0) = 1.41418,	Delta[d](1) = 1.05923,	Delta[d](2) = 0.856916,	Delta[d](3) = 1.05923,	Delta[d](4) = 0.989801,	Delta[d](5) = 0.7748,	Delta[d](6) = 0.566219,	Delta[d](7) = 0.7748,	Delta[d](8) = 0.776559,	Delta[d](9) = 0.549267,	Delta[d](10) = 0.229988,	Delta[d](11) = 0.549267,	Delta[d](12) = 0.989801,	Delta[d](13) = 0.7748,	Delta[d](14) = 0.566219,	Delta[d](15) = 0.7748,	Delta[s+](0) = 1.53136,	Delta[s+](1) = 1.22624,	Delta[s+](2) = 0.856916,	Delta[s+](3) = 1.22624,	Delta[s+](4) = 1.16706,	Delta[s+](5) = 0.806918,	Delta[s+](6) = 0.455441,	Delta[s+](7) = 0.806918,	Delta[s+](8) = 0.776559,	Delta[s+](9) = 0.440826,	Delta[s+](10) = 0.165557,	Delta[s+](11) = 0.440826,	Delta[s+](12) = 1.16706,	Delta[s+](13) = 0.806918,	Delta[s+](14) = 0.455441,	Delta[s+](15) = 0.806918
+The 30-th iteration is completed.	|| time cost : 0h 5m 27.078s
+********************************************************************************************************************
+Start the 31 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.905694, 0.905178)
+	                                           effective interaction Vq = [ -4.0991, -1.5151,-1.25207, -1.5151,-1.54378,-1.34457,-1.24911,-1.34457,-1.25368, -1.2415,-1.18351, -1.2415,-1.54378,-1.34457,-1.24911,-1.34457]
+	PARPACK diagonalization completed after 45 matrix-vector product operations.
+	iteration results: : total energy is -74.164288 | electron energy -74.345547 + phonon energy 0.181259 | electron momentum kIdx = 2
+The 31-th iteration is completed.	|| time cost : 0h 0m 35.278s
+********************************************************************************************************************
+Start the 32 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.905924, 0.905411)
+	                                           effective interaction Vq = [-4.09923,-1.51248,-1.25033,-1.51248,  -1.541,-1.34238,-1.24685,-1.34238,-1.25192,-1.23929,-1.18141,-1.23929,  -1.541,-1.34238,-1.24685,-1.34238]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.166437 | electron energy -74.345778 + phonon energy 0.179341 | electron momentum kIdx = 2
+The 32-th iteration is completed.	|| time cost : 0h 0m 29.619s
+********************************************************************************************************************
+Start the 33 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.906131, 0.90562)
+	                                           effective interaction Vq = [-4.09933,-1.51013,-1.24877,-1.51013, -1.5385, -1.3404,-1.24481, -1.3404,-1.25035, -1.2373,-1.17951, -1.2373, -1.5385, -1.3404,-1.24481, -1.3404]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.168197 | electron energy -74.345821 + phonon energy 0.177624 | electron momentum kIdx = 2
+The 33-th iteration is completed.	|| time cost : 0h 0m 29.593s
+********************************************************************************************************************
+Start the 34 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.906316, 0.905808)
+	                                           effective interaction Vq = [-4.09942,-1.50803,-1.24737,-1.50803,-1.53627,-1.33863,-1.24298,-1.33863,-1.24893,-1.23552,-1.17781,-1.23552,-1.53627,-1.33863,-1.24298,-1.33863]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.169636 | electron energy -74.345723 + phonon energy 0.176087 | electron momentum kIdx = 2
+The 34-th iteration is completed.	|| time cost : 0h 0m 29.588s
+********************************************************************************************************************
+Start the 35 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.906482, 0.905976)
+	                                           effective interaction Vq = [-4.09949,-1.50616,-1.24612,-1.50616,-1.53428,-1.33704,-1.24134,-1.33704,-1.24767,-1.23391,-1.17627,-1.23391,-1.53428,-1.33704,-1.24134,-1.33704]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.170814 | electron energy -74.345525 + phonon energy 0.174710 | electron momentum kIdx = 2
+The 35-th iteration is completed.	|| time cost : 0h 0m 29.662s
+********************************************************************************************************************
+Start the 36 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.906631, 0.906127)
+	                                           effective interaction Vq = [-4.09955,-1.50448,-1.24499,-1.50448,-1.53249,-1.33561,-1.23986,-1.33561,-1.24653,-1.23247,-1.17489,-1.23247,-1.53249,-1.33561,-1.23986,-1.33561]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.171779 | electron energy -74.345256 + phonon energy 0.173478 | electron momentum kIdx = 2
+The 36-th iteration is completed.	|| time cost : 0h 0m 29.575s
+********************************************************************************************************************
+Start the 37 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.906765, 0.906262)
+	                                           effective interaction Vq = [ -4.0996,-1.50297,-1.24398,-1.50297,-1.53089,-1.33433,-1.23853,-1.33433,-1.24551,-1.23117,-1.17364,-1.23117,-1.53089,-1.33433,-1.23853,-1.33433]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.172568 | electron energy -74.344941 + phonon energy 0.172373 | electron momentum kIdx = 2
+The 37-th iteration is completed.	|| time cost : 0h 0m 29.62s
+********************************************************************************************************************
+Start the 38 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.906885, 0.906384)
+	                                           effective interaction Vq = [-4.09964,-1.50163,-1.24308,-1.50163,-1.52946,-1.33318,-1.23734,-1.33318,-1.24459,-1.23001,-1.17251,-1.23001,-1.52946,-1.33318,-1.23734,-1.33318]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.173213 | electron energy -74.344597 + phonon energy 0.171383 | electron momentum kIdx = 2
+The 38-th iteration is completed.	|| time cost : 0h 0m 29.827s
+********************************************************************************************************************
+Start the 39 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.906992, 0.906493)
+	                                           effective interaction Vq = [-4.09967,-1.50043,-1.24226,-1.50043,-1.52818,-1.33214,-1.23627,-1.33214,-1.24377,-1.22896, -1.1715,-1.22896,-1.52818,-1.33214,-1.23627,-1.33214]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.173742 | electron energy -74.344238 + phonon energy 0.170496 | electron momentum kIdx = 2
+The 39-th iteration is completed.	|| time cost : 0h 0m 29.675s
+********************************************************************************************************************
+Start the 40 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907089, 0.906591)
+	                                           effective interaction Vq = [ -4.0997,-1.49935,-1.24153,-1.49935,-1.52703,-1.33121,-1.23531,-1.33121,-1.24304,-1.22802,-1.17059,-1.22802,-1.52703,-1.33121,-1.23531,-1.33121]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.174174 | electron energy -74.343876 + phonon energy 0.169701 | electron momentum kIdx = 2
+	Nq(0) = 16,	Nq(1) = 0.108878,	Nq(2) = 0.162245,	Nq(3) = 0.108878,	Nq(4) = 0.111864,	Nq(5) = 0.174099,	Nq(6) = 0.22588,	Nq(7) = 0.174099,	Nq(8) = 0.163472,	Nq(9) = 0.225179,	Nq(10) = 0.271318,	Nq(11) = 0.225179,	Nq(12) = 0.111864,	Nq(13) = 0.174099,	Nq(14) = 0.22588,	Nq(15) = 0.174099,	Sq(0) = -1.59889e-18,	Sq(1) = 0.424177,	Sq(2) = 2.0484,	Sq(3) = 0.424177,	Sq(4) = 0.553539,	Sq(5) = 0.753471,	Sq(6) = 1.09382,	Sq(7) = 0.753471,	Sq(8) = 0.600452,	Sq(9) = 0.864964,	Sq(10) = 1.82723,	Sq(11) = 0.864964,	Sq(12) = 0.553539,	Sq(13) = 0.753471,	Sq(14) = 1.09382,	Sq(15) = 0.753471,	N(0) = 1.82222,	N(1) = 1.68298,	N(2) = 1.00798,	N(3) = 1.68298,	N(4) = 1.68211,	N(5) = 1,	N(6) = 0.317887,	N(7) = 1,	N(8) = 0.992023,	N(9) = 0.317017,	N(10) = 0.177783,	N(11) = 0.317017,	N(12) = 1.68211,	N(13) = 1,	N(14) = 0.317887,	N(15) = 1,	Delta[s](0) = 0.119258,	Delta[s](1) = 0.103114,	Delta[s](2) = 0.0820595,	Delta[s](3) = 0.103114,	Delta[s](4) = 0.103329,	Delta[s](5) = 0.085275,	Delta[s](6) = 0.0639526,	Delta[s](7) = 0.085275,	Delta[s](8) = 0.0817326,	Delta[s](9) = 0.0631111,	Delta[s](10) = 0.0273519,	Delta[s](11) = 0.0631111,	Delta[s](12) = 0.103329,	Delta[s](13) = 0.085275,	Delta[s](14) = 0.0639526,	Delta[s](15) = 0.085275,	Delta[d](0) = 1.43888,	Delta[d](1) = 1.07824,	Delta[d](2) = 0.871763,	Delta[d](3) = 1.07824,	Delta[d](4) = 1.00751,	Delta[d](5) = 0.788213,	Delta[d](6) = 0.575572,	Delta[d](7) = 0.788213,	Delta[d](8) = 0.789584,	Delta[d](9) = 0.558065,	Delta[d](10) = 0.233584,	Delta[d](11) = 0.558065,	Delta[d](12) = 1.00751,	Delta[d](13) = 0.788213,	Delta[d](14) = 0.575572,	Delta[d](15) = 0.788213,	Delta[s+](0) = 1.55713,	Delta[s+](1) = 1.24694,	Delta[s+](2) = 0.871763,	Delta[s+](3) = 1.24694,	Delta[s+](4) = 1.1866,	Delta[s+](5) = 0.820736,	Delta[s+](6) = 0.463623,	Delta[s+](7) = 0.820736,	Delta[s+](8) = 0.789584,	Delta[s+](9) = 0.448462,	Delta[s+](10) = 0.168549,	Delta[s+](11) = 0.448462,	Delta[s+](12) = 1.1866,	Delta[s+](13) = 0.820736,	Delta[s+](14) = 0.463623,	Delta[s+](15) = 0.820736
+The 40-th iteration is completed.	|| time cost : 0h 5m 28.383s
+********************************************************************************************************************
+Start the 41 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907175, 0.906679)
+	                                           effective interaction Vq = [-4.09972,-1.49838,-1.24088,-1.49838,  -1.526,-1.33038,-1.23444,-1.33038,-1.24238,-1.22718,-1.16977,-1.22718,  -1.526,-1.33038,-1.23444,-1.33038]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.174528 | electron energy -74.343517 + phonon energy 0.168989 | electron momentum kIdx = 2
+The 41-th iteration is completed.	|| time cost : 0h 0m 29.622s
+********************************************************************************************************************
+Start the 42 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907253, 0.906757)
+	                                           effective interaction Vq = [-4.09974,-1.49752,-1.24029,-1.49752,-1.52508,-1.32963,-1.23367,-1.32963,-1.24178,-1.22642,-1.16903,-1.22642,-1.52508,-1.32963,-1.23367,-1.32963]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.174818 | electron energy -74.343167 + phonon energy 0.168350 | electron momentum kIdx = 2
+The 42-th iteration is completed.	|| time cost : 0h 0m 29.547s
+********************************************************************************************************************
+Start the 43 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907323, 0.906828)
+	                                           effective interaction Vq = [-4.09975,-1.49675,-1.23977,-1.49675,-1.52426,-1.32896,-1.23297,-1.32896,-1.24125,-1.22574,-1.16837,-1.22574,-1.52426,-1.32896,-1.23297,-1.32896]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.175055 | electron energy -74.342832 + phonon energy 0.167777 | electron momentum kIdx = 2
+The 43-th iteration is completed.	|| time cost : 0h 0m 29.68s
+********************************************************************************************************************
+Start the 44 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907385, 0.906891)
+	                                           effective interaction Vq = [-4.09976,-1.49605, -1.2393,-1.49605,-1.52352,-1.32836,-1.23234,-1.32836,-1.24077,-1.22513,-1.16777,-1.22513,-1.52352,-1.32836,-1.23234,-1.32836]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.175249 | electron energy -74.342512 + phonon energy 0.167263 | electron momentum kIdx = 2
+The 44-th iteration is completed.	|| time cost : 0h 0m 29.61s
+********************************************************************************************************************
+Start the 45 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907441, 0.906948)
+	                                           effective interaction Vq = [-4.09977,-1.49543,-1.23887,-1.49543,-1.52286,-1.32781,-1.23178,-1.32781,-1.24035,-1.22458,-1.16723,-1.22458,-1.52286,-1.32781,-1.23178,-1.32781]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.175407 | electron energy -74.342210 + phonon energy 0.166802 | electron momentum kIdx = 2
+The 45-th iteration is completed.	|| time cost : 0h 0m 29.598s
+********************************************************************************************************************
+Start the 46 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907492, 0.906999)
+	                                           effective interaction Vq = [-4.09978,-1.49488,-1.23849,-1.49488,-1.52226,-1.32733,-1.23128,-1.32733,-1.23996,-1.22409,-1.16675,-1.22409,-1.52226,-1.32733,-1.23128,-1.32733]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.175537 | electron energy -74.341927 + phonon energy 0.166389 | electron momentum kIdx = 2
+The 46-th iteration is completed.	|| time cost : 0h 0m 29.54s
+********************************************************************************************************************
+Start the 47 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907537, 0.907045)
+	                                           effective interaction Vq = [-4.09979,-1.49438,-1.23815,-1.49438,-1.52173,-1.32689,-1.23082,-1.32689,-1.23962,-1.22364,-1.16631,-1.22364,-1.52173,-1.32689,-1.23082,-1.32689]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.175644 | electron energy -74.341662 + phonon energy 0.166019 | electron momentum kIdx = 2
+The 47-th iteration is completed.	|| time cost : 0h 0m 29.644s
+********************************************************************************************************************
+Start the 48 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907578, 0.907086)
+	                                           effective interaction Vq = [-4.09979,-1.49394,-1.23785,-1.49394,-1.52126, -1.3265,-1.23041, -1.3265,-1.23931,-1.22325,-1.16592,-1.22325,-1.52126, -1.3265,-1.23041, -1.3265]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.175731 | electron energy -74.341417 + phonon energy 0.165686 | electron momentum kIdx = 2
+The 48-th iteration is completed.	|| time cost : 0h 0m 29.57s
+********************************************************************************************************************
+Start the 49 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907614, 0.907123)
+	                                           effective interaction Vq = [ -4.0998,-1.49354,-1.23757,-1.49354,-1.52083,-1.32615,-1.23005,-1.32615,-1.23903,-1.22289,-1.16557,-1.22289,-1.52083,-1.32615,-1.23005,-1.32615]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.175802 | electron energy -74.341190 + phonon energy 0.165388 | electron momentum kIdx = 2
+The 49-th iteration is completed.	|| time cost : 0h 0m 29.774s
+********************************************************************************************************************
+Start the 50 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907647, 0.907156)
+	                                           effective interaction Vq = [ -4.0998,-1.49318,-1.23733,-1.49318,-1.52045,-1.32583,-1.22972,-1.32583,-1.23878,-1.22257,-1.16525,-1.22257,-1.52045,-1.32583,-1.22972,-1.32583]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.175860 | electron energy -74.340980 + phonon energy 0.165120 | electron momentum kIdx = 2
+	Nq(0) = 16,	Nq(1) = 0.1086,	Nq(2) = 0.161945,	Nq(3) = 0.1086,	Nq(4) = 0.111568,	Nq(5) = 0.173746,	Nq(6) = 0.225452,	Nq(7) = 0.173746,	Nq(8) = 0.163165,	Nq(9) = 0.224756,	Nq(10) = 0.270851,	Nq(11) = 0.224756,	Nq(12) = 0.111568,	Nq(13) = 0.173746,	Nq(14) = 0.225452,	Nq(15) = 0.173746,	Sq(0) = 2.78069e-18,	Sq(1) = 0.424253,	Sq(2) = 2.04941,	Sq(3) = 0.424253,	Sq(4) = 0.553602,	Sq(5) = 0.753481,	Sq(6) = 1.09454,	Sq(7) = 0.753481,	Sq(8) = 0.600601,	Sq(9) = 0.865314,	Sq(10) = 1.82896,	Sq(11) = 0.865314,	Sq(12) = 0.553602,	Sq(13) = 0.753481,	Sq(14) = 1.09454,	Sq(15) = 0.753481,	N(0) = 1.8218,	N(1) = 1.6822,	N(2) = 1.00794,	N(3) = 1.6822,	N(4) = 1.68134,	N(5) = 1,	N(6) = 0.318662,	N(7) = 1,	N(8) = 0.992065,	N(9) = 0.317797,	N(10) = 0.178204,	N(11) = 0.317797,	N(12) = 1.68134,	N(13) = 1,	N(14) = 0.318662,	N(15) = 1,	Delta[s](0) = 0.119122,	Delta[s](1) = 0.102961,	Delta[s](2) = 0.081897,	Delta[s](3) = 0.102961,	Delta[s](4) = 0.103176,	Delta[s](5) = 0.0851096,	Delta[s](6) = 0.0637645,	Delta[s](7) = 0.0851096,	Delta[s](8) = 0.0815704,	Delta[s](9) = 0.0629243,	Delta[s](10) = 0.0271684,	Delta[s](11) = 0.0629243,	Delta[s](12) = 0.103176,	Delta[s](13) = 0.0851096,	Delta[s](14) = 0.0637645,	Delta[s](15) = 0.0851096,	Delta[d](0) = 1.44814,	Delta[d](1) = 1.08534,	Delta[d](2) = 0.877329,	Delta[d](3) = 1.08534,	Delta[d](4) = 1.01413,	Delta[d](5) = 0.793242,	Delta[d](6) = 0.579093,	Delta[d](7) = 0.793242,	Delta[d](8) = 0.79448,	Delta[d](9) = 0.561385,	Delta[d](10) = 0.234947,	Delta[d](11) = 0.561385,	Delta[d](12) = 1.01413,	Delta[d](13) = 0.793242,	Delta[d](14) = 0.579093,	Delta[d](15) = 0.793242,	Delta[s+](0) = 1.56681,	Delta[s+](1) = 1.25471,	Delta[s+](2) = 0.877329,	Delta[s+](3) = 1.25471,	Delta[s+](4) = 1.19395,	Delta[s+](5) = 0.825922,	Delta[s+](6) = 0.466683,	Delta[s+](7) = 0.825922,	Delta[s+](8) = 0.79448,	Delta[s+](9) = 0.451326,	Delta[s+](10) = 0.169669,	Delta[s+](11) = 0.451326,	Delta[s+](12) = 1.19395,	Delta[s+](13) = 0.825922,	Delta[s+](14) = 0.466683,	Delta[s+](15) = 0.825922
+The 50-th iteration is completed.	|| time cost : 0h 5m 25.984s
+********************************************************************************************************************
+Start the 51 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907676, 0.907186)
+	                                           effective interaction Vq = [ -4.0998,-1.49286,-1.23711,-1.49286,-1.52011,-1.32555,-1.22942,-1.32555,-1.23856,-1.22228,-1.16497,-1.22228,-1.52011,-1.32555,-1.22942,-1.32555]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.175908 | electron energy -74.340788 + phonon energy 0.164880 | electron momentum kIdx = 2
+The 51-th iteration is completed.	|| time cost : 0h 0m 29.488s
+********************************************************************************************************************
+Start the 52 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907702, 0.907212)
+	                                           effective interaction Vq = [ -4.0998,-1.49257,-1.23691,-1.49257, -1.5198, -1.3253,-1.22916, -1.3253,-1.23836,-1.22202,-1.16471,-1.22202, -1.5198, -1.3253,-1.22916, -1.3253]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.175947 | electron energy -74.340612 + phonon energy 0.164665 | electron momentum kIdx = 2
+The 52-th iteration is completed.	|| time cost : 0h 0m 29.737s
+********************************************************************************************************************
+Start the 53 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907726, 0.907236)
+	                                           effective interaction Vq = [-4.09981,-1.49232,-1.23673,-1.49232,-1.51953,-1.32507,-1.22892,-1.32507,-1.23818,-1.22179,-1.16448,-1.22179,-1.51953,-1.32507,-1.22892,-1.32507]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.175979 | electron energy -74.340450 + phonon energy 0.164472 | electron momentum kIdx = 2
+The 53-th iteration is completed.	|| time cost : 0h 0m 29.555s
+********************************************************************************************************************
+Start the 54 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907747, 0.907258)
+	                                           effective interaction Vq = [-4.09981,-1.49209,-1.23657,-1.49209,-1.51928,-1.32487,-1.22871,-1.32487,-1.23802,-1.22158,-1.16427,-1.22158,-1.51928,-1.32487,-1.22871,-1.32487]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176005 | electron energy -74.340303 + phonon energy 0.164298 | electron momentum kIdx = 2
+The 54-th iteration is completed.	|| time cost : 0h 0m 29.526s
+********************************************************************************************************************
+Start the 55 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907766, 0.907277)
+	                                           effective interaction Vq = [-4.09981,-1.49188,-1.23643,-1.49188,-1.51906,-1.32468,-1.22852,-1.32468,-1.23787,-1.22139,-1.16409,-1.22139,-1.51906,-1.32468,-1.22852,-1.32468]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176026 | electron energy -74.340169 + phonon energy 0.164143 | electron momentum kIdx = 2
+The 55-th iteration is completed.	|| time cost : 0h 0m 29.547s
+********************************************************************************************************************
+Start the 56 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907783, 0.907294)
+	                                           effective interaction Vq = [-4.09981,-1.49169, -1.2363,-1.49169,-1.51886,-1.32452,-1.22834,-1.32452,-1.23774,-1.22123,-1.16392,-1.22123,-1.51886,-1.32452,-1.22834,-1.32452]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176044 | electron energy -74.340047 + phonon energy 0.164003 | electron momentum kIdx = 2
+The 56-th iteration is completed.	|| time cost : 0h 0m 29.641s
+********************************************************************************************************************
+Start the 57 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907798, 0.90731)
+	                                           effective interaction Vq = [-4.09981,-1.49153,-1.23619,-1.49153,-1.51868,-1.32437,-1.22819,-1.32437,-1.23763,-1.22107,-1.16377,-1.22107,-1.51868,-1.32437,-1.22819,-1.32437]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176058 | electron energy -74.339936 + phonon energy 0.163878 | electron momentum kIdx = 2
+The 57-th iteration is completed.	|| time cost : 0h 0m 29.552s
+********************************************************************************************************************
+Start the 58 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907812, 0.907324)
+	                                           effective interaction Vq = [-4.09981,-1.49138,-1.23609,-1.49138,-1.51852,-1.32424,-1.22805,-1.32424,-1.23752,-1.22094,-1.16363,-1.22094,-1.51852,-1.32424,-1.22805,-1.32424]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176070 | electron energy -74.339835 + phonon energy 0.163766 | electron momentum kIdx = 2
+The 58-th iteration is completed.	|| time cost : 0h 0m 29.612s
+********************************************************************************************************************
+Start the 59 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907824, 0.907336)
+	                                           effective interaction Vq = [-4.09981,-1.49125,-1.23599,-1.49125,-1.51838,-1.32412,-1.22793,-1.32412,-1.23743,-1.22082,-1.16351,-1.22082,-1.51838,-1.32412,-1.22793,-1.32412]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176079 | electron energy -74.339744 + phonon energy 0.163665 | electron momentum kIdx = 2
+The 59-th iteration is completed.	|| time cost : 0h 0m 29.613s
+********************************************************************************************************************
+Start the 60 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907835, 0.907347)
+	                                           effective interaction Vq = [-4.09981,-1.49113,-1.23591,-1.49113,-1.51825,-1.32401,-1.22782,-1.32401,-1.23734,-1.22071, -1.1634,-1.22071,-1.51825,-1.32401,-1.22782,-1.32401]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176087 | electron energy -74.339662 + phonon energy 0.163574 | electron momentum kIdx = 2
+	Nq(0) = 16,	Nq(1) = 0.108506,	Nq(2) = 0.161844,	Nq(3) = 0.108506,	Nq(4) = 0.111468,	Nq(5) = 0.173627,	Nq(6) = 0.225307,	Nq(7) = 0.173627,	Nq(8) = 0.163061,	Nq(9) = 0.224612,	Nq(10) = 0.270692,	Nq(11) = 0.224612,	Nq(12) = 0.111468,	Nq(13) = 0.173627,	Nq(14) = 0.225307,	Nq(15) = 0.173627,	Sq(0) = 1.82927e-18,	Sq(1) = 0.42428,	Sq(2) = 2.04975,	Sq(3) = 0.42428,	Sq(4) = 0.553623,	Sq(5) = 0.753484,	Sq(6) = 1.09478,	Sq(7) = 0.753484,	Sq(8) = 0.600651,	Sq(9) = 0.865433,	Sq(10) = 1.82954,	Sq(11) = 0.865433,	Sq(12) = 0.553623,	Sq(13) = 0.753484,	Sq(14) = 1.09478,	Sq(15) = 0.753484,	N(0) = 1.82165,	N(1) = 1.68194,	N(2) = 1.00792,	N(3) = 1.68194,	N(4) = 1.68108,	N(5) = 1,	N(6) = 0.318925,	N(7) = 1,	N(8) = 0.992079,	N(9) = 0.31806,	N(10) = 0.178347,	N(11) = 0.31806,	N(12) = 1.68108,	N(13) = 1,	N(14) = 0.318925,	N(15) = 1,	Delta[s](0) = 0.119077,	Delta[s](1) = 0.102909,	Delta[s](2) = 0.0818421,	Delta[s](3) = 0.102909,	Delta[s](4) = 0.103124,	Delta[s](5) = 0.0850536,	Delta[s](6) = 0.0637009,	Delta[s](7) = 0.0850536,	Delta[s](8) = 0.0815156,	Delta[s](9) = 0.0628612,	Delta[s](10) = 0.0271064,	Delta[s](11) = 0.0628612,	Delta[s](12) = 0.103124,	Delta[s](13) = 0.0850536,	Delta[s](14) = 0.0637009,	Delta[s](15) = 0.0850536,	Delta[d](0) = 1.45156,	Delta[d](1) = 1.08796,	Delta[d](2) = 0.87939,	Delta[d](3) = 1.08796,	Delta[d](4) = 1.01658,	Delta[d](5) = 0.795104,	Delta[d](6) = 0.580401,	Delta[d](7) = 0.795104,	Delta[d](8) = 0.796298,	Delta[d](9) = 0.562622,	Delta[d](10) = 0.235456,	Delta[d](11) = 0.562622,	Delta[d](12) = 1.01658,	Delta[d](13) = 0.795104,	Delta[d](14) = 0.580401,	Delta[d](15) = 0.795104,	Delta[s+](0) = 1.57041,	Delta[s+](1) = 1.2576,	Delta[s+](2) = 0.87939,	Delta[s+](3) = 1.2576,	Delta[s+](4) = 1.19667,	Delta[s+](5) = 0.827844,	Delta[s+](6) = 0.467813,	Delta[s+](7) = 0.827844,	Delta[s+](8) = 0.796298,	Delta[s+](9) = 0.452387,	Delta[s+](10) = 0.170082,	Delta[s+](11) = 0.452387,	Delta[s+](12) = 1.19667,	Delta[s+](13) = 0.827844,	Delta[s+](14) = 0.467813,	Delta[s+](15) = 0.827844
+The 60-th iteration is completed.	|| time cost : 0h 5m 27.681s
+********************************************************************************************************************
+Start the 61 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907845, 0.907357)
+	                                           effective interaction Vq = [-4.09981,-1.49102,-1.23584,-1.49102,-1.51814,-1.32391,-1.22771,-1.32391,-1.23727,-1.22061, -1.1633,-1.22061,-1.51814,-1.32391,-1.22771,-1.32391]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176094 | electron energy -74.339587 + phonon energy 0.163493 | electron momentum kIdx = 2
+The 61-th iteration is completed.	|| time cost : 0h 0m 29.918s
+********************************************************************************************************************
+Start the 62 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907854, 0.907366)
+	                                           effective interaction Vq = [-4.09981,-1.49092,-1.23577,-1.49092,-1.51804,-1.32383,-1.22762,-1.32383, -1.2372,-1.22052,-1.16322,-1.22052,-1.51804,-1.32383,-1.22762,-1.32383]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176099 | electron energy -74.339519 + phonon energy 0.163420 | electron momentum kIdx = 2
+The 62-th iteration is completed.	|| time cost : 0h 0m 29.709s
+********************************************************************************************************************
+Start the 63 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907862, 0.907374)
+	                                           effective interaction Vq = [-4.09981,-1.49084,-1.23571,-1.49084,-1.51794,-1.32375,-1.22754,-1.32375,-1.23714,-1.22044,-1.16314,-1.22044,-1.51794,-1.32375,-1.22754,-1.32375]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176103 | electron energy -74.339458 + phonon energy 0.163355 | electron momentum kIdx = 2
+The 63-th iteration is completed.	|| time cost : 0h 0m 29.759s
+********************************************************************************************************************
+Start the 64 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907869, 0.907382)
+	                                           effective interaction Vq = [-4.09981,-1.49076,-1.23566,-1.49076,-1.51786,-1.32368,-1.22747,-1.32368,-1.23709,-1.22037,-1.16306,-1.22037,-1.51786,-1.32368,-1.22747,-1.32368]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176107 | electron energy -74.339403 + phonon energy 0.163296 | electron momentum kIdx = 2
+The 64-th iteration is completed.	|| time cost : 0h 0m 29.763s
+********************************************************************************************************************
+Start the 65 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907876, 0.907388)
+	                                           effective interaction Vq = [-4.09981,-1.49069,-1.23561,-1.49069,-1.51779,-1.32362,-1.22741,-1.32362,-1.23704,-1.22031,  -1.163,-1.22031,-1.51779,-1.32362,-1.22741,-1.32362]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176110 | electron energy -74.339353 + phonon energy 0.163243 | electron momentum kIdx = 2
+The 65-th iteration is completed.	|| time cost : 0h 0m 29.606s
+********************************************************************************************************************
+Start the 66 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907881, 0.907394)
+	                                           effective interaction Vq = [-4.09981,-1.49063,-1.23556,-1.49063,-1.51772,-1.32356,-1.22735,-1.32356,-1.23699,-1.22025,-1.16294,-1.22025,-1.51772,-1.32356,-1.22735,-1.32356]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176112 | electron energy -74.339308 + phonon energy 0.163196 | electron momentum kIdx = 2
+The 66-th iteration is completed.	|| time cost : 0h 0m 29.834s
+********************************************************************************************************************
+Start the 67 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907887, 0.907399)
+	                                           effective interaction Vq = [-4.09981,-1.49057,-1.23553,-1.49057,-1.51766,-1.32351,-1.22729,-1.32351,-1.23695, -1.2202,-1.16289, -1.2202,-1.51766,-1.32351,-1.22729,-1.32351]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176114 | electron energy -74.339268 + phonon energy 0.163154 | electron momentum kIdx = 2
+The 67-th iteration is completed.	|| time cost : 0h 0m 29.603s
+********************************************************************************************************************
+Start the 68 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907891, 0.907404)
+	                                           effective interaction Vq = [-4.09981,-1.49052,-1.23549,-1.49052,-1.51761,-1.32347,-1.22725,-1.32347,-1.23692,-1.22015,-1.16284,-1.22015,-1.51761,-1.32347,-1.22725,-1.32347]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176116 | electron energy -74.339231 + phonon energy 0.163116 | electron momentum kIdx = 2
+The 68-th iteration is completed.	|| time cost : 0h 0m 29.739s
+********************************************************************************************************************
+Start the 69 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907895, 0.907408)
+	                                           effective interaction Vq = [-4.09981,-1.49048,-1.23546,-1.49048,-1.51756,-1.32343,-1.22721,-1.32343,-1.23689,-1.22011, -1.1628,-1.22011,-1.51756,-1.32343,-1.22721,-1.32343]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176117 | electron energy -74.339198 + phonon energy 0.163081 | electron momentum kIdx = 2
+The 69-th iteration is completed.	|| time cost : 0h 0m 29.873s
+********************************************************************************************************************
+Start the 70 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907899, 0.907412)
+	                                           effective interaction Vq = [-4.09981,-1.49044,-1.23543,-1.49044,-1.51752,-1.32339,-1.22717,-1.32339,-1.23686,-1.22008,-1.16276,-1.22008,-1.51752,-1.32339,-1.22717,-1.32339]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176118 | electron energy -74.339169 + phonon energy 0.163051 | electron momentum kIdx = 2
+	Nq(0) = 16,	Nq(1) = 0.108474,	Nq(2) = 0.16181,	Nq(3) = 0.108474,	Nq(4) = 0.111435,	Nq(5) = 0.173587,	Nq(6) = 0.225258,	Nq(7) = 0.173587,	Nq(8) = 0.163026,	Nq(9) = 0.224564,	Nq(10) = 0.270638,	Nq(11) = 0.224564,	Nq(12) = 0.111435,	Nq(13) = 0.173587,	Nq(14) = 0.225258,	Nq(15) = 0.173587,	Sq(0) = 6.29905e-20,	Sq(1) = 0.424288,	Sq(2) = 2.04987,	Sq(3) = 0.424288,	Sq(4) = 0.55363,	Sq(5) = 0.753486,	Sq(6) = 1.09486,	Sq(7) = 0.753486,	Sq(8) = 0.600668,	Sq(9) = 0.865473,	Sq(10) = 1.82974,	Sq(11) = 0.865473,	Sq(12) = 0.55363,	Sq(13) = 0.753486,	Sq(14) = 1.09486,	Sq(15) = 0.753486,	N(0) = 1.8216,	N(1) = 1.68185,	N(2) = 1.00792,	N(3) = 1.68185,	N(4) = 1.68099,	N(5) = 1,	N(6) = 0.319013,	N(7) = 1,	N(8) = 0.992084,	N(9) = 0.31815,	N(10) = 0.178395,	N(11) = 0.31815,	N(12) = 1.68099,	N(13) = 1,	N(14) = 0.319013,	N(15) = 1,	Delta[s](0) = 0.119061,	Delta[s](1) = 0.102892,	Delta[s](2) = 0.0818235,	Delta[s](3) = 0.102892,	Delta[s](4) = 0.103106,	Delta[s](5) = 0.0850347,	Delta[s](6) = 0.0636793,	Delta[s](7) = 0.0850347,	Delta[s](8) = 0.0814971,	Delta[s](9) = 0.0628398,	Delta[s](10) = 0.0270854,	Delta[s](11) = 0.0628398,	Delta[s](12) = 0.103106,	Delta[s](13) = 0.0850347,	Delta[s](14) = 0.0636793,	Delta[s](15) = 0.0850347,	Delta[d](0) = 1.45282,	Delta[d](1) = 1.08893,	Delta[d](2) = 0.88015,	Delta[d](3) = 1.08893,	Delta[d](4) = 1.01748,	Delta[d](5) = 0.795791,	Delta[d](6) = 0.580885,	Delta[d](7) = 0.795791,	Delta[d](8) = 0.79697,	Delta[d](9) = 0.563081,	Delta[d](10) = 0.235645,	Delta[d](11) = 0.563081,	Delta[d](12) = 1.01748,	Delta[d](13) = 0.795791,	Delta[d](14) = 0.580885,	Delta[d](15) = 0.795791,	Delta[s+](0) = 1.57174,	Delta[s+](1) = 1.25866,	Delta[s+](2) = 0.88015,	Delta[s+](3) = 1.25866,	Delta[s+](4) = 1.19768,	Delta[s+](5) = 0.828553,	Delta[s+](6) = 0.468229,	Delta[s+](7) = 0.828553,	Delta[s+](8) = 0.79697,	Delta[s+](9) = 0.452778,	Delta[s+](10) = 0.170234,	Delta[s+](11) = 0.452778,	Delta[s+](12) = 1.19768,	Delta[s+](13) = 0.828553,	Delta[s+](14) = 0.468229,	Delta[s+](15) = 0.828553
+The 70-th iteration is completed.	|| time cost : 0h 5m 25.583s
+********************************************************************************************************************
+Start the 71 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907903, 0.907415)
+	                                           effective interaction Vq = [-4.09981, -1.4904,-1.23541, -1.4904,-1.51748,-1.32336,-1.22713,-1.32336,-1.23683,-1.22004,-1.16273,-1.22004,-1.51748,-1.32336,-1.22713,-1.32336]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176119 | electron energy -74.339142 + phonon energy 0.163023 | electron momentum kIdx = 2
+The 71-th iteration is completed.	|| time cost : 0h 0m 29.792s
+********************************************************************************************************************
+Start the 72 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907906, 0.907418)
+	                                           effective interaction Vq = [-4.09981,-1.49037,-1.23538,-1.49037,-1.51745,-1.32333, -1.2271,-1.32333,-1.23681,-1.22001, -1.1627,-1.22001,-1.51745,-1.32333, -1.2271,-1.32333]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176120 | electron energy -74.339118 + phonon energy 0.162998 | electron momentum kIdx = 2
+The 72-th iteration is completed.	|| time cost : 0h 0m 29.66s
+********************************************************************************************************************
+Start the 73 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907908, 0.907421)
+	                                           effective interaction Vq = [-4.09981,-1.49034,-1.23536,-1.49034,-1.51741, -1.3233,-1.22708, -1.3233,-1.23679,-1.21999,-1.16267,-1.21999,-1.51741, -1.3233,-1.22708, -1.3233]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176120 | electron energy -74.339096 + phonon energy 0.162976 | electron momentum kIdx = 2
+The 73-th iteration is completed.	|| time cost : 0h 0m 29.658s
+********************************************************************************************************************
+Start the 74 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907911, 0.907424)
+	                                           effective interaction Vq = [-4.09981,-1.49032,-1.23535,-1.49032,-1.51739,-1.32328,-1.22705,-1.32328,-1.23677,-1.21996,-1.16265,-1.21996,-1.51739,-1.32328,-1.22705,-1.32328]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176121 | electron energy -74.339077 + phonon energy 0.162956 | electron momentum kIdx = 2
+The 74-th iteration is completed.	|| time cost : 0h 0m 29.643s
+********************************************************************************************************************
+Start the 75 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907913, 0.907426)
+	                                           effective interaction Vq = [-4.09981,-1.49029,-1.23533,-1.49029,-1.51736,-1.32326,-1.22703,-1.32326,-1.23676,-1.21994,-1.16263,-1.21994,-1.51736,-1.32326,-1.22703,-1.32326]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176121 | electron energy -74.339060 + phonon energy 0.162939 | electron momentum kIdx = 2
+The 75-th iteration is completed.	|| time cost : 0h 0m 29.653s
+********************************************************************************************************************
+Start the 76 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907915, 0.907428)
+	                                           effective interaction Vq = [-4.09981,-1.49027,-1.23531,-1.49027,-1.51734,-1.32324,-1.22701,-1.32324,-1.23674,-1.21992,-1.16261,-1.21992,-1.51734,-1.32324,-1.22701,-1.32324]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176121 | electron energy -74.339044 + phonon energy 0.162923 | electron momentum kIdx = 2
+The 76-th iteration is completed.	|| time cost : 0h 0m 29.633s
+********************************************************************************************************************
+Start the 77 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907917, 0.90743)
+	                                           effective interaction Vq = [-4.09981,-1.49025, -1.2353,-1.49025,-1.51732,-1.32322,-1.22699,-1.32322,-1.23673, -1.2199,-1.16259, -1.2199,-1.51732,-1.32322,-1.22699,-1.32322]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176122 | electron energy -74.339030 + phonon energy 0.162908 | electron momentum kIdx = 2
+The 77-th iteration is completed.	|| time cost : 0h 0m 29.524s
+********************************************************************************************************************
+Start the 78 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907918, 0.907431)
+	                                           effective interaction Vq = [-4.09981,-1.49024,-1.23529,-1.49024, -1.5173,-1.32321,-1.22697,-1.32321,-1.23672,-1.21989,-1.16257,-1.21989, -1.5173,-1.32321,-1.22697,-1.32321]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176122 | electron energy -74.339017 + phonon energy 0.162895 | electron momentum kIdx = 2
+The 78-th iteration is completed.	|| time cost : 0h 0m 29.543s
+********************************************************************************************************************
+Start the 79 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.90792, 0.907433)
+	                                           effective interaction Vq = [-4.09981,-1.49022,-1.23528,-1.49022,-1.51729, -1.3232,-1.22696, -1.3232, -1.2367,-1.21987,-1.16256,-1.21987,-1.51729, -1.3232,-1.22696, -1.3232]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176122 | electron energy -74.339006 + phonon energy 0.162884 | electron momentum kIdx = 2
+The 79-th iteration is completed.	|| time cost : 0h 0m 29.526s
+********************************************************************************************************************
+Start the 80 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907921, 0.907434)
+	                                           effective interaction Vq = [-4.09982,-1.49021,-1.23527,-1.49021,-1.51727,-1.32318,-1.22695,-1.32318, -1.2367,-1.21986,-1.16255,-1.21986,-1.51727,-1.32318,-1.22695,-1.32318]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176122 | electron energy -74.338995 + phonon energy 0.162873 | electron momentum kIdx = 2
+	Nq(0) = 16,	Nq(1) = 0.108463,	Nq(2) = 0.161798,	Nq(3) = 0.108463,	Nq(4) = 0.111423,	Nq(5) = 0.173573,	Nq(6) = 0.225241,	Nq(7) = 0.173573,	Nq(8) = 0.163014,	Nq(9) = 0.224547,	Nq(10) = 0.27062,	Nq(11) = 0.224547,	Nq(12) = 0.111423,	Nq(13) = 0.173573,	Nq(14) = 0.225241,	Nq(15) = 0.173573,	Sq(0) = -7.01082e-19,	Sq(1) = 0.424291,	Sq(2) = 2.04991,	Sq(3) = 0.424291,	Sq(4) = 0.553632,	Sq(5) = 0.753486,	Sq(6) = 1.09489,	Sq(7) = 0.753486,	Sq(8) = 0.600673,	Sq(9) = 0.865486,	Sq(10) = 1.8298,	Sq(11) = 0.865486,	Sq(12) = 0.553632,	Sq(13) = 0.753486,	Sq(14) = 1.09489,	Sq(15) = 0.753486,	N(0) = 1.82159,	N(1) = 1.68182,	N(2) = 1.00791,	N(3) = 1.68182,	N(4) = 1.68096,	N(5) = 1,	N(6) = 0.319043,	N(7) = 1,	N(8) = 0.992086,	N(9) = 0.31818,	N(10) = 0.178412,	N(11) = 0.31818,	N(12) = 1.68096,	N(13) = 1,	N(14) = 0.319043,	N(15) = 1,	Delta[s](0) = 0.119056,	Delta[s](1) = 0.102886,	Delta[s](2) = 0.0818172,	Delta[s](3) = 0.102886,	Delta[s](4) = 0.103101,	Delta[s](5) = 0.0850282,	Delta[s](6) = 0.0636721,	Delta[s](7) = 0.0850282,	Delta[s](8) = 0.0814908,	Delta[s](9) = 0.0628326,	Delta[s](10) = 0.0270783,	Delta[s](11) = 0.0628326,	Delta[s](12) = 0.103101,	Delta[s](13) = 0.0850282,	Delta[s](14) = 0.0636721,	Delta[s](15) = 0.0850282,	Delta[d](0) = 1.45329,	Delta[d](1) = 1.08928,	Delta[d](2) = 0.88043,	Delta[d](3) = 1.08928,	Delta[d](4) = 1.01781,	Delta[d](5) = 0.796043,	Delta[d](6) = 0.581063,	Delta[d](7) = 0.796043,	Delta[d](8) = 0.797217,	Delta[d](9) = 0.56325,	Delta[d](10) = 0.235715,	Delta[d](11) = 0.56325,	Delta[d](12) = 1.01781,	Delta[d](13) = 0.796043,	Delta[d](14) = 0.581063,	Delta[d](15) = 0.796043,	Delta[s+](0) = 1.57222,	Delta[s+](1) = 1.25905,	Delta[s+](2) = 0.88043,	Delta[s+](3) = 1.25905,	Delta[s+](4) = 1.19805,	Delta[s+](5) = 0.828815,	Delta[s+](6) = 0.468382,	Delta[s+](7) = 0.828815,	Delta[s+](8) = 0.797217,	Delta[s+](9) = 0.452922,	Delta[s+](10) = 0.17029,	Delta[s+](11) = 0.452922,	Delta[s+](12) = 1.19805,	Delta[s+](13) = 0.828815,	Delta[s+](14) = 0.468382,	Delta[s+](15) = 0.828815
+The 80-th iteration is completed.	|| time cost : 0h 5m 24.375s
+********************************************************************************************************************
+Start the 81 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907922, 0.907435)
+	                                           effective interaction Vq = [-4.09982, -1.4902,-1.23526, -1.4902,-1.51726,-1.32317,-1.22694,-1.32317,-1.23669,-1.21985,-1.16253,-1.21985,-1.51726,-1.32317,-1.22694,-1.32317]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176122 | electron energy -74.338986 + phonon energy 0.162864 | electron momentum kIdx = 2
+The 81-th iteration is completed.	|| time cost : 0h 0m 29.675s
+********************************************************************************************************************
+Start the 82 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907923, 0.907436)
+	                                           effective interaction Vq = [-4.09982,-1.49018,-1.23525,-1.49018,-1.51725,-1.32316,-1.22693,-1.32316,-1.23668,-1.21984,-1.16252,-1.21984,-1.51725,-1.32316,-1.22693,-1.32316]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176122 | electron energy -74.338978 + phonon energy 0.162856 | electron momentum kIdx = 2
+The 82-th iteration is completed.	|| time cost : 0h 0m 29.67s
+********************************************************************************************************************
+Start the 83 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907924, 0.907437)
+	                                           effective interaction Vq = [-4.09982,-1.49017,-1.23525,-1.49017,-1.51724,-1.32315,-1.22692,-1.32315,-1.23667,-1.21983,-1.16251,-1.21983,-1.51724,-1.32315,-1.22692,-1.32315]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176122 | electron energy -74.338970 + phonon energy 0.162848 | electron momentum kIdx = 2
+The 83-th iteration is completed.	|| time cost : 0h 0m 29.623s
+********************************************************************************************************************
+Start the 84 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907925, 0.907438)
+	                                           effective interaction Vq = [-4.09982,-1.49017,-1.23524,-1.49017,-1.51723,-1.32315,-1.22691,-1.32315,-1.23667,-1.21982,-1.16251,-1.21982,-1.51723,-1.32315,-1.22691,-1.32315]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176122 | electron energy -74.338964 + phonon energy 0.162841 | electron momentum kIdx = 2
+The 84-th iteration is completed.	|| time cost : 0h 0m 29.601s
+********************************************************************************************************************
+Start the 85 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907925, 0.907439)
+	                                           effective interaction Vq = [-4.09982,-1.49016,-1.23523,-1.49016,-1.51722,-1.32314, -1.2269,-1.32314,-1.23666,-1.21982, -1.1625,-1.21982,-1.51722,-1.32314, -1.2269,-1.32314]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176122 | electron energy -74.338958 + phonon energy 0.162835 | electron momentum kIdx = 2
+The 85-th iteration is completed.	|| time cost : 0h 0m 29.561s
+********************************************************************************************************************
+Start the 86 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907926, 0.907439)
+	                                           effective interaction Vq = [-4.09982,-1.49015,-1.23523,-1.49015,-1.51721,-1.32313,-1.22689,-1.32313,-1.23666,-1.21981,-1.16249,-1.21981,-1.51721,-1.32313,-1.22689,-1.32313]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338952 + phonon energy 0.162830 | electron momentum kIdx = 2
+The 86-th iteration is completed.	|| time cost : 0h 0m 29.58s
+********************************************************************************************************************
+Start the 87 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907927, 0.90744)
+	                                           effective interaction Vq = [-4.09982,-1.49014,-1.23523,-1.49014, -1.5172,-1.32313,-1.22689,-1.32313,-1.23665, -1.2198,-1.16249, -1.2198, -1.5172,-1.32313,-1.22689,-1.32313]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338947 + phonon energy 0.162825 | electron momentum kIdx = 2
+The 87-th iteration is completed.	|| time cost : 0h 0m 29.491s
+********************************************************************************************************************
+Start the 88 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907927, 0.90744)
+	                                           effective interaction Vq = [-4.09982,-1.49014,-1.23522,-1.49014, -1.5172,-1.32312,-1.22688,-1.32312,-1.23665, -1.2198,-1.16248, -1.2198, -1.5172,-1.32312,-1.22688,-1.32312]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338943 + phonon energy 0.162821 | electron momentum kIdx = 2
+The 88-th iteration is completed.	|| time cost : 0h 0m 29.529s
+********************************************************************************************************************
+Start the 89 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907928, 0.907441)
+	                                           effective interaction Vq = [-4.09982,-1.49013,-1.23522,-1.49013,-1.51719,-1.32312,-1.22688,-1.32312,-1.23664,-1.21979,-1.16248,-1.21979,-1.51719,-1.32312,-1.22688,-1.32312]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338939 + phonon energy 0.162817 | electron momentum kIdx = 2
+The 89-th iteration is completed.	|| time cost : 0h 0m 29.592s
+********************************************************************************************************************
+Start the 90 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907928, 0.907441)
+	                                           effective interaction Vq = [-4.09982,-1.49013,-1.23521,-1.49013,-1.51719,-1.32311,-1.22687,-1.32311,-1.23664,-1.21979,-1.16247,-1.21979,-1.51719,-1.32311,-1.22687,-1.32311]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338936 + phonon energy 0.162813 | electron momentum kIdx = 2
+	Nq(0) = 16,	Nq(1) = 0.10846,	Nq(2) = 0.161794,	Nq(3) = 0.10846,	Nq(4) = 0.11142,	Nq(5) = 0.173568,	Nq(6) = 0.225236,	Nq(7) = 0.173568,	Nq(8) = 0.16301,	Nq(9) = 0.224542,	Nq(10) = 0.270614,	Nq(11) = 0.224542,	Nq(12) = 0.11142,	Nq(13) = 0.173568,	Nq(14) = 0.225236,	Nq(15) = 0.173568,	Sq(0) = -3.74205e-19,	Sq(1) = 0.424292,	Sq(2) = 2.04992,	Sq(3) = 0.424292,	Sq(4) = 0.553633,	Sq(5) = 0.753486,	Sq(6) = 1.0949,	Sq(7) = 0.753486,	Sq(8) = 0.600675,	Sq(9) = 0.865491,	Sq(10) = 1.82982,	Sq(11) = 0.865491,	Sq(12) = 0.553633,	Sq(13) = 0.753486,	Sq(14) = 1.0949,	Sq(15) = 0.753486,	N(0) = 1.82158,	N(1) = 1.68181,	N(2) = 1.00791,	N(3) = 1.68181,	N(4) = 1.68095,	N(5) = 1,	N(6) = 0.319054,	N(7) = 1,	N(8) = 0.992086,	N(9) = 0.31819,	N(10) = 0.178417,	N(11) = 0.31819,	N(12) = 1.68095,	N(13) = 1,	N(14) = 0.319054,	N(15) = 1,	Delta[s](0) = 0.119054,	Delta[s](1) = 0.102884,	Delta[s](2) = 0.0818151,	Delta[s](3) = 0.102884,	Delta[s](4) = 0.103099,	Delta[s](5) = 0.0850261,	Delta[s](6) = 0.0636696,	Delta[s](7) = 0.0850261,	Delta[s](8) = 0.0814886,	Delta[s](9) = 0.0628301,	Delta[s](10) = 0.0270759,	Delta[s](11) = 0.0628301,	Delta[s](12) = 0.103099,	Delta[s](13) = 0.0850261,	Delta[s](14) = 0.0636696,	Delta[s](15) = 0.0850261,	Delta[d](0) = 1.45346,	Delta[d](1) = 1.08941,	Delta[d](2) = 0.880533,	Delta[d](3) = 1.08941,	Delta[d](4) = 1.01793,	Delta[d](5) = 0.796136,	Delta[d](6) = 0.581129,	Delta[d](7) = 0.796136,	Delta[d](8) = 0.797309,	Delta[d](9) = 0.563313,	Delta[d](10) = 0.235741,	Delta[d](11) = 0.563313,	Delta[d](12) = 1.01793,	Delta[d](13) = 0.796136,	Delta[d](14) = 0.581129,	Delta[d](15) = 0.796136,	Delta[s+](0) = 1.5724,	Delta[s+](1) = 1.2592,	Delta[s+](2) = 0.880533,	Delta[s+](3) = 1.2592,	Delta[s+](4) = 1.19819,	Delta[s+](5) = 0.828911,	Delta[s+](6) = 0.468438,	Delta[s+](7) = 0.828911,	Delta[s+](8) = 0.797309,	Delta[s+](9) = 0.452975,	Delta[s+](10) = 0.170311,	Delta[s+](11) = 0.452975,	Delta[s+](12) = 1.19819,	Delta[s+](13) = 0.828911,	Delta[s+](14) = 0.468438,	Delta[s+](15) = 0.828911
+The 90-th iteration is completed.	|| time cost : 0h 5m 26.934s
+********************************************************************************************************************
+Start the 91 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907929, 0.907442)
+	                                           effective interaction Vq = [-4.09982,-1.49013,-1.23521,-1.49013,-1.51718,-1.32311,-1.22687,-1.32311,-1.23664,-1.21978,-1.16247,-1.21978,-1.51718,-1.32311,-1.22687,-1.32311]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338933 + phonon energy 0.162810 | electron momentum kIdx = 2
+The 91-th iteration is completed.	|| time cost : 0h 0m 29.698s
+********************************************************************************************************************
+Start the 92 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907929, 0.907442)
+	                                           effective interaction Vq = [-4.09982,-1.49012,-1.23521,-1.49012,-1.51718,-1.32311,-1.22687,-1.32311,-1.23663,-1.21978,-1.16246,-1.21978,-1.51718,-1.32311,-1.22687,-1.32311]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338930 + phonon energy 0.162807 | electron momentum kIdx = 2
+The 92-th iteration is completed.	|| time cost : 0h 0m 29.669s
+********************************************************************************************************************
+Start the 93 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907929, 0.907442)
+	                                           effective interaction Vq = [-4.09982,-1.49012,-1.23521,-1.49012,-1.51718, -1.3231,-1.22686, -1.3231,-1.23663,-1.21978,-1.16246,-1.21978,-1.51718, -1.3231,-1.22686, -1.3231]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338927 + phonon energy 0.162805 | electron momentum kIdx = 2
+The 93-th iteration is completed.	|| time cost : 0h 0m 29.601s
+********************************************************************************************************************
+Start the 94 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907929, 0.907443)
+	                                           effective interaction Vq = [-4.09982,-1.49012, -1.2352,-1.49012,-1.51717, -1.3231,-1.22686, -1.3231,-1.23663,-1.21978,-1.16246,-1.21978,-1.51717, -1.3231,-1.22686, -1.3231]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338925 + phonon energy 0.162802 | electron momentum kIdx = 2
+The 94-th iteration is completed.	|| time cost : 0h 0m 29.67s
+********************************************************************************************************************
+Start the 95 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.90793, 0.907443)
+	                                           effective interaction Vq = [-4.09982,-1.49011, -1.2352,-1.49011,-1.51717, -1.3231,-1.22686, -1.3231,-1.23663,-1.21977,-1.16246,-1.21977,-1.51717, -1.3231,-1.22686, -1.3231]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338923 + phonon energy 0.162800 | electron momentum kIdx = 2
+The 95-th iteration is completed.	|| time cost : 0h 0m 29.584s
+********************************************************************************************************************
+Start the 96 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.90793, 0.907443)
+	                                           effective interaction Vq = [-4.09982,-1.49011, -1.2352,-1.49011,-1.51717,-1.32309,-1.22685,-1.32309,-1.23663,-1.21977,-1.16245,-1.21977,-1.51717,-1.32309,-1.22685,-1.32309]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338921 + phonon energy 0.162798 | electron momentum kIdx = 2
+The 96-th iteration is completed.	|| time cost : 0h 0m 29.799s
+********************************************************************************************************************
+Start the 97 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.90793, 0.907443)
+	                                           effective interaction Vq = [-4.09982,-1.49011, -1.2352,-1.49011,-1.51716,-1.32309,-1.22685,-1.32309,-1.23662,-1.21977,-1.16245,-1.21977,-1.51716,-1.32309,-1.22685,-1.32309]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338919 + phonon energy 0.162797 | electron momentum kIdx = 2
+The 97-th iteration is completed.	|| time cost : 0h 0m 29.568s
+********************************************************************************************************************
+Start the 98 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.90793, 0.907444)
+	                                           effective interaction Vq = [-4.09982,-1.49011, -1.2352,-1.49011,-1.51716,-1.32309,-1.22685,-1.32309,-1.23662,-1.21977,-1.16245,-1.21977,-1.51716,-1.32309,-1.22685,-1.32309]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338918 + phonon energy 0.162795 | electron momentum kIdx = 2
+The 98-th iteration is completed.	|| time cost : 0h 0m 29.695s
+********************************************************************************************************************
+Start the 99 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907931, 0.907444)
+	                                           effective interaction Vq = [-4.09982, -1.4901, -1.2352, -1.4901,-1.51716,-1.32309,-1.22685,-1.32309,-1.23662,-1.21977,-1.16245,-1.21977,-1.51716,-1.32309,-1.22685,-1.32309]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338917 + phonon energy 0.162794 | electron momentum kIdx = 2
+The 99-th iteration is completed.	|| time cost : 0h 0m 29.613s
+********************************************************************************************************************
+Start the 100 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907931, 0.907444)
+	                                           effective interaction Vq = [-4.09982, -1.4901, -1.2352, -1.4901,-1.51716,-1.32309,-1.22685,-1.32309,-1.23662,-1.21976,-1.16245,-1.21976,-1.51716,-1.32309,-1.22685,-1.32309]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338915 + phonon energy 0.162793 | electron momentum kIdx = 2
+	Nq(0) = 16,	Nq(1) = 0.108458,	Nq(2) = 0.161793,	Nq(3) = 0.108458,	Nq(4) = 0.111418,	Nq(5) = 0.173567,	Nq(6) = 0.225234,	Nq(7) = 0.173567,	Nq(8) = 0.163009,	Nq(9) = 0.22454,	Nq(10) = 0.270611,	Nq(11) = 0.22454,	Nq(12) = 0.111418,	Nq(13) = 0.173567,	Nq(14) = 0.225234,	Nq(15) = 0.173567,	Sq(0) = -7.84191e-19,	Sq(1) = 0.424293,	Sq(2) = 2.04992,	Sq(3) = 0.424293,	Sq(4) = 0.553633,	Sq(5) = 0.753486,	Sq(6) = 1.0949,	Sq(7) = 0.753486,	Sq(8) = 0.600676,	Sq(9) = 0.865492,	Sq(10) = 1.82983,	Sq(11) = 0.865492,	Sq(12) = 0.553633,	Sq(13) = 0.753486,	Sq(14) = 1.0949,	Sq(15) = 0.753486,	N(0) = 1.82158,	N(1) = 1.68181,	N(2) = 1.00791,	N(3) = 1.68181,	N(4) = 1.68094,	N(5) = 1,	N(6) = 0.319057,	N(7) = 1,	N(8) = 0.992086,	N(9) = 0.318194,	N(10) = 0.178419,	N(11) = 0.318194,	N(12) = 1.68094,	N(13) = 1,	N(14) = 0.319057,	N(15) = 1,	Delta[s](0) = 0.119054,	Delta[s](1) = 0.102883,	Delta[s](2) = 0.0818143,	Delta[s](3) = 0.102883,	Delta[s](4) = 0.103098,	Delta[s](5) = 0.0850253,	Delta[s](6) = 0.0636687,	Delta[s](7) = 0.0850253,	Delta[s](8) = 0.0814879,	Delta[s](9) = 0.0628293,	Delta[s](10) = 0.0270751,	Delta[s](11) = 0.0628293,	Delta[s](12) = 0.103098,	Delta[s](13) = 0.0850253,	Delta[s](14) = 0.0636687,	Delta[s](15) = 0.0850253,	Delta[d](0) = 1.45352,	Delta[d](1) = 1.08946,	Delta[d](2) = 0.88057,	Delta[d](3) = 1.08946,	Delta[d](4) = 1.01797,	Delta[d](5) = 0.796171,	Delta[d](6) = 0.581154,	Delta[d](7) = 0.796171,	Delta[d](8) = 0.797342,	Delta[d](9) = 0.563336,	Delta[d](10) = 0.23575,	Delta[d](11) = 0.563336,	Delta[d](12) = 1.01797,	Delta[d](13) = 0.796171,	Delta[d](14) = 0.581154,	Delta[d](15) = 0.796171,	Delta[s+](0) = 1.57247,	Delta[s+](1) = 1.25925,	Delta[s+](2) = 0.88057,	Delta[s+](3) = 1.25925,	Delta[s+](4) = 1.19824,	Delta[s+](5) = 0.828946,	Delta[s+](6) = 0.468458,	Delta[s+](7) = 0.828946,	Delta[s+](8) = 0.797342,	Delta[s+](9) = 0.452994,	Delta[s+](10) = 0.170318,	Delta[s+](11) = 0.452994,	Delta[s+](12) = 1.19824,	Delta[s+](13) = 0.828946,	Delta[s+](14) = 0.468458,	Delta[s+](15) = 0.828946
+The 100-th iteration is completed.	|| time cost : 0h 5m 31.21s
+********************************************************************************************************************
+Start the 101 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907931, 0.907444)
+	                                           effective interaction Vq = [-4.09982, -1.4901,-1.23519, -1.4901,-1.51716,-1.32309,-1.22685,-1.32309,-1.23662,-1.21976,-1.16244,-1.21976,-1.51716,-1.32309,-1.22685,-1.32309]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338914 + phonon energy 0.162792 | electron momentum kIdx = 2
+The 101-th iteration is completed.	|| time cost : 0h 0m 29.457s
+********************************************************************************************************************
+Start the 102 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907931, 0.907444)
+	                                           effective interaction Vq = [-4.09982, -1.4901,-1.23519, -1.4901,-1.51716,-1.32309,-1.22684,-1.32309,-1.23662,-1.21976,-1.16244,-1.21976,-1.51716,-1.32309,-1.22684,-1.32309]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338913 + phonon energy 0.162791 | electron momentum kIdx = 2
+The 102-th iteration is completed.	|| time cost : 0h 0m 29.563s
+********************************************************************************************************************
+Start the 103 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907931, 0.907444)
+	                                           effective interaction Vq = [-4.09982, -1.4901,-1.23519, -1.4901,-1.51715,-1.32308,-1.22684,-1.32308,-1.23662,-1.21976,-1.16244,-1.21976,-1.51715,-1.32308,-1.22684,-1.32308]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338912 + phonon energy 0.162790 | electron momentum kIdx = 2
+The 103-th iteration is completed.	|| time cost : 0h 0m 29.548s
+********************************************************************************************************************
+Start the 104 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907931, 0.907444)
+	                                           effective interaction Vq = [-4.09982, -1.4901,-1.23519, -1.4901,-1.51715,-1.32308,-1.22684,-1.32308,-1.23662,-1.21976,-1.16244,-1.21976,-1.51715,-1.32308,-1.22684,-1.32308]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338912 + phonon energy 0.162789 | electron momentum kIdx = 2
+The 104-th iteration is completed.	|| time cost : 0h 0m 29.714s
+********************************************************************************************************************
+Start the 105 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907931, 0.907444)
+	                                           effective interaction Vq = [-4.09982, -1.4901,-1.23519, -1.4901,-1.51715,-1.32308,-1.22684,-1.32308,-1.23662,-1.21976,-1.16244,-1.21976,-1.51715,-1.32308,-1.22684,-1.32308]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338911 + phonon energy 0.162788 | electron momentum kIdx = 2
+The 105-th iteration is completed.	|| time cost : 0h 0m 29.619s
+********************************************************************************************************************
+Start the 106 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907931, 0.907445)
+	                                           effective interaction Vq = [-4.09982, -1.4901,-1.23519, -1.4901,-1.51715,-1.32308,-1.22684,-1.32308,-1.23662,-1.21976,-1.16244,-1.21976,-1.51715,-1.32308,-1.22684,-1.32308]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338910 + phonon energy 0.162788 | electron momentum kIdx = 2
+The 106-th iteration is completed.	|| time cost : 0h 0m 29.615s
+********************************************************************************************************************
+Start the 107 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907931, 0.907445)
+	                                           effective interaction Vq = [-4.09982, -1.4901,-1.23519, -1.4901,-1.51715,-1.32308,-1.22684,-1.32308,-1.23662,-1.21976,-1.16244,-1.21976,-1.51715,-1.32308,-1.22684,-1.32308]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338910 + phonon energy 0.162787 | electron momentum kIdx = 2
+The 107-th iteration is completed.	|| time cost : 0h 0m 29.605s
+********************************************************************************************************************
+Start the 108 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907931, 0.907445)
+	                                           effective interaction Vq = [-4.09982, -1.4901,-1.23519, -1.4901,-1.51715,-1.32308,-1.22684,-1.32308,-1.23662,-1.21976,-1.16244,-1.21976,-1.51715,-1.32308,-1.22684,-1.32308]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338909 + phonon energy 0.162787 | electron momentum kIdx = 2
+The 108-th iteration is completed.	|| time cost : 0h 0m 29.65s
+********************************************************************************************************************
+Start the 109 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907931, 0.907445)
+	                                           effective interaction Vq = [-4.09982,-1.49009,-1.23519,-1.49009,-1.51715,-1.32308,-1.22684,-1.32308,-1.23661,-1.21976,-1.16244,-1.21976,-1.51715,-1.32308,-1.22684,-1.32308]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338909 + phonon energy 0.162786 | electron momentum kIdx = 2
+The 109-th iteration is completed.	|| time cost : 0h 0m 29.475s
+********************************************************************************************************************
+Start the 110 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907932, 0.907445)
+	                                           effective interaction Vq = [-4.09982,-1.49009,-1.23519,-1.49009,-1.51715,-1.32308,-1.22684,-1.32308,-1.23661,-1.21976,-1.16244,-1.21976,-1.51715,-1.32308,-1.22684,-1.32308]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338908 + phonon energy 0.162786 | electron momentum kIdx = 2
+	Nq(0) = 16,	Nq(1) = 0.108458,	Nq(2) = 0.161792,	Nq(3) = 0.108458,	Nq(4) = 0.111418,	Nq(5) = 0.173566,	Nq(6) = 0.225233,	Nq(7) = 0.173566,	Nq(8) = 0.163008,	Nq(9) = 0.224539,	Nq(10) = 0.270611,	Nq(11) = 0.224539,	Nq(12) = 0.111418,	Nq(13) = 0.173566,	Nq(14) = 0.225233,	Nq(15) = 0.173566,	Sq(0) = 5.88625e-19,	Sq(1) = 0.424293,	Sq(2) = 2.04993,	Sq(3) = 0.424293,	Sq(4) = 0.553633,	Sq(5) = 0.753486,	Sq(6) = 1.0949,	Sq(7) = 0.753486,	Sq(8) = 0.600676,	Sq(9) = 0.865493,	Sq(10) = 1.82983,	Sq(11) = 0.865493,	Sq(12) = 0.553633,	Sq(13) = 0.753486,	Sq(14) = 1.0949,	Sq(15) = 0.753486,	N(0) = 1.82158,	N(1) = 1.68181,	N(2) = 1.00791,	N(3) = 1.68181,	N(4) = 1.68094,	N(5) = 1,	N(6) = 0.319058,	N(7) = 1,	N(8) = 0.992086,	N(9) = 0.318195,	N(10) = 0.17842,	N(11) = 0.318195,	N(12) = 1.68094,	N(13) = 1,	N(14) = 0.319058,	N(15) = 1,	Delta[s](0) = 0.119053,	Delta[s](1) = 0.102883,	Delta[s](2) = 0.0818141,	Delta[s](3) = 0.102883,	Delta[s](4) = 0.103098,	Delta[s](5) = 0.0850251,	Delta[s](6) = 0.0636685,	Delta[s](7) = 0.0850251,	Delta[s](8) = 0.0814877,	Delta[s](9) = 0.062829,	Delta[s](10) = 0.0270749,	Delta[s](11) = 0.062829,	Delta[s](12) = 0.103098,	Delta[s](13) = 0.0850251,	Delta[s](14) = 0.0636685,	Delta[s](15) = 0.0850251,	Delta[d](0) = 1.45354,	Delta[d](1) = 1.08948,	Delta[d](2) = 0.880584,	Delta[d](3) = 1.08948,	Delta[d](4) = 1.01799,	Delta[d](5) = 0.796183,	Delta[d](6) = 0.581163,	Delta[d](7) = 0.796183,	Delta[d](8) = 0.797355,	Delta[d](9) = 0.563345,	Delta[d](10) = 0.235754,	Delta[d](11) = 0.563345,	Delta[d](12) = 1.01799,	Delta[d](13) = 0.796183,	Delta[d](14) = 0.581163,	Delta[d](15) = 0.796183,	Delta[s+](0) = 1.5725,	Delta[s+](1) = 1.25927,	Delta[s+](2) = 0.880584,	Delta[s+](3) = 1.25927,	Delta[s+](4) = 1.19826,	Delta[s+](5) = 0.828959,	Delta[s+](6) = 0.468466,	Delta[s+](7) = 0.828959,	Delta[s+](8) = 0.797355,	Delta[s+](9) = 0.453001,	Delta[s+](10) = 0.170321,	Delta[s+](11) = 0.453001,	Delta[s+](12) = 1.19826,	Delta[s+](13) = 0.828959,	Delta[s+](14) = 0.468466,	Delta[s+](15) = 0.828959
+The 110-th iteration is completed.	|| time cost : 0h 5m 27.09s
+********************************************************************************************************************
+Start the 111 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907932, 0.907445)
+	                                           effective interaction Vq = [-4.09982,-1.49009,-1.23519,-1.49009,-1.51715,-1.32308,-1.22684,-1.32308,-1.23661,-1.21975,-1.16244,-1.21975,-1.51715,-1.32308,-1.22684,-1.32308]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338908 + phonon energy 0.162785 | electron momentum kIdx = 2
+The 111-th iteration is completed.	|| time cost : 0h 0m 29.714s
+********************************************************************************************************************
+Start the 112 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907932, 0.907445)
+	                                           effective interaction Vq = [-4.09982,-1.49009,-1.23519,-1.49009,-1.51715,-1.32308,-1.22684,-1.32308,-1.23661,-1.21975,-1.16244,-1.21975,-1.51715,-1.32308,-1.22684,-1.32308]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338908 + phonon energy 0.162785 | electron momentum kIdx = 2
+The 112-th iteration is completed.	|| time cost : 0h 0m 29.643s
+********************************************************************************************************************
+Start the 113 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907932, 0.907445)
+	                                           effective interaction Vq = [-4.09982,-1.49009,-1.23519,-1.49009,-1.51715,-1.32308,-1.22684,-1.32308,-1.23661,-1.21975,-1.16244,-1.21975,-1.51715,-1.32308,-1.22684,-1.32308]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338908 + phonon energy 0.162785 | electron momentum kIdx = 2
+The 113-th iteration is completed.	|| time cost : 0h 0m 29.629s
+********************************************************************************************************************
+Start the 114 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907932, 0.907445)
+	                                           effective interaction Vq = [-4.09982,-1.49009,-1.23519,-1.49009,-1.51715,-1.32308,-1.22684,-1.32308,-1.23661,-1.21975,-1.16244,-1.21975,-1.51715,-1.32308,-1.22684,-1.32308]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338907 + phonon energy 0.162785 | electron momentum kIdx = 2
+The 114-th iteration is completed.	|| time cost : 0h 0m 29.602s
+********************************************************************************************************************
+Start the 115 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907932, 0.907445)
+	                                           effective interaction Vq = [-4.09982,-1.49009,-1.23519,-1.49009,-1.51715,-1.32308,-1.22684,-1.32308,-1.23661,-1.21975,-1.16244,-1.21975,-1.51715,-1.32308,-1.22684,-1.32308]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338907 + phonon energy 0.162784 | electron momentum kIdx = 2
+The 115-th iteration is completed.	|| time cost : 0h 0m 29.528s
+********************************************************************************************************************
+Start the 116 rounds of NGS-ED iteration
+	effective electronic model is modified as: kinetic energy (tx,ty)=(0.907932, 0.907445)
+	                                           effective interaction Vq = [-4.09982,-1.49009,-1.23519,-1.49009,-1.51715,-1.32308,-1.22684,-1.32308,-1.23661,-1.21975,-1.16244,-1.21975,-1.51715,-1.32308,-1.22684,-1.32308]
+	PARPACK diagonalization completed after 30 matrix-vector product operations.
+	iteration results: : total energy is -74.176123 | electron energy -74.338907 + phonon energy 0.162784 | electron momentum kIdx = 2
+	Nq(0) = 16,	Nq(1) = 0.108458,	Nq(2) = 0.161792,	Nq(3) = 0.108458,	Nq(4) = 0.111418,	Nq(5) = 0.173566,	Nq(6) = 0.225233,	Nq(7) = 0.173566,	Nq(8) = 0.163008,	Nq(9) = 0.224539,	Nq(10) = 0.270611,	Nq(11) = 0.224539,	Nq(12) = 0.111418,	Nq(13) = 0.173566,	Nq(14) = 0.225233,	Nq(15) = 0.173566,	Sq(0) = 1.96505e-18,	Sq(1) = 0.424293,	Sq(2) = 2.04993,	Sq(3) = 0.424293,	Sq(4) = 0.553633,	Sq(5) = 0.753486,	Sq(6) = 1.0949,	Sq(7) = 0.753486,	Sq(8) = 0.600676,	Sq(9) = 0.865493,	Sq(10) = 1.82984,	Sq(11) = 0.865493,	Sq(12) = 0.553633,	Sq(13) = 0.753486,	Sq(14) = 1.0949,	Sq(15) = 0.753486,	N(0) = 1.82158,	N(1) = 1.68181,	N(2) = 1.00791,	N(3) = 1.68181,	N(4) = 1.68094,	N(5) = 1,	N(6) = 0.319059,	N(7) = 1,	N(8) = 0.992086,	N(9) = 0.318195,	N(10) = 0.17842,	N(11) = 0.318195,	N(12) = 1.68094,	N(13) = 1,	N(14) = 0.319059,	N(15) = 1,	Delta[s](0) = 0.119053,	Delta[s](1) = 0.102883,	Delta[s](2) = 0.081814,	Delta[s](3) = 0.102883,	Delta[s](4) = 0.103098,	Delta[s](5) = 0.085025,	Delta[s](6) = 0.0636684,	Delta[s](7) = 0.085025,	Delta[s](8) = 0.0814876,	Delta[s](9) = 0.0628289,	Delta[s](10) = 0.0270748,	Delta[s](11) = 0.0628289,	Delta[s](12) = 0.103098,	Delta[s](13) = 0.085025,	Delta[s](14) = 0.0636684,	Delta[s](15) = 0.085025,	Delta[d](0) = 1.45355,	Delta[d](1) = 1.08948,	Delta[d](2) = 0.880588,	Delta[d](3) = 1.08948,	Delta[d](4) = 1.01799,	Delta[d](5) = 0.796186,	Delta[d](6) = 0.581165,	Delta[d](7) = 0.796186,	Delta[d](8) = 0.797358,	Delta[d](9) = 0.563347,	Delta[d](10) = 0.235755,	Delta[d](11) = 0.563347,	Delta[d](12) = 1.01799,	Delta[d](13) = 0.796186,	Delta[d](14) = 0.581165,	Delta[d](15) = 0.796186,	Delta[s+](0) = 1.5725,	Delta[s+](1) = 1.25928,	Delta[s+](2) = 0.880588,	Delta[s+](3) = 1.25928,	Delta[s+](4) = 1.19826,	Delta[s+](5) = 0.828962,	Delta[s+](6) = 0.468468,	Delta[s+](7) = 0.828962,	Delta[s+](8) = 0.797358,	Delta[s+](9) = 0.453003,	Delta[s+](10) = 0.170322,	Delta[s+](11) = 0.453003,	Delta[s+](12) = 1.19826,	Delta[s+](13) = 0.828962,	Delta[s+](14) = 0.468468,	Delta[s+](15) = 0.828962
+The 116-th iteration is completed.	|| time cost : 0h 5m 27.044s
+********************************************************************************************************************
+********************************************************************************************************************
+Ground state is obtained after 117 iterations. The current ground-state energy is -74.1761, in which electron energy is -74.3389 and phonon energy is 0.162784
+final variational state is: 
+	Gamma_x = [      1,1.15368, 1.1984,1.15368,1.16072,1.22861,1.28305,1.22861,1.20024,1.28049,1.32917,1.28049,1.16072,1.22861,1.28305,1.22861]
+	lambda_q = [  2.0248,0.409336,0.332279,0.409336,0.417732,0.358446,0.329814,0.358446,  0.3327,0.327725,0.310921,0.327725,0.417732,0.358446,0.329814,0.358446]
+********************************************************************************************************************
+o___o  ----------------------------------------
+| L |	Time since last clock: 0h 0m 0s
+A===A	Time since the beginning: 3h 39m 19.631s
+***********************************************
+
+
+Non-Gaussina ED ground state calculation is completed. The final ground-state energy is -74.1761
+********************************************************************************************************************
+o___o  ----------------------------------------
+| L |	Time since last clock: 0h 0m 0.005s
+A===A	Time since the beginning: 3h 39m 19.636s
+***********************************************
+
+
+
+********************************************************************************************************************
+All non-Gaussian ED ground state calculations have been completed. Exit now.
