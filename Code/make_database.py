@@ -13,7 +13,8 @@ accomplish.
     into the database
 3:  Put the filtered information into a dictionary to be create
     the database
-4:  Put the database into a cloud based engine that could handle
+4: Create figures decided by user input
+5:  Put the database into a cloud based engine that could handle
     it
 
 *** Also worth noting this program will run in about 18 seconds if
@@ -25,23 +26,12 @@ import shutil
 import data_funcs as df
 from options import *
 
-# # Rootdirectory
-# # rootdir = 'D:\\Documents\\Clemson\\2021-2022\\Research\\Senior_thesis_spring_2022\\All_data'
-# rootdir = 'D:\\Documents\\Clemson\\2021-2022\\Research\\Senior_thesis_spring_2022\\Code\\g-gpr_plane'
-
-# # Options
-# cmap = True
-# figs = False
-# upload = False
-
-
 # 1: Find the "NGSED" data and set current working directory
-print("Searching for \\All_data...", end='\n')
-# Figures
-# ColorMap
+print("Searching for Data...", end='\n')
 # df.find_and_set_directory()
 os.chdir(rootdir)
-print("\\All_data\n")
+print("Data Found\n")
+
 # 2: Filter the data into a helpful format
 # Filtering criteria 
 #   Must include the needed_files and the excluded directories are in blacklist_dir
@@ -68,9 +58,10 @@ for all_path in all_paths:
     data_list.append(df.make_dict_from_data(all_path))
 updated_data = df.get_ground_state(data_list)
 
-
+# 4: Making figures from the dictionaries
 # Getting Necessary values for figure creation
 if cmap or figs:
+    # 4.5 Making Color Map
     c = 0
     g_key = 'g'
     tpr_key = 't\''
