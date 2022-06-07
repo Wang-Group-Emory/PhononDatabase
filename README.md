@@ -4,6 +4,7 @@ Author: Matt Myers (Clemson University)
 ------
 Update Date: June 6, 2022
 
+---
 ## Function of the codes:
 This program is split into three main files:
 
@@ -13,6 +14,7 @@ This program is split into three main files:
 
 - `data_funcs.py` is the program housing all of the functions utilized in the main program. The combination of `options.py` and `datafuncs.py` allow the main program `make_database.py` to run correctly.
 
+---
 ## Input and Output
 ### Options:
 `options.py` gives the global program options, the root directory is where the program will look for the data this is the input for `make_database.py`. The subfolders do not matter just the parent folder. **Note**: there should be a __\\\\__ between directories because one acts as the escape character.
@@ -54,8 +56,9 @@ Depending on the opitions in `options.py` the output will vary. Below I will sho
 - `upload` = True: This will upload all the data to the choosen __MongoDB__ service. The cloud had previously been in use for ease of access but there is also an easy local option included.
   - ![MongoDB](./Readme_pictures/MongoDB_example.png "PDF")
 
-## Running
-### Libraries
+---
+## **Running**
+### <u>**Libraries**</u>
 __`win32api`__:
 ```
     pip install pywin32
@@ -80,28 +83,53 @@ __`fpdf`__:
 ```
     pip install fpdf
 ```
-### Breakdown
-The main code can be broken down into four main parts:
+### <u>**Breakdown**</u>
+The main code can be broken down into four main parts, filtering, dictionary creation, figure creation, and database creation.
 
+#### <u>**Filtering**</u>
 - Filtering data by only finding directories with certain files. These files are neccessary for the program to run correctly.
 ```
-# Filtering criteria 
-#   Must include the needed_files and the excluded directories are in blacklist_dir
-needed_files =['mylog','nonGaussED_eq_observables.txt', 'observableList.txt', 'varState.txt']
-additional_dir = ['observable_name_list.txt','mylog','nonGaussED_eq_observables.txt', 
-                'NGSED_iteration_variables.txt']
-blacklist_dir = ['unconverged','without inversion symmetry','__MACOSX', 'NGSvariationalParams',
-                 'old correct data', 'WarmUp','old data','withTprData','incompleted', 
+needed_files = ['mylog','nonGaussED_eq_observables.txt', 'observableList.txt',    
+                'varState.txt']
+additional_dir = ['observable_name_list.txt','mylog',
+                  'nonGaussED_eq_observables.txt', 'NGSED_iteration_variables.txt']
+blacklist_dir = ['unconverged','without inversion symmetry','__MACOSX',
+                 'NGSvariationalParams','old correct data', 'WarmUp',
+                 'old data','withTprData','incompleted', 
                  'data assuming inversion symmetry', 'new','HubbardCal',
                  'U0allk','correct data without Delta','copy','backup']
-# Filtering and returning the paths to the correct directories
-#   Getting the filtered path information first
-print('Searching for directories...')
-print(f'Including: {needed_files} and {additional_dir}')
-print('Not Including:',  blacklist_dir)
-all_paths = df.dir_path_find(needed_files, blacklist_dir, additional_dir)
-print("All directories found\n")
 ```
+- `needed_files` - a list of all the files that are neccessary for the program to run correctly.
+- `additonal_dir` - a list of possible alternative directory names. If the program comes across a directory that isn't in `needed_files` but is in `additional_dir` it will use that.
+- `blacklist_dir`- a list of directories specifically not to include. If the program runs into one it will just skip over it saving time and resources.
+
+The choosen filtering information is sent into a function contained in `data_funcs.py`.
+```
+all_paths = df.dir_path_find(needed_files, blacklist_dir, additional_dir)
+```
+
+```
+def dir_path_find(nfiles, blacklist, addfiles):
+    count = 0
+    want_paths = []
+    # Getting the starting path and checking
+    path = Path(os.getcwd())
+    
+    # Looping through the files and folders to find the desired files
+    for root, dirs, files in os.walk(path):
+        # if '\\Hubbard_02-16-2022' in root:
+        #     print(root)
+        for file in files:
+            if file in nfiles and (all((i in files for i in nfiles)) or all((i in files for i in addfiles))) and not any(x in root for x in blacklist):
+                want_paths.append(root)
+                count += 1
+                break
+        else:
+            continue
+    
+    return(want_paths)
+```
+
 where the ``EXECUTABLE`` is the target program defined above.
 
 For different machines, one shoud change the definition of compilers and flags. For example, in NERSC where environment has been predefined, one can call ``CC`` as an abstract compiler
