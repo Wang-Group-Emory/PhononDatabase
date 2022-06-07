@@ -219,11 +219,64 @@ add_data = {'Dimension': file_dim, 'Size': file_size}
 path_data = get_path_data(root)
 
 return(dict(list(data1.items()) + list(add_data.items()) + list(path_data.items())  + list(file_dict.items())))
+```
 
+The final step of the dictionary creation is to add a label to each entry whether it is the ground-state energy or not.
+```
+updated_data = df.get_ground_state(data_list)
 ```
 
 #### <u>**Figure Creation**</u>
-Upon completion of the list all of the data is organized and can be used in order to create user desired figures. 
+For the creation of figures there is one step for either choice and then two optional figure creations. The first step is getting dictionary information from the database. Then either line graphs or colormaps will be made depending on the user choice.
+- Extraction of dictionary information
+  - This information is used for either figure choice it is used as loop control variables.
+```
+# Getting Necessary values for figure creation
+if cmap or figs:
+    c = 0
+    g_key = 'g'
+    tpr_key = 't\''
+    gpr_key = 'g\''
+    w_key = 'Freq (W)'
+    dp_key = 'Doping (h)'
+    g_vals = df.get_key_options(g_key, updated_data)
+    tpr_vals = df.get_key_options(tpr_key,updated_data)
+    gpr_vals = df.get_key_options(gpr_key, updated_data)
+    w_vals = df.get_key_options(w_key, updated_data)
+    dp_vals = df.get_key_options(dp_key, updated_data)
+    var_list = [g_key, tpr_key, gpr_key, w_key, dp_key]
+    val_list = [g_vals, tpr_vals, gpr_vals, w_vals, dp_vals]
+    print('\nValues for creation of figures:\n')
+    for val in val_list:
+        print(f'{var_list[c]}: {val}')
+        c+=1
+```
+- Line graphs
+  - These are useful for comparing two parameters usually to see how a specific parameter varies with doping.
+  1. The script creates a folder for the figures to go into this makes finding the figures easy and organized.
+    ```
+    figfoldorigin = f'{rootdir}\\figure_folder'
+    try:
+        shutil.rmtree(figfoldorigin)
+        os.mkdir(figfoldorigin)
+    except:
+        pass
+    ```
+  2. The script then loops through each parameter and creates a list of all the ground state entries for each combination of parameters.
+    ```
+   for w in w_vals:
+        for g in g_vals:
+            for gpr in gpr_vals:
+                for tpr in tpr_vals:
+                    #print('\n\n')
+                    desired_data = []
+                    for entry in updated_data:
+                        #print(entry)
+                        if entry['Ground-State'] == 1 and entry['t\''] == tpr and entry['g'] == g and entry['Freq (W)'] == w and entry['g\''] == gpr:
+                            desired_data.append(entry)
+    ```
+  3. asdfasdf
+
 
 #### <u>**Database Creation**</u>
 Finally now that all of the process have been completed the list can be turned into the database.

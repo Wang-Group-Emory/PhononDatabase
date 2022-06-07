@@ -62,7 +62,6 @@ updated_data = df.get_ground_state(data_list)
 # 4: Making figures from the dictionaries
 # Getting Necessary values for figure creation
 if cmap or figs:
-    # 4.5 Making Color Map
     c = 0
     g_key = 'g'
     tpr_key = 't\''
