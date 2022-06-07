@@ -39,9 +39,9 @@ Depending on the opitions in `options.py` the output will vary. Below I will sho
 
 - `cmap` = True: This will create a directory named __map_folder__ that contains directories organized by t' and then further by doping. Within these subfolders there will be two of every desired parameter plus two. There will be a `.png` and `.eps` for each parameter plus a set of `.png` and `.eps` that contains all parameters. 
   - Specfic parameter
-    ![Specific parameter](./Readme_pictures/cmap_ind.png "Specific Parameter")
+  - ![Specific parameter](./Readme_pictures/cmap_ind.png "Specific Parameter")
   - All together
-    ![All together](./Readme_pictures/cmap_all.png "All Together")
+  - ![All together](./Readme_pictures/cmap_all.png "All Together")
 
 - `figs` = True: This will create a directory named __figure_folder__ that contains directories organized by w, g, g', and t'. Within these subfolders there will be two of every desired parameter plus two and a pdf. There will be a `.png` and `.eps` for each parameter plus a set of `.png` and `.eps` that contains all parameters. The pdf has all of the other figures in one image. 
   - Specfic parameter
