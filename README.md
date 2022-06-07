@@ -87,7 +87,7 @@ __`fpdf`__:
 The main code can be broken down into four main parts, filtering, dictionary creation, figure creation, and database creation.
 
 #### <u>**Filtering**</u>
-- Filtering data by only finding directories with certain files. These files are neccessary for the program to run correctly.
+Filtering data by only finding directories with certain files. These files are neccessary for the program to run correctly.
 ```
 needed_files = ['mylog','nonGaussED_eq_observables.txt', 'observableList.txt',    
                 'varState.txt']
@@ -108,6 +108,7 @@ The choosen filtering information is sent into a function contained in `data_fun
 all_paths = df.dir_path_find(needed_files, blacklist_dir, additional_dir)
 ```
 
+The following function takes in the three lists and then begins scanning through the provided root directory `rootdir`. The program loops through each folder, subfolder, and file creating a list for each. It then loops through each file and checks if it is a file in `needed_files` or `additional_dir`. If it is it appends the path to the file to `want_paths`. Then once it loops through every directory it returns the list of paths. 
 ```
 def dir_path_find(nfiles, blacklist, addfiles):
     count = 0
@@ -117,8 +118,6 @@ def dir_path_find(nfiles, blacklist, addfiles):
     
     # Looping through the files and folders to find the desired files
     for root, dirs, files in os.walk(path):
-        # if '\\Hubbard_02-16-2022' in root:
-        #     print(root)
         for file in files:
             if file in nfiles and (all((i in files for i in nfiles)) or all((i in files for i in addfiles))) and not any(x in root for x in blacklist):
                 want_paths.append(root)
@@ -129,100 +128,99 @@ def dir_path_find(nfiles, blacklist, addfiles):
     
     return(want_paths)
 ```
+#### <u>**Dictonary Creation**</u>
+__MongoDb__ uses dictionaries of information for each datapoint. For the purpose of the database creation the code takes in the paths and creates dictionaries for each path then creates a list of dictionaries for the purpose of being uploaded.
 
-where the ``EXECUTABLE`` is the target program defined above.
-
-For different machines, one shoud change the definition of compilers and flags. For example, in NERSC where environment has been predefined, one can call ``CC`` as an abstract compiler
+The program goes through each path in the list of paths that have the desired data and extracts the data from the directory. It then organizes this data into a dictionary and append it to the list of dictionaries.
 ```
-#!bash
-CXX = CC #-std=c++14
-FLAGS = -O3 -no-prec-div -static -fp-model fast=2 -xHost -openmp
+# Going through each filtered path and extracting the data
+data_list = []
+for all_path in all_paths:
+    # Setting the path to the desired directory
+    os.chdir(all_path)
+    data_list.append(df.make_dict_from_data(all_path))
 ```
-Instead, in TACC one should use specific MPI compiler and ``static`` does not work
+Dissecting the function that is used for converting the directories files into one coherent dictionary:
+1. Loop through each file in the desired path getting a specific path
+
 ```
-#!bash
-CXX = mpicxx
-FLAGS = -O3 -no-prec-div -fp-model fast=2 -xHost -openmp
+    file_paths = []
+    
+    # Finding the file paths
+    for root, dirs, files in os.walk(path):
+        for file in files:
+            file_paths.append(os.path.join(root,file))
 ```
-### Dependent libraries
-Most of the program is based on Eigen data structure. The ground state calculation (diagonalization) lies in PARPACK dynamic libaray, though an alternative Lanczos class is also provided. The solution of PDE depends on the Odeint libaray in boost.
-
-To compile the code, one should provide the path for Eigen and Boost in the Makefile, together with the link to the dynamics libaray of PARPACK and ARPACK.
-
-Typically, both Eigen and Boost are modules in a supercomputer. One should ``module load eigen`` and ``module load boost`` before compiling the code.  These paths should be provided in the Makefile as
+2. Loop through each file path doing the desired operation based on specific file
+- `varState.txt`
+  - For `varState.txt` we only want the last line so this extracts the last line and then converts all of the data to floating point numbers.
 ```
-#!bash
-HEADERLIBS = $(EIGEN3)/eigen3 -I$(BOOST_DIR)/include 
+if os.path.basename(file_path) in ['varState.txt', 'NGSED_iteration_variables.txt']:
+    file_contents_vars = f.readlines()
+    file_contents_var = get_last_line(file_contents_vars, "var")
+    convert_to_float(file_contents_var)
 ```
-The expansion of these paths read as 
+- `observableList.txt`
+  - `observableList.txt` is a list of all the observable names each observalble name is extracted and organized in a way that is easy to use.
 ```
-#!bash
--I/global/common/cori/software/eigen3/3.3.3/include/eigen3 -I/usr/common/software/boost/1.67.0/intel/haswell/include
+elif os.path.basename(file_path) in ['observableList.txt', 'observable_name_list.txt']:
+    file_contents_obs = re.split(r'\t+',f.readline().rstrip('\n'))
 ```
-in NERSC (Cori). In contrast, the PARPACK is not necessarily capsulated as a module. If a ``parpack`` module is availabe, one can ``module load parpack`` before compiling the code, and include the paths as
+   - `nonGaussED_eq_observables.txt`
+     - we do the exact same thing as `varState.txt` except the contents are checked NaN before trying and convert the numbers to floating point numbers or else an error will be thrown.
 ```
-OBJLIBS = $(PARPACK)
+elif os.path.basename(file_path) == 'nonGaussED_eq_observables.txt':
+    file_contents_gausss = f.readlines()
+    file_contents_gauss = get_last_line(file_contents_gausss, "gauss")
+    if np.nan in file_contents_gauss:
+        pass
+    else:
+        convert_to_float(file_contents_gauss)
 ```
-The path reads as
+   - `myLog`
+     - There is some information that is only extractable from `myLog` the desired information to be included is the date in which the job was run and also the dimensons and size of the job.
 ```
--L/usr/common/software/parpack/3.2.0/hsw/intel/lib -larpack -lparpack
+elif os.path.basename(file_path) == 'mylog':
+    file_contents_log = f.readlines()
+    file_date = get_date(file_contents_log)
+    file_dim, file_size = get_dim_and_size(file_contents_log)
 ```
-in NERSC (Cori).
-
-### Run in a supercomputer cluster
-A hybrid MPI + OpenMP parallelization has been implemented in the program. To run a hybrid code, please read the instruction of your supercomputer. A typical ``SLURM``submission script looks like (here is the script for NERSC)
+3. Adding missing information
 ```
-#!bash
-#!/bin/sh
-#SBATCH -J JOBNAME
-#SBATCH -p debug
-#SBATCH --nodes=10
-#SBATCH -t 00:15:00
-#SBATCH --tasks-per-node=8
-#SBATCH --cpus-per-task=8
-#SBATCH --constraint=haswell
-#SBATCH -e job.err
-#SBATCH -o job.out
-#SBATCH -V
+    
+    # Creating the header elements not included
+    header_elems_to_add_end1 = []
+    header_elems_to_add_end2 = []
+    for x in range(16):
+        header_elems_to_add_end1.append('G('+ str(x)+')')
+        header_elems_to_add_end2.append('L('+ str(x)+')')
+    header_elems_to_add_end = header_elems_to_add_end1 + header_elems_to_add_end2
+    header_elems_to_add_begin = ['E', 'Ee', 'Eph']
+    
+    # Combing the data and header information to create a complete set
+    if len(file_contents_gauss) == 99:
+        file_contents_header = header_elems_to_add_begin + file_contents_obs + header_elems_to_add_end
+        file_contents_data = file_contents_gauss
+    else:
+        file_contents_header = header_elems_to_add_begin + file_contents_obs + header_elems_to_add_end
+        file_contents_gauss, file_contents_var = fill_nan(file_contents_gauss,file_contents_var,header_elems_to_add_begin + file_contents_obs,header_elems_to_add_end)
+        file_contents_data = np.append(file_contents_gauss, file_contents_var)
+    file_dict = dict(zip(file_contents_header, file_contents_data))
+    
+    # Data being converted into a dictionary
+    #short_path = path[path.find(get_final_dir(path))+len(get_final_dir(path)):]   
+    short_path = path[path.find('\\All_data')+len('\\All_data'):]   
+    data1 = {"Full Path": path, "Date": file_date, "Short Path": short_path}
+    #add_data = {'Dimension': file_dim, 'Size': file_size, 't\'': 0}
+    add_data = {'Dimension': file_dim, 'Size': file_size}
+    path_data = get_path_data(root)
+    return(dict(list(data1.items()) + list(add_data.items()) + list(path_data.items())  + list(file_dict.items())))
 
-cd  $SLURM_SUBMIT_DIR
-rm job.*
-rm *.txt
-
-export OMP_PROC_BIND=true
-export OMP_PLACES=threads
-export OMP_NUM_THREADS=4
-srun ./testNonEquilibriumDynamics >& mylog
 ```
-It is highly recommended to test the parallelization configurations before heavy batch submissions. Timing is embedded in the code, convenient for such test. The MPI communication overhead is typically larger than the shared-memory OpenMP, therefore, maximizing ``OMP_NUM_THREADS`` is recommended for small problems. However, for the construction of Hilbert space, sparse matrix and some observable evaluations, the read/write overhead is also obvious for the shared-memory scheme. A typicall choice of ``OMP_NUM_THREADS`` is about 4-12.
 
-## Architechture of the Program
-The general architechture is reflected in the folders. 
+#### <u>**Figure Creation**</u>
+Upon completion of the list all of the data is organized and can be used in order to create user desired figures. 
 
-The ``Util`` folder contains all global functions, including global classes (MPI related), math functions, string operations and timer. The `LinearAlgebra` folder contains fundamental MPI-based algebra, including the MPI vector operations, MPI eigen-problem solver, MPI linear problem solver, and the Krylov-subspace exponential solver. Both folders are generically designed without physical purposes.
+#### <u>**Database Creation**</u>
+Finally now that all of the process have been completed the list can be turned into the database.
 
-The `PhysDataStruct` folder contains the elementary data structures constitude the exact diagonalization calculation. The main data structures are: 
- 
- 1. **cluster classes** (including `ClusterReal` and `ClusterReciprocal`) define the geometric relation, size, dimention and symmetries;
- 2. **Hilbert space class** (including the basis element `BasisState` and the entire Hilbert-space class `HilbertSpace`) defines the many-body basis, relavant Fock-space operations, and the space-level operations;
- 3. **Hamiltonian matrix class** -- template `HamiltonianMatrix`, consistes of the bottom-level matrix decomposition and matrix-vector product, as well as the high-level matrix construction based on Hamiltonian terms;
- 4. **many-body state and operations** (including `ManyBodyState`, `ManyBodyOperator` and `VariationalState`) define the wavefunctions and many-body operations. 
-
-The `MeasureEngines` folder contains high-level exact diagonalization calculations of observables, spectroscopies and dynamics. These classes are directly called by the main function to realize (separately or jointly) a physical purpose. The main data structures are: 
-
- 1. **equilibrium engine** (including pure ED `EquilibriumEngine` and variational + ED `EquilibriumVariationalEngine`) sets up the calculation for ground state and low excited states.
- 2. **equilibrium spectroscopy engine** (including `EqSpectrum` and `CPTSpectrum`) sets up the calculation of spectroscopies at equilibrium. It relies on `SpectraParams` as an input of spectral type and energy/momentum range.
- 3. **nonequilibrium dynamics engine** -- `NonEqTimeEvolution` calculates the time evolution of an initial wave function after applying a pump field. Observable engine is embedded to measure the instantaneous properties.
- 4. **nonequilibrium spectroscopy engine** -- `NonEqSpectrum` measures the time-dependent pump-probe spectroscopies. As an extension of both spectroscopy and nonequilibrium dynamics, it takes the input from both wavefunction dynamics and spectral parameters.
-
-Apart from these four main data structures, there are two measurement engines which does not work separately and is embedded in other engines
- 1.  **observable engine** -- ``ObservableEngine`` defines all single-time measurements based on any given wavefunctions. The input/output and reduction operations are embedded in this class. The observable engine is called in other measurement engines.
- 2. **ensemble engine** (including `EnsembleObservables` and `EnsembleSpectra`) measures ensemble-based properties using multiple excited states.
-
-
-### Spectral Engines
-
-For example, the `Nqw` option triggers the calculation of dynamical charge structure factor $N(\mathbf{q},\omega)$, defined as
-$$
-N(\mathbf{q},\omega) = \frac1\pi \mathrm{Im}\langle G | \rho_{-q} \frac1{\mathcal{H} - E_G - \omega - i\delta} \rho_q |G\rangle
-$$
