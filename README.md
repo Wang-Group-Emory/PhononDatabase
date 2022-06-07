@@ -15,7 +15,7 @@ This program is split into three main files:
 
 ## Input and Output
 ### Options:
-`options.py` gives the global program options, the root directory is where the program will look for the data this is the input for `make_database.py`. The subfolders do not matter just the parent folder
+`options.py` gives the global program options, the root directory is where the program will look for the data this is the input for `make_database.py`. The subfolders do not matter just the parent folder. **Note**: there should be a __\\\\__ between directories because one acts as the escape character.
 ```
 # Root directory
 rootdir = 'C:\\******\\******\\******\\******\\******\\****\\******'
@@ -31,56 +31,29 @@ The options input file contain the optional aspects of the program. The options 
 - `figs` - the option that tells the main program whether to create doping versus various parameter graphs
 - `upload` - the option telling the main program to either upload the information to the database or not. This is helpful for debugging other aspects of the program.
   
-### Inputs/Outputs:
-`hilbertspace_params.in` sets the basic information about cluster shape, size, dimension, boundary condition, spatial representation, filling and addition restrictions
-```
-#!bash
-Cluster:  8A
-ElectronicSiteNumber: 8
-Dimension:  2D
-Boundary: Periodic
-Representation: Momentum
-Momentum: 0
-Occupancy:  8
-#MaxPhononNumber: 5 PhononModeNumber: 2
-#PhononMomenta: 0 4
-#PhononMomentumOccupancyRestriction: 2 2
-#Restrictions: NoDouble
-```
-The `#` comments out unused options. The Hilbert space input file contain many aspects of information
+### Input:
+All the raw data should be organized into a directory. This directory will be the `rootdir` parameter in the `options.py` file. The program scans through all of the subdirectories so only having the parent folder will work well for this program.  
 
-- `Cluster` - cluster size and name (*required*). It specifies the system size and geometry. The cluster name follows Beth clusters.
-- `ElectronicSiteNumber` or `Orbital` number. It specifies the total size * orbital number, or orbital number separately. For example, setting `ElectronicSiteNumber :16` above is equivalent to setting `Orbital: 2`. 
-- `Dimension` - the system dimension, 1D or 2D.
-- `Boundary` - boundary condition.
-- `Representation` - whether the many-body state is written in real or reciprocal space. It can be `Momentum` only when `Boundary` is `Periodic`. 
-- `Momentum` specifies the total momentum of the system. It can only be specified when `Boundary` is `Periodic`. 
-- `Occupancy` specifies the total electron occupation. The spin up and down occupations can be further specified, e.g. `Occupancy: 8(3,5)`. 
+### Ouput:
+Depending on the opitions in `options.py` the output will vary. Below I will show the variety of output expected from the above options. 
 
+- `cmap` = True: This will create a directory named __map_folder__ that contains directories organized by t' and then further by doping. Within these subfolders there will be two of every desired parameter plus two. There will be a `.png` and `.eps` for each parameter plus a set of `.png` and `.eps` that contains all parameters. 
+  - Specfic parameter
+    ![Specific parameter](./Readme_pictures/cmap_ind.png "Specific Parameter")
+  - All together
+    ![All together](./Readme_pictures/cmap_all.png "All Together")
 
+- `figs` = True: This will create a directory named __figure_folder__ that contains directories organized by w, g, g', and t'. Within these subfolders there will be two of every desired parameter plus two and a pdf. There will be a `.png` and `.eps` for each parameter plus a set of `.png` and `.eps` that contains all parameters. The pdf has all of the other figures in one image. 
+  - Specfic parameter
+    ![Specific parameter](./Readme_pictures/fig_single.png "Specific Parameter")
+  - All together
+    ![All together](./Readme_pictures/fig_stack.png "All Together")
+  - PDF
+    ![PDF](./Readme_pictures/all_together_fig.png "PDF")
 
-`model_params.in` sets the overall model parameters in the following format
-```
-#!bash
-Hubbard
-U= 8        V= 0
-t= 1        t'= -0.3     t''= 0.2
-```
-``spec_params.in`` sets the parameters of non-equilibrium time-domain calculation in the follow format
-```
-#!bash
-SpecType: Sqw   N(q,w)  Raman[B1g]
-Frequencies:    wMin= -5    wMax= 5    wDelta= 0.005
-```
-``timeparams.in`` sets the parameters of non-equilibrium dynamics and spectral calculation in the follow format
-```
-#!bash
-Time: start= 0.05 end= 60 dt= 0.05
-Pump: A0= 1.2 w0= 4.4 sigma= 3.0 t0= 19.0
-Polarization: x= 1 y= 1
-Probe:  sigma= 2.0 
-```
-Note, the probe type and frequencies are set in ``spec_params.in``
+- `upload` = True: This will upload all the data to the choosen __MongoDB__ service. The cloud had previously been in use for ease of access but there is also an easy local option included.
+    ![MongoDB](./Readme_pictures/MongoDB_example.png "PDF")
+
 ## Compiling and Running
 ### Compile the code
 The compilation is automated in the Makefile:
