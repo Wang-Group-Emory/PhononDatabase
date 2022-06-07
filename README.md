@@ -45,14 +45,14 @@ Depending on the opitions in `options.py` the output will vary. Below I will sho
 
 - `figs` = True: This will create a directory named __figure_folder__ that contains directories organized by w, g, g', and t'. Within these subfolders there will be two of every desired parameter plus two and a pdf. There will be a `.png` and `.eps` for each parameter plus a set of `.png` and `.eps` that contains all parameters. The pdf has all of the other figures in one image. 
   - Specfic parameter
-    ![Specific parameter](./Readme_pictures/fig_single.png "Specific Parameter")
+  - ![Specific parameter](./Readme_pictures/fig_single.png "Specific Parameter")
   - All together
-    ![All together](./Readme_pictures/fig_stack.png "All Together")
+  - ![All together](./Readme_pictures/fig_stack.png "All Together")
   - PDF
-    ![PDF](./Readme_pictures/all_together_fig.png "PDF")
+  - ![PDF](./Readme_pictures/all_together_fig.png "PDF")
 
 - `upload` = True: This will upload all the data to the choosen __MongoDB__ service. The cloud had previously been in use for ease of access but there is also an easy local option included.
-    ![MongoDB](./Readme_pictures/MongoDB_example.png "PDF")
+  - ![MongoDB](./Readme_pictures/MongoDB_example.png "PDF")
 
 ## Compiling and Running
 ### Compile the code
