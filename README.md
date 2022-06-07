@@ -252,7 +252,6 @@ if cmap or figs:
         c+=1
 ```
 - Line graphs
-  - These are useful for comparing two parameters usually to see how a specific parameter varies with doping.
   1. The script creates a folder for the figures to go into this makes finding the figures easy and organized.
     ```
     figfoldorigin = f'{rootdir}\\figure_folder'
@@ -271,11 +270,44 @@ if cmap or figs:
                     #print('\n\n')
                     desired_data = []
                     for entry in updated_data:
-                        #print(entry)
                         if entry['Ground-State'] == 1 and entry['t\''] == tpr and entry['g'] == g and entry['Freq (W)'] == w and entry['g\''] == gpr:
                             desired_data.append(entry)
     ```
-  3. asdfasdf
+  3. During each loop of entries if the entry is the desried data it will make the figures associated with it. `make_figures` takes in the desired dictionary and the specific values that are associated with that entry. The function itself is just simple plotting using matplotlib. The script loops through the desired observalbles creating a graph for each then creates a graph with all.
+    ```
+    if not desired_data:
+        pass
+    else:
+        df.make_figures(desired_data, w, g, tpr, gpr)
+    ```
+
+- Color Maps
+  1. The script creates a folder for the color mpas to go into this makes finding the maps easy and organized.
+    ```
+    mapfolder = f'{rootdir}\\map_folder'
+    if os.path.isdir(mapfolder):
+        shutil.rmtree(mapfolder)
+        os.mkdir(mapfolder)
+    else:
+        os.mkdir(mapfolder)
+    ```
+  2. The script then loops through each parameter and creates a list of all the ground state entries for each combination of parameters.
+    ```
+    for tpr in tpr_vals:
+            for dp in dp_vals:
+                desired_data = []
+                for entry in updated_data:
+                    if entry['Ground-State'] == 1 and entry[tpr_key] == tpr and entry[dp_key] == dp:
+                        desired_data.append(entry)
+    ```
+  3. During each loop of entries if the entry is the desried data it will make the maps associated with it. `make_map` takes in the desired dictionary and the specific values that are associated with that entry. The function itself is just simple plotting using matplotlib. The script loops through the desired observalbles creating a graph for each then creates a graph with all.
+    ```
+    if not desired_data:
+        pass
+    else:
+        df.make_map(desired_data, tpr, dp, g_vals, gpr_vals)
+    ```
+
 
 
 #### <u>**Database Creation**</u>
