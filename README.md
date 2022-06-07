@@ -186,35 +186,39 @@ elif os.path.basename(file_path) == 'mylog':
     file_dim, file_size = get_dim_and_size(file_contents_log)
 ```
 3. Adding missing information
+   - There are some header information that was not included so these labels are created and added to the list in the correct order
 ```
-    
-    # Creating the header elements not included
-    header_elems_to_add_end1 = []
-    header_elems_to_add_end2 = []
-    for x in range(16):
-        header_elems_to_add_end1.append('G('+ str(x)+')')
-        header_elems_to_add_end2.append('L('+ str(x)+')')
-    header_elems_to_add_end = header_elems_to_add_end1 + header_elems_to_add_end2
-    header_elems_to_add_begin = ['E', 'Ee', 'Eph']
-    
-    # Combing the data and header information to create a complete set
-    if len(file_contents_gauss) == 99:
-        file_contents_header = header_elems_to_add_begin + file_contents_obs + header_elems_to_add_end
-        file_contents_data = file_contents_gauss
-    else:
-        file_contents_header = header_elems_to_add_begin + file_contents_obs + header_elems_to_add_end
-        file_contents_gauss, file_contents_var = fill_nan(file_contents_gauss,file_contents_var,header_elems_to_add_begin + file_contents_obs,header_elems_to_add_end)
-        file_contents_data = np.append(file_contents_gauss, file_contents_var)
-    file_dict = dict(zip(file_contents_header, file_contents_data))
-    
-    # Data being converted into a dictionary
-    #short_path = path[path.find(get_final_dir(path))+len(get_final_dir(path)):]   
-    short_path = path[path.find('\\All_data')+len('\\All_data'):]   
-    data1 = {"Full Path": path, "Date": file_date, "Short Path": short_path}
-    #add_data = {'Dimension': file_dim, 'Size': file_size, 't\'': 0}
-    add_data = {'Dimension': file_dim, 'Size': file_size}
-    path_data = get_path_data(root)
-    return(dict(list(data1.items()) + list(add_data.items()) + list(path_data.items())  + list(file_dict.items())))
+# Creating the header elements not included
+header_elems_to_add_end1 = []
+header_elems_to_add_end2 = []
+for x in range(16):
+    header_elems_to_add_end1.append('G('+ str(x)+')')
+    header_elems_to_add_end2.append('L('+ str(x)+')')
+header_elems_to_add_end = header_elems_to_add_end1 + header_elems_to_add_end2
+header_elems_to_add_begin = ['E', 'Ee', 'Eph']
+```
+4. All this seperated data is now combined into one coherent set
+   - The header is combined with the actual data creating a dictonary `file_dict` with the header acting as the keys and the data acting as the values. Finally the entire dictionary is returned to the main function being appended to the list of dictionaries. This process repeats for each directory.
+```  
+# Combing the data and header information to create a complete set
+if len(file_contents_gauss) == 99:
+    file_contents_header = header_elems_to_add_begin + file_contents_obs + header_elems_to_add_end
+    file_contents_data = file_contents_gauss
+else:
+    file_contents_header = header_elems_to_add_begin + file_contents_obs + header_elems_to_add_end
+    file_contents_gauss, file_contents_var = fill_nan(file_contents_gauss,file_contents_var,header_elems_to_add_begin + file_contents_obs,header_elems_to_add_end)
+    file_contents_data = np.append(file_contents_gauss, file_contents_var)
+file_dict = dict(zip(file_contents_header, file_contents_data))
+
+# Data being converted into a dictionary
+#short_path = path[path.find(get_final_dir(path))+len(get_final_dir(path)):]   
+short_path = path[path.find('\\All_data')+len('\\All_data'):]   
+data1 = {"Full Path": path, "Date": file_date, "Short Path": short_path}
+#add_data = {'Dimension': file_dim, 'Size': file_size, 't\'': 0}
+add_data = {'Dimension': file_dim, 'Size': file_size}
+path_data = get_path_data(root)
+
+return(dict(list(data1.items()) + list(add_data.items()) + list(path_data.items())  + list(file_dict.items())))
 
 ```
 
