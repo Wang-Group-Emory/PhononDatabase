@@ -88,7 +88,8 @@ The main code can be broken down into four main parts:
 # Filtering criteria 
 #   Must include the needed_files and the excluded directories are in blacklist_dir
 needed_files =['mylog','nonGaussED_eq_observables.txt', 'observableList.txt', 'varState.txt']
-additional_dir = ['observable_name_list.txt','mylog','nonGaussED_eq_observables.txt', 'NGSED_iteration_variables.txt']
+additional_dir = ['observable_name_list.txt','mylog','nonGaussED_eq_observables.txt', 
+                'NGSED_iteration_variables.txt']
 blacklist_dir = ['unconverged','without inversion symmetry','__MACOSX', 'NGSvariationalParams',
                  'old correct data', 'WarmUp','old data','withTprData','incompleted', 
                  'data assuming inversion symmetry', 'new','HubbardCal',
