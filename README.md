@@ -311,5 +311,25 @@ if cmap or figs:
 
 
 #### <u>**Database Creation**</u>
-Finally now that all of the process have been completed the list can be turned into the database.
+Finally, now that all of the process have been completed the list can be turned into the database. Luckily __MongoDB__ makes this really easy! Most of the hard work is converting raw data into a dictionary that uploads very easily.
+```
+if upload:
+    connect_info = 'mongodb+srv://mtm9:Tunafish1!@cluster0.oorm7.mongodb.net/test?authSource=admin&replicaSet=atlas-5f1qza-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true'
+    db_name = 'WangLab'
+    col_name = 'NGSED_specific_2D'
+```
+- `connect_info` - Connection information (location to be uploaded to)
+- `db_name` - Database name
+- `col_name` - Collection name
+
+ This information is sent into the `clean_mongo_local` which organizes the supplied data in a way that makes the creation simple.
+ ```
+# Getting access to the database with the connection info
+local_data = df.clean_mongo_local(db_name, col_name)
+```
+Finally this information and the list of dictionaries is sent into `clean_and_insert` which actually creates the database and in this example uploads the information to the cloud.
+```
+# Setting up the database and imputing the data
+df.clean_and_insert(local_data, updated_data)
+```
 
