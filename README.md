@@ -54,11 +54,52 @@ Depending on the opitions in `options.py` the output will vary. Below I will sho
 - `upload` = True: This will upload all the data to the choosen __MongoDB__ service. The cloud had previously been in use for ease of access but there is also an easy local option included.
   - ![MongoDB](./Readme_pictures/MongoDB_example.png "PDF")
 
-## Compiling and Running
-### Compile the code
-The compilation is automated in the Makefile:
+## Running
+### Libraries
+__`win32api`__:
 ```
-    make EXECUTABLE
+    pip install pywin32
+```
+__`certifi`__:
+```
+    pip install certifi
+```
+__`pymongo`__:
+```
+    pip install pymongo
+```
+__`numpy`__:
+```
+    pip install numpy
+```
+__`matplotlib`__:
+```
+    pip install matplotlib
+```
+__`fpdf`__:
+```
+    pip install fpdf
+```
+### Breakdown
+The main code can be broken down into four main parts:
+
+- Filtering data by only finding directories with certain files. These files are neccessary for the program to run correctly.
+```
+# Filtering criteria 
+#   Must include the needed_files and the excluded directories are in blacklist_dir
+needed_files =['mylog','nonGaussED_eq_observables.txt', 'observableList.txt', 'varState.txt']
+additional_dir = ['observable_name_list.txt','mylog','nonGaussED_eq_observables.txt', 'NGSED_iteration_variables.txt']
+blacklist_dir = ['unconverged','without inversion symmetry','__MACOSX', 'NGSvariationalParams',
+                 'old correct data', 'WarmUp','old data','withTprData','incompleted', 
+                 'data assuming inversion symmetry', 'new','HubbardCal',
+                 'U0allk','correct data without Delta','copy','backup']
+# Filtering and returning the paths to the correct directories
+#   Getting the filtered path information first
+print('Searching for directories...')
+print(f'Including: {needed_files} and {additional_dir}')
+print('Not Including:',  blacklist_dir)
+all_paths = df.dir_path_find(needed_files, blacklist_dir, additional_dir)
+print("All directories found\n")
 ```
 where the ``EXECUTABLE`` is the target program defined above.
 
