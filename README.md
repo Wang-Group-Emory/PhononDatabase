@@ -1,8 +1,6 @@
 Database Construction and Operations for Correlated Systems with Phonons
 ========================
-Author: Matt Myers (Clemson University)
-------
-Advisor: Yao Wang
+Author: Matt Myers (Clemson University), Advisor: Yao Wang
 ------
 Update Date: June 6, 2022
 
