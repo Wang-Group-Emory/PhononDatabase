@@ -314,7 +314,7 @@ if cmap or figs:
 Finally, now that all of the process have been completed the list can be turned into the database. Luckily __MongoDB__ makes this really easy! Most of the hard work is converting raw data into a dictionary that uploads very easily.
 ```
 if upload:
-    connect_info = 'mongodb+srv://mtm9:Tunafish1!@cluster0.oorm7.mongodb.net/test?authSource=admin&replicaSet=atlas-5f1qza-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true'
+    connect_info = 'mongodb+srv://<USERNAME>:<PASSWORD>@cluster0.oorm7.mongodb.net/test?authSource=admin&replicaSet=atlas-5f1qza-shard-0&readPreference=primary&appname=MongoDB%20Compass&ssl=true'
     db_name = 'WangLab'
     col_name = 'NGSED_specific_2D'
 ```
