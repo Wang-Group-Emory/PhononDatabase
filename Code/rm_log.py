@@ -12,10 +12,7 @@ for subdir, dirs, files in os.walk(data_path):
             log_count += 1
             try:
                 if os.path.exists(os.path.join(subdir,file)):
-                    #print(os.path.join(subdir,file))
                     os.remove(os.path.join(subdir,file))
-                #print(os.path.join(subdir, file))
-                #os.remove(file)
             except:
                 print("fail")
 
