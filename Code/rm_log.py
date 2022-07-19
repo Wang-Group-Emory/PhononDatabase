@@ -16,5 +16,4 @@ for subdir, dirs, files in os.walk(data_path):
             except:
                 print("fail")
 
-print(f'{log_count} mylogs left')
-
+print(f'{log_count} mylogs removed')
