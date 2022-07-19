@@ -29,7 +29,7 @@ from options import *
 # 1: Find the "NGSED" data and set current working directory
 print("Searching for Data...", end='\n')
 # df.find_and_set_directory()
-os.chdir(rootdir)
+os.chdir(rawdir)
 print("Data Found\n")
 
 # 2: Filter the data into a helpful format
@@ -59,6 +59,7 @@ for all_path in all_paths:
     data_list.append(df.make_dict_from_data(all_path))
 updated_data = df.get_ground_state(data_list)
 
+
 # 4: Making figures from the dictionaries
 # Getting Necessary values for figure creation
 if cmap or figs:
@@ -83,7 +84,7 @@ if cmap or figs:
 if figs:
     # 4.5: Making figures
     print("\nCreating Figures...")
-    figfoldorigin = f'{rootdir}\\figure_folder'
+    figfoldorigin = f'{rootdir}\\Results\\figure_folder'
     try:
         shutil.rmtree(figfoldorigin)
         os.mkdir(figfoldorigin)
@@ -116,7 +117,7 @@ if figs:
 elif cmap:
     # 4.5: Making Colormap
     print("\nCreating Colormap...")
-    mapfolder = f'{rootdir}\\map_folder'
+    mapfolder = f'{rootdir}\\Results\\map_folder'
     if os.path.isdir(mapfolder):
         shutil.rmtree(mapfolder)
         os.mkdir(mapfolder)
@@ -165,4 +166,4 @@ if upload:
 
     print("Uploading Complete")
 
-print("Program Finished")
+print("\nProgram Finished")

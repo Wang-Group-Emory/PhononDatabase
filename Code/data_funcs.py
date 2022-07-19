@@ -361,9 +361,11 @@ def get_ground_state(all_data):
             single_data.append(new_data)
     # Organizing the data into sets of parameters
     for datas in single_data:
+        #print(datas)
         triplet = []
         for datal in k_data:
             adjust_datal = {key:val for key,val in datal.items() if key in whitelist}
+            # print('test')
             if datas == adjust_datal:
                 unique = {key:val for key,val in datal.items() if key in whitelist_info}
                 triplet.append(unique)
@@ -371,6 +373,7 @@ def get_ground_state(all_data):
     # Finding lowest energy for momentum
     for sublist in big_list:
         ground_sorted = sorted(sublist, key = itemgetter('E'))
+        ##print(ground_sorted)
         ground_list.append(ground_sorted[0])
     # Finding the path to these ground-states
     for datak in k_data:
@@ -447,6 +450,7 @@ def make_dict_from_data(path):
     return(dict(list(data1.items()) + list(add_data.items()) + list(path_data.items())  + list(file_dict.items())))
 
 def get_key_options(dkey, data):
+    #print(data)
     options_raw = []
     for item in data:
         if item[dkey] not in options_raw:
@@ -565,12 +569,14 @@ def figure_of_figures(title):
 
 def make_map(seldict, tpr, dp, gs, gprs):
     plot_list = []
-    x = np.arange(min(gprs)-(gprs[1]/2),max(gprs)+gprs[1],gprs[1], dtype=float)
+    #x = np.arange(min(gprs)-(gprs[1]/2),max(gprs)+gprs[1],gprs[1], dtype=float)
+    x = np.arange(min(gprs),max(gprs)+gprs[1],gprs[1], dtype=float)
     #print(f"x: {len(x)}")
-    y = np.arange(min(gs)-(gs[1]/2),max(gs)+gs[1],gs[1], dtype=float)
+    # y = np.arange(min(gs)-(gs[1]/2),max(gs)+gs[1],gs[1], dtype=float)
+    y = np.arange(min(gs),max(gs)+gs[1],gs[1], dtype=float)
     #print(f"y: {len(y)}")
     startdir = os.getcwd()
-    map_folder = f'{rootdir}\\map_folder\\tpr={tpr}\\doping{dp}'
+    map_folder = f'{rootdir}\\Results\\map_folder\\tpr={tpr}\\doping{dp}'
     if not os.path.isdir(map_folder):
         os.mkdir(map_folder)
     os.chdir(map_folder)
@@ -595,9 +601,10 @@ def make_map(seldict, tpr, dp, gs, gprs):
                             check_count+=1
             des_2d.append(des_1d)
         # Actual plotting starts below
-        fig, ax = plt.subplots(figsize=(16,6))
+        fig, ax = plt.subplots(figsize=(16,16))
         #print(f"Num of gprs: {len(des_2d[0])}")
         #print(f"Num of gs: {len(des_2d)}")
+        #print(f'Length of X: {len(x)}, X: {x}\nLength of Y: {len(y)}, Y: {y}\nShape of Des_2D: {len(des_2d[0])}x{len(des_2d)}, Des_2D: {des_2d}')
         plot = ax.pcolormesh(x,y,des_2d, cmap='magma_r', shading='nearest')
         plot_list.append(des_2d)
         fig.colorbar(plot, orientation='horizontal')
@@ -613,7 +620,7 @@ def make_map(seldict, tpr, dp, gs, gprs):
         fig.savefig(filename,format='png')
         plt.close(fig)
     fig_count = 0
-    fig, axs = plt.subplots(2, 3, figsize=(35,35/4))
+    fig, axs = plt.subplots(2, 3, figsize=(35,35))
     plt.suptitle(f'Doping{dp}, tpr={tpr}, g{max(gs)}-g\'{max(gprs)} by {gprs[1]}')
     for col in range(3):
         for row in range(2):
