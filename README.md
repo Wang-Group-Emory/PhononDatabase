@@ -58,7 +58,9 @@ Depending on the opitions in `options.py` the output will vary. Below I will sho
 
 ---
 ## **Running**
-<span style="color:red">**MUST HAVE "mylog" IN DATA TO RUN CODE!**</span>
+```diff
+-MUST HAVE "mylog" IN DATA TO RUN CODE!-
+```
 
 ### <u>**Libraries**</u>
 __`win32api`__:
