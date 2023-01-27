@@ -433,7 +433,9 @@ def make_dict_from_data(path):
     # Combing the data and header information to create a complete set
     if len(file_contents_gauss) == 99:
         file_contents_header = header_elems_to_add_begin + file_contents_obs + header_elems_to_add_end
-        file_contents_data = file_contents_gauss
+        # file_contents_data = file_contents_gauss
+        # adding varState data to dict
+        file_contents_data = np.append(file_contents_gauss, file_contents_var)
     else:
         file_contents_header = header_elems_to_add_begin + file_contents_obs + header_elems_to_add_end
         file_contents_gauss, file_contents_var = fill_nan(file_contents_gauss,file_contents_var,header_elems_to_add_begin + file_contents_obs,header_elems_to_add_end)
